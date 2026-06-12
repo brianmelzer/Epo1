@@ -3,7 +3,7 @@
 *L'acier de tous les jours.*
 
 A high-end luxury brand website for **Ferveur**, a (fictional) maison of
-Paris-designed, Sweden-forged carbon steel cookware. Built as a static site —
+Paris-designed, hand-forged carbon steel cookware. Built as a static site —
 no build step, no dependencies. Open `index.html` in a browser.
 
 ## Pages
