@@ -94,6 +94,16 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:500; line-height:1.08; letter
 }
 .nav__links a:hover::after, .nav__links a.active::after{ width:100%; }
 
+/* Legibility scrim: darkens behind the nav while it sits over hero imagery
+   (top of page, before the solid cream background fades in on scroll). */
+.nav.on-dark:not(.scrolled)::before{
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:linear-gradient(to bottom, rgba(19,27,48,.6) 0%, rgba(19,27,48,.28) 55%, rgba(19,27,48,0) 100%);
+}
+.nav.on-dark:not(.scrolled) .nav__links a,
+.nav.on-dark:not(.scrolled) .brand-mark__word,
+.nav.on-dark:not(.scrolled) .brand-mark__tag{ text-shadow:0 1px 10px rgba(19,27,48,.55); }
+
 .nav__center{ text-align:center; }
 .burger{ display:none; background:none; border:0; cursor:pointer; flex-direction:column; gap:5px; }
 .burger span{ width:26px; height:1.5px; background:var(--ink); transition:.3s; }
