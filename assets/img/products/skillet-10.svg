@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 510" role="img" aria-label="Ferveur cookware illustration">
+  <defs>
+    <linearGradient id="bgb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f1e6"/><stop offset="1" stop-color="#e9dfca"/>
+    </linearGradient>
+    <radialGradient id="bodyb" cx="42%" cy="38%" r="72%">
+      <stop offset="0" stop-color="#46536f"/><stop offset="55%" stop-color="#2a3450"/>
+      <stop offset="100%" stop-color="#161d30"/>
+    </radialGradient>
+    <radialGradient id="surfb" cx="44%" cy="40%" r="65%">
+      <stop offset="0" stop-color="#222c44"/><stop offset="70%" stop-color="#141a2b"/>
+      <stop offset="100%" stop-color="#0e1320"/>
+    </radialGradient>
+    <linearGradient id="steelb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dde2e8"/><stop offset="45%" stop-color="#aab2bd"/>
+      <stop offset="100%" stop-color="#d3d8df"/>
+    </linearGradient>
+    <radialGradient id="sheenb" cx="40%" cy="34%" r="40%">
+      <stop offset="0" stop-color="#5a678a" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#5a678a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softb" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs><rect width="600" height="510" fill="url(#bgb)"/><rect x="22" y="22" width="556" height="466" fill="none" stroke="#b08d57" stroke-opacity=".28"/><ellipse cx="300" cy="342.15999999999997" rx="174" ry="70.56" fill="#141a2b" opacity=".20" filter="url(#softb)"/>
+    <g>
+      <rect x="454" y="223.5" width="158" height="29" rx="14.5"
+            fill="url(#steelb)" stroke="#7e8794" stroke-width="1.4"/>
+      <circle cx="586" cy="238" r="7.5" fill="url(#bgb)" stroke="#7e8794" stroke-width="1.4"/>
+      <circle cx="470" cy="231" r="3.2" fill="#838c99"/>
+      <circle cx="470" cy="245" r="3.2" fill="#838c99"/>
+    </g><circle cx="300" cy="238" r="168" fill="url(#bodyb)" stroke="#0f1626" stroke-width="2"/><circle cx="300" cy="238" r="168" fill="none" stroke="#b08d57" stroke-opacity=".40" stroke-width="1.3"/><circle cx="300" cy="238" r="146" fill="url(#surfb)" stroke="#0c1120" stroke-width="1.4"/><circle cx="300" cy="238" r="146" fill="url(#sheenb)"/><circle cx="300" cy="238" r="145" fill="none" stroke="#b08d57" stroke-opacity=".18" stroke-width="1"/>
+    <path d="M 142 221 C 108 214 108 262 142 255"
+          fill="none" stroke="url(#steelb)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M 142 221 C 108 214 108 262 142 255"
+          fill="none" stroke="#7e8794" stroke-width="1" stroke-linecap="round" opacity=".6"/></svg>
