@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FERVEUR — Designer Onboarding (Preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"/>
+<style>
+:root{--ink:#1b2540;--ink-deep:#131b30;--paper:#f5efe2;--paper-2:#ece3d1;--paper-3:#e3d8c2;--gold:#b08d57;--gold-soft:#c8a978;--line:rgba(27,37,64,.16);--serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost","Helvetica Neue",Arial,sans-serif;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:var(--sans);font-weight:300;line-height:1.7;color:var(--ink);background:var(--paper);}
+.bar{background:var(--ink-deep);color:var(--paper);padding:34px 7vw 30px;border-bottom:3px solid var(--gold);}
+.bar .eyebrow{font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-soft);}
+.bar h1{font-family:var(--serif);font-weight:600;letter-spacing:.06em;margin:.3em 0 0;font-size:1.9rem;}
+.wrap{max-width:860px;margin:0 auto;padding:48px 28px 90px;}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.15;color:var(--ink-deep);}
+.wrap h1{font-size:2.4rem;margin:.2em 0 .4em;}
+.wrap h2{font-size:1.75rem;margin:2.4em 0 .5em;padding-bottom:.25em;border-bottom:1px solid var(--line);}
+.wrap h3{font-size:1.25rem;margin:1.8em 0 .3em;color:var(--gold);}
+p,li{font-size:1.02rem;}
+a{color:var(--gold);}
+em{font-family:var(--serif);font-style:italic;font-size:1.05em;}
+strong{font-weight:500;color:var(--ink-deep);}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.86em;background:var(--paper-2);padding:.12em .4em;border-radius:3px;}
+pre{background:var(--ink-deep);color:var(--paper);padding:18px 22px;border-radius:6px;overflow:auto;border-left:3px solid var(--gold);}
+pre code{background:none;color:inherit;padding:0;}
+blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(--gold);background:var(--paper-2);font-style:italic;color:var(--ink);}
+table{border-collapse:collapse;width:100%;margin:1.3em 0;font-size:.95rem;}
+th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);}
+th{font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--gold);background:var(--paper-2);}
+hr{border:0;border-top:1px solid var(--line);margin:2.6em 0;}
+ul,ol{padding-left:1.3em;}
+li{margin:.3em 0;}
+</style></head>
+<body><div class="bar"><div class="eyebrow">Maison Ferveur · Internal</div><h1>Web Designer Onboarding &amp; Direction Brief</h1></div>
+<div class="wrap"><h1>FERVEUR — Web Designer Onboarding &amp; Direction Brief</h1>
+<p><em>L&#39;acier de tous les jours.</em></p>
+<p>Welcome to the Maison. This document is your single starting point: what the
+site is today, the design language already in place, where we want to take the
+look, and — importantly — <strong>where we want AI agents doing real work in the
+build and the ongoing operation of the site.</strong></p>
+<p>Read this top to bottom once. Then keep Sections 4 (Look Upgrade) and 5
+(Agentic AI) open as your working backlog.</p>
+<hr>
+<h2>1. The Project at a Glance</h2>
+<p><strong>FERVEUR</strong> is a (fictional, for now) French maison of Paris-designed,
+hand-forged carbon steel cookware. The site is a luxury brand storefront — the
+job is to make a $115–$295 pan feel like an heirloom, not a SKU.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Type</strong></td>
+<td>Marketing/brand site with a demo storefront (no real checkout yet)</td>
+</tr>
+<tr>
+<td><strong>Stack</strong></td>
+<td>Hand-authored static HTML + one CSS file + one vanilla JS file. <strong>No build step, no framework, no dependencies.</strong></td>
+</tr>
+<tr>
+<td><strong>Hosting</strong></td>
+<td>GitHub Pages, auto-deployed from <code>main</code> via <code>.github/workflows/pages.yml</code></td>
+</tr>
+<tr>
+<td><strong>Repo</strong></td>
+<td><code>brianmelzer/Epo1</code></td>
+</tr>
+<tr>
+<td><strong>Pages</strong></td>
+<td><code>index.html</code> (home), <code>collection.html</code> (range + pricing), <code>about.html</code> (story/atelier/timeline/care)</td>
+</tr>
+<tr>
+<td><strong>Fonts</strong></td>
+<td>Cormorant Garamond (serif display) + Jost (sans), via Google Fonts; degrades gracefully offline</td>
+</tr>
+</tbody></table>
+<h3>File map</h3>
+<pre><code>index.html          ~281 lines  — hero, brand intro, &quot;why steel&quot;, featured grid, craft, newsletter
+collection.html     ~227 lines  — full 8-piece range, two sections (skillets / specialists)
+about.html          ~240 lines  — maison story, atelier, history timeline, care ritual
+assets/
+  css/style.css     ~363 lines  — the entire design system (tokens + components)
+  js/main.js        ~83 lines   — sticky nav, scroll-reveal, mobile menu, demo cart, newsletter
+  img/              — brand photography (PNG/JPEG, currently 2–3 MB each — see §4.6)
+.github/workflows/pages.yml      — Pages deploy
+README.md           — quick orientation + the product table
+docs/DESIGNER_ONBOARDING.md      — this file
+</code></pre>
+<h3>The product range (source of truth for pricing/copy)</h3>
+<table>
+<thead>
+<tr>
+<th>Piece</th>
+<th>Spec</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The 8″ Skillet</td>
+<td>Poêle · 20 cm</td>
+<td>$115</td>
+</tr>
+<tr>
+<td>The 10″ Skillet</td>
+<td>Poêle · 25 cm</td>
+<td>$145</td>
+</tr>
+<tr>
+<td>The 12.5″ Skillet</td>
+<td>Poêle · 31.75 cm</td>
+<td>$185</td>
+</tr>
+<tr>
+<td>The 14″ Skillet</td>
+<td>Poêle · 35 cm</td>
+<td>$215</td>
+</tr>
+<tr>
+<td>The Crêpière</td>
+<td>28 cm</td>
+<td>$135</td>
+</tr>
+<tr>
+<td>The French Wok</td>
+<td>Wok à bord évasé</td>
+<td>$245</td>
+</tr>
+<tr>
+<td>The Roasting Pan</td>
+<td>Rectangulaire · 35 cm</td>
+<td>$265</td>
+</tr>
+<tr>
+<td>The Griddle Set</td>
+<td>Plancha · 6 pièces</td>
+<td>$295</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. Working Conventions (read before you touch anything)</h2>
+<ul>
+<li><strong>No build step is a feature, not a limitation.</strong> It keeps the site instantly
+editable and deployable. Don&#39;t introduce npm/webpack/React without a
+conversation — the bar to add a toolchain is &quot;the design genuinely can&#39;t be
+done otherwise.&quot;</li>
+<li><strong>One stylesheet, token-driven.</strong> All color/spacing/type decisions live as CSS
+custom properties in <code>:root</code> at the top of <code>style.css</code>. Change the system
+there, not inline. (Inline <code>style=&quot;&quot;</code> exists in a few spots for one-off
+spacing — minimize new ones.)</li>
+<li><strong>Branch + PR workflow.</strong> Develop on the designated feature branch, push, open
+a PR, merge to <code>main</code> to deploy. Don&#39;t push directly to <code>main</code>.</li>
+<li><strong>Accessibility and performance are part of &quot;luxury.&quot;</strong> A slow, inaccessible
+site is not high-end. Treat Lighthouse/contrast/keyboard-nav as non-negotiable
+quality gates, not nice-to-haves.</li>
+<li><strong>Graceful degradation.</strong> The site must still read correctly with no JS and no
+webfonts. Keep enhancements layered on top.</li>
+</ul>
+<hr>
+<h2>3. The Current Design Language (what&#39;s already decided)</h2>
+<p>You&#39;re inheriting a coherent system. Respect it before you reinvent it.</p>
+<p><strong>Palette</strong> (<code>:root</code> tokens):</p>
+<ul>
+<li><code>--ink</code> <code>#1b2540</code> deep French navy · <code>--ink-deep</code> <code>#131b30</code> near-black navy · <code>--ink-soft</code> <code>#2b3756</code></li>
+<li><code>--paper</code> <code>#f5efe2</code> warm cream · <code>--paper-2</code> <code>#ece3d1</code> · <code>--paper-3</code> <code>#e3d8c2</code></li>
+<li><code>--gold</code> <code>#b08d57</code> brushed brass · <code>--gold-soft</code> <code>#c8a978</code></li>
+<li>French tricolor accents: <code>--fr-blue</code> <code>#2b3a78</code>, <code>--fr-red</code> <code>#c0322c</code></li>
+</ul>
+<p><strong>Type:</strong> Cormorant Garamond for headings (500–600 weight, tight line-height,
+italic for the <em>script</em> flourishes like <em>L&#39;acier de tous les jours</em>). Jost for
+body and UI, light (300) body weight, wide letter-spacing on eyebrows/nav
+(<code>.eyebrow</code> is uppercase, <code>.42em</code> tracking, brass color).</p>
+<p><strong>Motion:</strong> a single shared easing curve <code>--ease: cubic-bezier(.22,.61,.36,1)</code>.
+Scroll-reveal via <code>IntersectionObserver</code> (<code>.reveal</code> → <code>.in</code>), staggered with
+<code>.d1</code> delay classes. Nav shrinks + swaps theme on scroll. A marquee strip and a
+scroll hint add quiet movement.</p>
+<p><strong>Voice:</strong> French-inflected, restrained, heritage-forward. &quot;Est. 1926.&quot; &quot;The
+Tuesday omelet. The Sunday roast.&quot; Sentences are short and warm. Never salesy.</p>
+<blockquote>
+<p><strong>Design principle to hold onto:</strong> restraint. The luxury here comes from
+space, typography, material photography, and small considered motion — not
+from effects. When in doubt, remove.</p>
+</blockquote>
+<hr>
+<h2>4. Where We Upgrade the Look</h2>
+<p>This is the priority backlog for elevating the visual quality. Roughly ordered
+by impact-to-effort. Each item notes the <em>why</em> so you can make judgment calls.</p>
+<h3>4.1 Product photography is the #1 lever  ⭐ highest impact</h3>
+<p>The cards currently reuse a handful of shared brand photos across multiple
+products (we just reverted a set of flat SVG placeholders because they read
+cheap next to real photography). <strong>Each of the 8 products needs its own
+consistent, on-white-or-on-stone hero shot</strong>, plus 2–3 lifestyle/detail angles
+for future product detail pages.</p>
+<ul>
+<li>Define a single shooting/treatment spec: angle, crop ratio, background,
+patina level, lighting direction — so all 8 feel like one family.</li>
+<li>This is the most credible path to &quot;looks expensive.&quot; See §5.2 for how AI image
+tools can prototype the art direction <em>before</em> a real shoot.</li>
+</ul>
+<h3>4.2 Build real Product Detail Pages (PDPs)</h3>
+<p>Right now products are cards with an &quot;Add to Cart&quot; demo button — there&#39;s no
+per-product page. A luxury brand needs PDPs: large imagery, the story of the
+piece, specs, seasoning/care, &quot;pairs with,&quot; and a considered buy module. This is
+the biggest structural gap.</p>
+<h3>4.3 Typographic refinement</h3>
+<ul>
+<li>Introduce a fluid type scale (<code>clamp()</code>) site-wide so headlines breathe on
+large screens and stay controlled on mobile. The hero already uses <code>clamp</code> —
+extend the discipline to all headings.</li>
+<li>Audit measure (line length) on long-form copy in <code>about.html</code> — cap at
+~62–68ch for readability.</li>
+<li>Consider a true display weight / optical-size treatment for the largest
+headlines.</li>
+</ul>
+<h3>4.4 Motion &amp; interaction polish</h3>
+<ul>
+<li>Add tasteful image parallax / reveal-on-scroll for the split sections and PDP
+galleries (respecting <code>prefers-reduced-motion</code> — currently not honored, <strong>fix
+this</strong>).</li>
+<li>Hover states on cards: a slow scale + brass underline reveal rather than a
+hard state.</li>
+<li>Page transitions: even a subtle fade between pages would lift perceived
+quality (can be done without a framework).</li>
+</ul>
+<h3>4.5 The storefront experience</h3>
+<ul>
+<li>A real slide-in cart drawer (the current cart is a counter in the nav).</li>
+<li>Quantity, line items, subtotal, &quot;continue shopping.&quot; Still front-end/demo
+until commerce is wired, but it should <em>feel</em> real.</li>
+<li>A size/comparison helper for the skillet range (8″→14″) — a signature
+interactive moment.</li>
+</ul>
+<h3>4.6 Performance hygiene  ⚠️ do this early</h3>
+<ul>
+<li>The current images are <strong>2–3 MB PNGs</strong>. That&#39;s a luxury-killing load time.
+Convert to responsive <code>srcset</code> + AVIF/WebP, lazy-load below the fold, and add
+width/height to prevent layout shift. Target: largest contentful paint under
+2s on a mid-tier phone.</li>
+<li>Self-host the two webfonts (or <code>font-display: swap</code> + preload) to kill the
+flash and the third-party dependency.</li>
+</ul>
+<h3>4.7 Identity polish</h3>
+<ul>
+<li>The brand monogram is an inline SVG (&quot;FC&quot; lockup). Refine it into a proper
+mark + wordmark with clear-space rules and a favicon/touch-icon set
+(currently missing).</li>
+<li>Define a small but real brand guidelines page (internal) so the system stays
+consistent as it grows.</li>
+</ul>
+<h3>4.8 Accessibility pass</h3>
+<ul>
+<li>Color-contrast audit (brass-on-cream is borderline — verify AA).</li>
+<li>Focus-visible styles, skip-link, ARIA on the mobile menu/cart, keyboard path
+through the whole purchase flow.</li>
+<li>Honor <code>prefers-reduced-motion</code> across all the scroll/marquee animation.</li>
+</ul>
+<hr>
+<h2>5. Where Agentic AI Agents Fit the Build</h2>
+<p>This is a first-class part of how we want to work, not an afterthought. Two
+distinct tracks: <strong>(A) agents that help us build &amp; operate the site</strong>, and
+<strong>(B) agentic features inside the product the visitor experiences.</strong> Be
+deliberate about which is which.</p>
+<h3>5.A — Agents in the build &amp; operations workflow</h3>
+<p>You are already working in an environment (Claude Code) where an AI agent can
+read the repo, make changes, open PRs, and respond to CI/review events. Lean
+into it:</p>
+<ol>
+<li><strong>Component &amp; page scaffolding.</strong> Describe a PDP or a cart drawer in plain
+language; have the agent generate the HTML/CSS/JS consistent with the
+existing token system, then you art-direct and refine. Fastest path from
+wireframe to working markup.</li>
+<li><strong>Design-system enforcement (linting agent).</strong> An agent reviewing each PR for
+drift: hard-coded hex values that should be tokens, new inline styles,
+missing alt text, contrast regressions, images over a size budget, missing
+<code>width/height</code>. This keeps quality from eroding as velocity rises.</li>
+<li><strong>Content &amp; copy generation in-voice.</strong> Product descriptions, care
+instructions, journal/editorial entries — generated against a locked brand
+voice guide (§3), then human-edited. Especially useful for the bilingual
+French/English flourishes.</li>
+<li><strong>Asset pipeline automation.</strong> An agent (or a CI step it maintains) that
+ingests a raw photo and emits the full responsive set: cropped ratios, AVIF/
+WebP/fallback, <code>srcset</code> markup, compressed to budget. Turns §4.6 from a chore
+into a drop-a-file workflow.</li>
+<li><strong>Accessibility &amp; performance auditor.</strong> Scheduled agent runs Lighthouse/axe,
+files issues (or opens fix PRs) for regressions. Treat it as a tireless QA
+teammate.</li>
+<li><strong>PR babysitting / autofix.</strong> Agents can watch a PR, react to CI failures and
+review comments, and push fixes — closing the loop between &quot;designed&quot; and
+&quot;shipped green.&quot;</li>
+<li><strong>SEO &amp; metadata agent.</strong> Generates/validates per-page titles, descriptions,
+Open Graph/Twitter cards, JSON-LD <code>Product</code> structured data (price,
+availability) — important for a commerce site and easy to forget by hand.</li>
+<li><strong>Visual regression agent.</strong> Screenshots key pages across breakpoints on each
+PR and flags unintended visual diffs.</li>
+</ol>
+<blockquote>
+<p><strong>Guardrail for build agents:</strong> agents draft, humans direct. Every
+agent-generated change goes through a PR and a designer&#39;s eye. Lock the brand
+voice, the token system, and the performance budget as the rules agents must
+obey — those constraints are what make autonomous output safe.</p>
+</blockquote>
+<h3>5.B — Agentic features in the product itself</h3>
+<p>Where AI could become part of the FERVEUR <em>experience</em> (validate against brand
+restraint — only ship what feels like a concierge, never a gimmick):</p>
+<ol>
+<li><strong>&quot;La Concierge&quot; — a cookware advisor.</strong> A conversational agent that helps a
+visitor choose the right pan (&quot;I cook for two, mostly eggs and weeknight
+sears&quot;) → recommends the 10″ skillet with reasoning, links the PDP. This is
+the strongest candidate: high-value, on-brand as personal service.</li>
+<li><strong>Care &amp; seasoning assistant.</strong> Post-purchase agent answering &quot;how do I
+re-season after rust?&quot; with steps drawn from the care ritual content —
+reduces support load, deepens the ownership relationship.</li>
+<li><strong>Recipe / pairing companion.</strong> Given a pan the visitor owns, suggest dishes
+and techniques that show it off. Editorial, brand-building, sticky.</li>
+<li><strong>Gift &amp; registry helper.</strong> Agentic flow that assembles a gift set within a
+budget and writes the note. Natural fit for a heirloom brand.</li>
+<li><strong>Personalized journal.</strong> Agent curates which story/editorial entries to
+surface based on what the visitor has browsed.</li>
+</ol>
+<p><strong>Sequencing recommendation:</strong> start with <strong>5.A</strong> (build/ops agents) — it
+compounds your output immediately and is low-risk. Pilot exactly one <strong>5.B</strong>
+feature (La Concierge) behind a clear, optional entry point once PDPs exist.
+Don&#39;t bolt a chatbot onto a brand site that doesn&#39;t yet have product pages worth
+recommending.</p>
+<hr>
+<h2>6. Suggested First 2 Weeks</h2>
+<ol>
+<li><strong>Get oriented:</strong> run the site locally (just open <code>index.html</code>), read all
+three pages and <code>style.css</code> top-to-bottom. Note every token.</li>
+<li><strong>Quick wins that raise the floor:</strong> image optimization (§4.6), favicon/icon
+set (§4.7), <code>prefers-reduced-motion</code> + focus styles (§4.8). These are
+high-credibility, low-risk, and a perfect first PR.</li>
+<li><strong>Define the photography spec</strong> (§4.1) and prototype art direction with AI
+image tools (§5.A.4 / image generation) so we can align before any real
+shoot.</li>
+<li><strong>Design one PDP</strong> (§4.2) as the template — this unlocks the storefront and
+the first agentic feature.</li>
+<li><strong>Stand up the design-system linting agent</strong> (§5.A.2) so everything after you
+stays consistent.</li>
+</ol>
+<hr>
+<h2>7. How to Run &amp; Ship</h2>
+<ul>
+<li><strong>Run locally:</strong> open <code>index.html</code> in a browser. No server required (use a
+static server like <code>python3 -m http.server</code> if you want clean paths).</li>
+<li><strong>Edit:</strong> change tokens/components in <code>assets/css/style.css</code>; behavior in
+<code>assets/js/main.js</code>; structure in the three HTML files.</li>
+<li><strong>Ship:</strong> branch → commit → push → PR → merge to <code>main</code>. GitHub Pages deploys
+automatically (~1 min) via <code>.github/workflows/pages.yml</code>.</li>
+<li><strong>Don&#39;t</strong> push directly to <code>main</code>, and don&#39;t add a build toolchain without
+agreeing on it first.</li>
+</ul>
+<hr>
+<p><em>Questions, or want any section expanded into its own working doc (photography
+spec, PDP template, agent guardrails)? Flag it and we&#39;ll deepen it.</em></p>
+</div></body></html>
