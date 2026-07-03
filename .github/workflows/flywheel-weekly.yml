@@ -1,0 +1,52 @@
+name: Crystal Ball weekly flywheel refresh
+
+# Re-scores the call-out ledger on the latest data every Monday, and on demand.
+# Approval-free: runs on GitHub's cron, no interactive permission prompt.
+# Requires repo secret EPOCA_DATABASE_URL (a READ-ONLY epocadatalake role).
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"   # Mondays 09:00 UTC
+  workflow_dispatch: {}    # manual "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write          # allow committing the refreshed ledger + drift log
+
+concurrency:
+  group: flywheel-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest   # if the DB is private, swap for a self-hosted runner on Epoca's network
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet psycopg2-binary
+
+      - name: Run flywheel refresh
+        id: refresh
+        env:
+          DATABASE_URL: ${{ secrets.EPOCA_DATABASE_URL }}
+        run: python scripts/flywheel_refresh.py
+
+      - name: Commit refreshed ledger
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data/callout_ledger.csv data/ledger_drift_log.csv; then
+            echo "No ledger changes this run."
+          else
+            git add data/callout_ledger.csv data/ledger_drift_log.csv
+            git commit -m "Weekly flywheel refresh (${{ github.run_id }}) — ${{ steps.refresh.outputs.summary }}"
+            git push
+          fi
+
+      - name: Flag retrain if drift breached
+        if: steps.refresh.outputs.retrain_due == 'true'
+        run: echo "::warning title=Crystal Ball::IQS drift breached baseline — PWS retrain is DUE (see docs/FLYWHEEL_AUTOMATION.md §4)."

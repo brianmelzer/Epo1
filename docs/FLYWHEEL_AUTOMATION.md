@@ -112,15 +112,39 @@ available snapshot and flag it lower-confidence.
 
 ## 5. Scheduling (documented — DO NOT enable without approval)
 
-The environment exposes scheduled-routine tools (`create_trigger` /
-`send_later`). **Status: the weekly trigger is configured to be turned ON per
-Epoca directive, but the create_trigger call is gated behind a one-time approval
-that must be granted in-session** — approve it and the routine below goes live.
-Config to approve:
+### Primary: GitHub Actions cron (approval-free — this is what runs)
 
-- **Recurrence (weekly refresh):** cron `0 9 * * 1` (Mondays 09:00 UTC), fresh
-  session per fire.
-- **Recurrence (quarterly retrain reminder):** cron `0 9 5 1,4,7,10 *`.
+The scheduled refresh runs as a GitHub Actions workflow —
+[`.github/workflows/flywheel-weekly.yml`](../.github/workflows/flywheel-weekly.yml)
+driving [`../scripts/flywheel_refresh.py`](../scripts/flywheel_refresh.py). This
+needs **no interactive approval** (unlike the MCP trigger, whose permission
+prompt can't be answered from a headless session), runs on GitHub's own cron,
+and gives a manual **"Run workflow"** button in the Actions tab.
+
+- **Schedule:** cron `0 9 * * 1` (Mondays 09:00 UTC) + `workflow_dispatch`.
+- **No LLM in the loop** — the refresh is pure SQL (`sql/06`), so it's
+  deterministic and cheap; model choice is irrelevant to it.
+- **What it does:** connect to the DB → run `sql/06_ledger_refresh.sql` at the
+  latest `max(cb_stamp)` → write `iqs/realized_*/reordered/scored_asof` back into
+  `data/callout_ledger.csv` → append `data/ledger_drift_log.csv` → commit &
+  push → emit a `::warning` if the §4 drift rule fires.
+- **One-time setup (required to go live):** add a repo secret
+  **`EPOCA_DATABASE_URL`** = a **read-only** epocadatalake connection string
+  (the job only SELECTs; it writes to the CSV in-repo, never the DB). If Aurora
+  isn't reachable from GitHub-hosted runners, swap `runs-on: ubuntu-latest` for
+  a **self-hosted runner** on Epoca's network — that's the only change needed.
+- **Quarterly retrain reminder:** add a second cron `0 9 5 1,4,7,10 *` (or run
+  the retrain when a weekly run prints `RETRAIN DUE`).
+
+### Alternative: MCP scheduled trigger (needs an interactive surface)
+
+The environment also exposes `create_trigger` / `send_later`. These spin up a
+fresh Claude Code session per fire (handy if you want the agent to also *narrate*
+drift or open issues) — **but the permission prompt must be approved from an
+interactive surface** (desktop/web app); it cannot be granted from a headless
+run, which is why the GitHub Actions path above is the default. If you enable the
+MCP trigger, set its **model to Fable** (`claude-fable-5`) per directive. Config:
+cron `0 9 * * 1`, fresh session per fire, prompt = the §3 refresh steps.
 - **Routine prompt (monthly):**
 
   > "Monthly Crystal Ball flywheel refresh. Set the `run_date` PARAM in
