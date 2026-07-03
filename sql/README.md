@@ -15,6 +15,7 @@ these are query **templates** you paste and parameterize, not stored objects).
 | `01_breakout_radar.sql` | F1 + F2 + F3 | Per-product rank **velocity**, **acceleration**, and **review velocity** in a category → the ranked "climbers" list |
 | `02_feature_lift.sql` | F9 | Which title **features/benefits** are associated with faster movement |
 | `03_cross_retailer_gap.sql` | F12 | Concepts surging on one marketplace but thin on another (early, low-risk picks) |
+| `04_outer_loop_ledger.sql` | F13–F15 | The flywheel: grade items on real sell-through / margin / reorder, and bridge Crystal Ball rankings to internal outcomes (see [`../docs/OUTER_LOOP_LEDGER_FINDINGS.md`](../docs/OUTER_LOOP_LEDGER_FINDINGS.md)) |
 
 ## How to read the signals
 

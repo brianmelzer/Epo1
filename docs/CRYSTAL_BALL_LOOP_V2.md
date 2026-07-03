@@ -67,9 +67,21 @@ Where each outcome is captured today:
 |---|---|---|
 | Pitched | item appears in a deck / offer / item-setup | Librarian |
 | Buyer accepted | approval in emails / meeting notes / setup forms | Librarian (+ mail/notes) |
-| Sourced & bought | PO raised, FOB/landed cost, MOQ, HTS/duty | `sqlmas90` |
+| Sourced & bought | PO raised, FOB/landed cost, MOQ, HTS/duty | `sqlmas90`, `shaundatabase` |
 | Sold through | units, velocity vs forecast, price realization | `shaundatabase`, `epocasql` |
-| Reorder / variate | repeat/expanded PO | `sqlmas90` |
+| Reorder / variate | repeat/expanded PO | `sqlmas90`, `shaundatabase` |
+
+**Validated (2026-07-02).** This is not hypothetical — the trace runs today. The
+`asinxref` table bridges Crystal Ball ASINs to internal `item_code`s (516
+mappings; 220 matched to Crystal Ball rankings; 123 with 2025 sales), and
+`v_so_history` / `v_invoiceddi_pivot` give per-item sell-through, margin, and
+realized margin vs the sourcing PO. Tellingly, the internal margin winners are
+cast-aluminum + ceramic cookware — the exact features the velocity signal flags
+as climbing (see [`OUTER_LOOP_LEDGER_FINDINGS.md`](OUTER_LOOP_LEDGER_FINDINGS.md)
+and [`../sql/04_outer_loop_ledger.sql`](../sql/04_outer_loop_ledger.sql)).
+**The one missing artifact is a structured call-out ledger** (which concept/item
+we recommended, when, to whom) so predictions can be joined to these outcomes —
+the single highest-leverage thing to start logging now.
 
 ---
 
