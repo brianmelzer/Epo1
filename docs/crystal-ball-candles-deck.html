@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Crystal Ball — Candles &amp; Warmers Trend Brief (live numbers)</title>
+<style>
+:root{
+  --bg:#0c1020;--bg2:#121732;--panel:#161d3d;--panel2:#1c2550;--ink:#eaeefb;--muted:#9aa6d4;
+  --line:rgba(255,255,255,.10);--accent:#7c6cff;--accent2:#37e0c8;--warn:#ff6b8b;--good:#37e0c8;
+  --gold:#f0b94a;--sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px 90px;}
+.cover{background:
+   radial-gradient(1200px 400px at 80% -10%,rgba(124,108,255,.35),transparent 60%),
+   radial-gradient(900px 400px at 0% 10%,rgba(55,224,200,.18),transparent 55%),
+   linear-gradient(180deg,var(--bg2),var(--bg));
+  padding:64px 7vw 52px;border-bottom:1px solid var(--line);}
+.eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--accent2);margin:0;}
+.cover h1{font-size:2.5rem;line-height:1.1;margin:.35em 0 .2em;letter-spacing:.01em;}
+.cover .sub{color:var(--muted);font-size:1.05rem;max-width:640px;}
+.chips{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;}
+.chip{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);
+  background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 13px;}
+section{margin-top:44px;}
+h2{font-size:1.5rem;margin:0 0 .1em;letter-spacing:.01em;}
+h2 .n{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:.5em;}
+.lead{color:var(--muted);margin:.2em 0 1.1em;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:6px 20px 8px;margin:14px 0;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);}
+table{border-collapse:collapse;width:100%;font-size:.92rem;}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;}
+th{font-size:.68rem;text-transform:uppercase;letter-spacing:.11em;color:var(--accent2);font-weight:600;}
+td.prod{white-space:normal;min-width:220px;}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);}
+.up{color:var(--good);font-weight:600;}.down{color:var(--warn);font-weight:600;}
+.tablewrap{overflow-x:auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0;}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+.stat .v{font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em;}
+.stat .v.good{color:var(--good);}.stat .v.acc{color:var(--accent);}
+.stat .k{font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.35;}
+.bar{height:9px;border-radius:6px;background:var(--panel2);overflow:hidden;min-width:80px;display:inline-block;vertical-align:middle;}
+.bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.pill{font-size:.7rem;padding:3px 9px;border-radius:999px;border:1px solid var(--line);}
+.pill.win{color:var(--good);border-color:rgba(55,224,200,.4);background:rgba(55,224,200,.08);}
+.pill.cool{color:var(--warn);border-color:rgba(255,107,139,.4);background:rgba(255,107,139,.08);}
+.callout{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:12px;padding:18px 22px;margin:16px 0;}
+.callout b{color:var(--accent2);}
+.foot{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;}
+.foot code{font-family:var(--mono);color:var(--ink);background:var(--panel2);padding:.1em .4em;border-radius:4px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:680px){.two{grid-template-columns:1fr;}.cover h1{font-size:2rem;}}
+</style></head>
+<body>
+<div class="cover">
+  <p class="eyebrow">◆ Crystal Ball · Predictive Trend Brief</p>
+  <h1>Candles &amp; Warmers — What's<br>breaking out into Holiday 2026</h1>
+  <p class="sub">A live-data brief built by the Crystal Ball Loop. Every number on this
+  page is computed from the marketplace time series and Epoca's own sell-through —
+  not curated by hand. Mapped to the Paris Hilton candles &amp; warmers and
+  candle-warmer-lamp (Gleamers ritual) forecast ideas.</p>
+  <div class="chips">
+    <span class="chip">Category · Candles &amp; Warmers</span>
+    <span class="chip">Retailer · Sam's Club</span>
+    <span class="chip">Window · Holiday 2026</span>
+    <span class="chip">Data as of 2026-07-02</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="callout" style="margin-top:26px;border-left-color:var(--warn)">
+  <b>Data-honesty note.</b> The Amazon Candles &amp; Holders lists (cat 925, region 1)
+  refresh on a roughly weekly cadence — ~6–19 snapshots per product over 44 days versus
+  cookware's daily feed. Signals here are real but thinner: we widen minimum-observation
+  and window tolerances and lean on the <b>review-velocity</b> volume proxy, which is the
+  most robust column when rank sampling is sparse. Walmart has <b>no dedicated candles list</b>,
+  so all Walmart figures are title-keyword derived across active lists (a coverage floor).
+</div>
+
+<section>
+  <h2><span class="n">01</span>Breakout Radar — the climbers</h2>
+  <p class="lead">Ranked by <b>rank velocity</b> (log-rank momentum, last 14 days vs 30–44 days
+  prior), not by who's already #1. Lower rank = more popular, so a rising item is
+  <span class="up">climbing</span>. Review gain is our sales proxy.</p>
+  <div class="card tablewrap">
+  <table>
+    <thead><tr>
+      <th class="prod">Product</th><th class="num">Rank 6wk→now</th><th class="num">Velocity</th>
+      <th class="num">Reviews +30d</th><th class="num">Rating</th><th class="num">Price</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="prod">Yankee Candle Lemon Lavender 22oz Large Jar</td><td class="num"><span class="up">70 → 7</span></td><td class="num up">+2.24</td><td class="num">—</td><td class="num">4.70</td><td class="num">$13</td></tr>
+      <tr><td class="prod">Yankee Candle Large Jar Scented (150-hr)</td><td class="num"><span class="up">23 → 4</span></td><td class="num up">+1.79</td><td class="num">+54</td><td class="num">4.60</td><td class="num">$11</td></tr>
+      <tr><td class="prod">Party Solids Gold Happy Birthday Cake Candles</td><td class="num"><span class="up">94 → 19</span></td><td class="num up">+1.61</td><td class="num">—</td><td class="num">4.70</td><td class="num">$6</td></tr>
+      <tr><td class="prod">Mileonaim <b>Candle Warmer Lamp</b> w/ Remote, Timer, Dimmer</td><td class="num"><span class="up">100 → 22</span></td><td class="num up">+1.53</td><td class="num">+8</td><td class="num">4.90</td><td class="num">$18</td></tr>
+      <tr><td class="prod">Homsolver Dad Gifts Candle (Father's Day)</td><td class="num"><span class="up">78 → 20</span></td><td class="num up">+1.36</td><td class="num">+54</td><td class="num">4.70</td><td class="num">$17</td></tr>
+      <tr><td class="prod">SwitchBot Smart <b>Candle Warmer Lamp</b>, Flameless Wax Melter</td><td class="num"><span class="up">79 → 24</span></td><td class="num up">+1.18</td><td class="num">—</td><td class="num">4.61</td><td class="num">$30</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="lead" style="margin-top:6px">Volume note: velocity finds <i>emerging</i> items; the
+  <b>review-velocity</b> cut finds proven volume — the standout is <b>M&amp;SENSE Jasmine 3-Wick
+  35oz</b>, which added <span class="up">+1,733 reviews in 30 days</span> (1,864 total). And the
+  warmer-lamp franchise owns the top of the list: <b>GODONLIF Candle Warmer Lamp</b> sits at
+  <b>rank #1</b> with <span class="up">8,969 reviews (+394/30d)</span>, <b>Innqoo</b> #3 (+325),
+  <b>Marycele</b> (+273). The deck ranks on the combination.</p>
+</section>
+
+<section>
+  <h2><span class="n">02</span>Feature &amp; benefit lift</h2>
+  <p class="lead">Which title claims actually move product. Lift = extra 30-day review gain for
+  top-80 candles/warmers carrying the feature vs those without. This is the "what to spec" slide.</p>
+  <div class="card">
+  <table>
+    <thead><tr><th>Feature / benefit</th><th class="num">Review-gain lift</th><th style="width:38%">&nbsp;</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>Wax melt <span style="color:var(--muted)">(n=7)</span></td><td class="num up">+130</td><td><span class="bar"><span style="width:100%"></span></span></td><td><span class="pill win">rising</span></td></tr>
+      <tr><td>Soy <span style="color:var(--muted)">(n=19)</span></td><td class="num up">+111</td><td><span class="bar"><span style="width:85%"></span></span></td><td><span class="pill win">rising</span></td></tr>
+      <tr><td>Warmer <span style="color:var(--muted)">(n=10)</span></td><td class="num up">+98</td><td><span class="bar"><span style="width:75%"></span></span></td><td><span class="pill win">rising</span></td></tr>
+      <tr><td>Lamp <span style="color:var(--muted)">(n=11)</span></td><td class="num up">+86</td><td><span class="bar"><span style="width:66%"></span></span></td><td><span class="pill win">rising</span></td></tr>
+      <tr><td>Jar <span style="color:var(--muted)">(n=29)</span></td><td class="num up">+22</td><td><span class="bar"><span style="width:17%"></span></span></td><td><span class="pill win">rising</span></td></tr>
+      <tr><td>Scented <span style="color:var(--muted)">(n=38)</span></td><td class="num down">−13</td><td><span class="bar"><span style="width:10%;background:var(--warn)"></span></span></td><td><span class="pill cool">cooling</span></td></tr>
+      <tr><td>Flameless <span style="color:var(--muted)">(n=5)</span></td><td class="num down">−28</td><td><span class="bar"><span style="width:22%;background:var(--warn)"></span></span></td><td><span class="pill cool">cooling</span></td></tr>
+      <tr><td>Gift <span style="color:var(--muted)">(n=32)</span></td><td class="num down">−87</td><td><span class="bar"><span style="width:67%;background:var(--warn)"></span></span></td><td><span class="pill cool">cooling</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="lead" style="margin-top:6px">Spec the winners — <b>wax-melt / soy</b> scent format plus the
+  <b>warmer + lamp</b> hardware. Note the honest read on "flameless" and "gift": as bare title tokens they
+  <i>underperform</i> on review volume (crowded, generic claims) — the money is in the concrete <b>warmer-lamp</b>
+  product, not the "flameless gift" label. Spec the object, not the adjective.</p>
+</section>
+
+<section>
+  <h2><span class="n">03</span>Whitespace — where Sam's/Walmart is thin</h2>
+  <p class="lead">Concepts proven on Amazon but under-served on the Walmart/Sam's shelf =
+  low-risk private-label openings. Walmart has no candles list, so counts are keyword-derived
+  across active lists (a floor, not a ceiling).</p>
+  <div class="grid">
+    <div class="stat"><div class="v acc">43 → 0</div><div class="k"><b>Warmer lamp</b><br>Amazon products (best rank #1) vs Walmart, where the phrase returns <b>zero</b> keyword hits — the clearest gap and the Gleamers ritual play.</div></div>
+    <div class="stat"><div class="v acc">24 → 5</div><div class="k"><b>Wax melt</b><br>Amazon (best #1) vs Walmart (best #9); ~5× under-served and the top feature by review lift (§2).</div></div>
+    <div class="stat"><div class="v acc">44 → 16</div><div class="k"><b>Candle warmer</b><br>Amazon (best #1) vs Walmart (best #4) — present but ~3× thinner; room for a branded value line.</div></div>
+  </div>
+  <p class="lead" style="margin-top:6px">Counter-example (kept honest): <b>soy</b> is <i>not</i> whitespace —
+  Amazon 70 products vs Walmart 80 (best #3). Walmart already covers plain soy jars, so differentiate on the
+  <b>warmer-lamp + wax-melt</b> ritual, not on another undifferentiated soy candle.</p>
+</section>
+
+<section>
+  <h2><span class="n">04</span>Why we trust this — the flywheel</h2>
+  <p class="lead">The concepts climbing externally are the same ones already making Epoca real
+  margin in Home Fragrance. External signal and internal money agree.</p>
+  <div class="card tablewrap">
+  <table>
+    <thead><tr><th class="prod">Epoca item (FY2025+)</th><th class="num">Units</th><th class="num">Gross</th><th class="num">Margin</th><th class="num">Months live</th></tr></thead>
+    <tbody>
+      <tr><td class="prod">PH 2-pc 13oz Round Candle Pack (3-wick gift set)</td><td class="num">9,600</td><td class="num">$0.12M</td><td class="num up">45%</td><td class="num">2</td></tr>
+      <tr><td class="prod">PH Candle Warmer Lamp — Heart, Pink</td><td class="num">2,000</td><td class="num">$27K</td><td class="num up">60%</td><td class="num">1</td></tr>
+      <tr><td class="prod">PH 20oz Lunch Warmer (cream)</td><td class="num">4,312</td><td class="num">$81K</td><td class="num up">65%</td><td class="num">2</td></tr>
+      <tr><td class="prod">PH Towel Warmer Pack</td><td class="num">1,800</td><td class="num">$0.13M</td><td class="num up">45%</td><td class="num">2</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout">
+    <b>Scored call-outs (Item Quality Score, 0–1).</b> Grading past recommendations on real
+    outcomes: <b>Candle warmer lamp 0.917</b> · <b>Lamp warmer (Gleamers ritual) 0.917</b> —
+    both linked to <b>33,419 units / $435K gross / 55% margin</b> of realized warmer-lamp
+    sell-through. Towel warmer (spa ritual) 0.459 · electric lunch box 1.00. Each cycle these
+    scores retrain which signals we trust — the two warmer-lamp call-outs both graded
+    high-confidence, which is why this deck doubles down on the format.
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>The pick</h2>
+  <div class="two">
+    <div class="stat"><div class="v good">Recommendation</div>
+      <div class="k" style="font-size:.92rem;margin-top:8px">
+      <b>Paris Hilton 2-pack scented soy candle gift set</b>, styled around the
+      <b>candle-warmer-lamp / Gleamers emotional-ritual</b> theme (flame-free glow, dimmable
+      warm light). Soy + wax-melt scent format and the warmer/lamp hardware are the top rising
+      features (§2); the warmer lamp is the single clearest Walmart whitespace (§3, 43→0); and
+      PH candles + the PH Candle Warmer Lamp already print 45–60% margin internally (§4). Pair the
+      2-pack candle with a warmer-lamp attach for the Holiday gifting endcap.</div></div>
+    <div class="stat"><div class="v acc">Guardrails</div>
+      <div class="k" style="font-size:.92rem;margin-top:8px">
+      Sam's roadmap: <b>Candles · Holiday 2026 · 2-pack gift set under $19.98 SRP</b> ·
+      mission: gifting / stock-up. Amazon warmer-lamp climbers cluster at <b>$11–$18</b>
+      (Mileonaim $18, GODONLIF/Innqoo $11–13), so a $19.98 2-pack lands right at the top of
+      the proven band with room for margin.</div></div>
+  </div>
+</section>
+
+<div class="foot">
+  <b>How this was built.</b> Breakout Radar = formulas F1/F2/F3 (rank velocity, acceleration,
+  review-velocity) over Amazon Candles &amp; Holders (<code>cat 925, region 1</code>, lists 1785+1807).
+  Feature lift = F9 (top-80, review-gain basis). Whitespace = F12 (Amazon vs Walmart title-keyword,
+  no clean Walmart candles list). Flywheel = F13 Item Quality Score over <code>HOME FRAGRANCE</code> /
+  warmer sell-through. Queries: <code>sql/01–04</code>. Sources: <code>crystalball</code> (Amazon/Walmart
+  daily rankings) + <code>shaundatabase</code> (Epoca sell-through) + <code>data/callout_ledger.csv</code>.
+  Method &amp; formulas: <code>docs/CRYSTAL_BALL_LOOP_V2.md</code>. All figures live as of 2026-07-02 —
+  this page is a render of the model, meant to regenerate each cycle. Candle data refreshes ~weekly, so
+  treat single-item velocities as directional and lean on review-volume + internal outcomes.
+</div>
+</div>
+</body></html>
