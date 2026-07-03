@@ -1,0 +1,366 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Crystal Ball — Live Loop Dashboard</title>
+<style>
+:root{
+  --bg:#0c1020;--bg2:#121732;--panel:#161d3d;--panel2:#1c2550;--ink:#eaeefb;--muted:#9aa6d4;
+  --line:rgba(255,255,255,.10);--accent:#7c6cff;--accent2:#37e0c8;--warn:#ff6b8b;--good:#37e0c8;
+  --gold:#f0b94a;--sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f4f6ff;--bg2:#ffffff;--panel:#ffffff;--panel2:#eef1fb;--ink:#171a2e;--muted:#5a6392;
+    --line:rgba(20,24,60,.14);--accent:#5646d6;--accent2:#0f9e8a;--warn:#d63b5e;--good:#0f9e8a;--gold:#b07d10;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f4f6ff;--bg2:#ffffff;--panel:#ffffff;--panel2:#eef1fb;--ink:#171a2e;--muted:#5a6392;
+  --line:rgba(20,24,60,.14);--accent:#5646d6;--accent2:#0f9e8a;--warn:#d63b5e;--good:#0f9e8a;--gold:#b07d10;
+}
+*{box-sizing:border-box;}
+html,body{max-width:100%;overflow-x:hidden;}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px;}
+.cover{background:
+   radial-gradient(1200px 400px at 80% -10%,rgba(124,108,255,.35),transparent 60%),
+   radial-gradient(900px 400px at 0% 10%,rgba(55,224,200,.18),transparent 55%),
+   linear-gradient(180deg,var(--bg2),var(--bg));
+  padding:56px 7vw 40px;border-bottom:1px solid var(--line);}
+.eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--accent2);margin:0;}
+.cover h1{font-size:2.5rem;line-height:1.08;margin:.35em 0 .2em;letter-spacing:.01em;}
+.cover .sub{color:var(--muted);font-size:1.05rem;max-width:680px;}
+.chips{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;}
+.chip{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);
+  background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 13px;}
+.live{color:var(--good);}
+.live .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--good);margin-right:6px;
+  box-shadow:0 0 0 0 rgba(55,224,200,.6);animation:pulse 2.2s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(55,224,200,.5);}70%{box-shadow:0 0 0 7px rgba(55,224,200,0);}100%{box-shadow:0 0 0 0 rgba(55,224,200,0);}}
+section{margin-top:44px;}
+h2{font-size:1.5rem;margin:0 0 .1em;letter-spacing:.01em;}
+h2 .n{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:.5em;}
+.lead{color:var(--muted);margin:.2em 0 1.1em;max-width:760px;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:6px 20px 8px;margin:14px 0;
+  box-shadow:0 12px 40px rgba(0,0,0,.22);}
+table{border-collapse:collapse;width:100%;font-size:.92rem;}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;}
+th{font-size:.68rem;text-transform:uppercase;letter-spacing:.11em;color:var(--accent2);font-weight:600;}
+td.prod{white-space:normal;min-width:210px;}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);}
+.up{color:var(--good);font-weight:600;}.down{color:var(--warn);font-weight:600;}
+.tablewrap{overflow-x:auto;}
+/* KPI strip */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:20px 0 4px;}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;
+  box-shadow:0 12px 40px rgba(0,0,0,.22);}
+.kpi .v{font-size:2rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1;}
+.kpi .v.acc{color:var(--accent);}.kpi .v.good{color:var(--good);}.kpi .v.gold{color:var(--gold);}
+.kpi .k{font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.3;text-transform:uppercase;letter-spacing:.06em;}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:520px){.kpis{grid-template-columns:repeat(2,1fr);}.kpi .v{font-size:1.6rem;}}
+/* loop */
+.loopwrap{overflow-x:auto;background:
+   radial-gradient(700px 300px at 22% 8%,rgba(124,108,255,.14),transparent 60%),
+   radial-gradient(700px 320px at 78% 92%,rgba(55,224,200,.12),transparent 60%),
+   var(--panel);
+  border:1px solid var(--line);border-radius:16px;padding:8px 8px 4px;box-shadow:0 12px 40px rgba(0,0,0,.22);}
+svg.loop{display:block;min-width:940px;width:100%;height:auto;}
+.loop text{font-family:var(--sans);fill:var(--ink);}
+.loop .ntitle{font-size:13px;font-weight:700;}
+.loop .nval{font-size:10.5px;fill:var(--muted);font-family:var(--mono);}
+.loop .looptag{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;}
+.loop .looptag.i{fill:var(--accent);}.loop .looptag.o{fill:var(--accent2);}
+.loop .sublbl{font-size:10.5px;fill:var(--muted);letter-spacing:.02em;}
+.loop .couplbl{font-size:11px;font-weight:700;fill:var(--gold);letter-spacing:.04em;}
+.node rect{fill:var(--panel2);stroke:var(--line);stroke-width:1;}
+.node.i rect{stroke:rgba(124,108,255,.55);}
+.node.o rect{stroke:rgba(55,224,200,.5);}
+.node.key rect{fill:color-mix(in srgb,var(--accent) 16%,var(--panel2));}
+.ring{fill:none;stroke-width:2.2;stroke-dasharray:7 9;}
+.ring.i{stroke:rgba(124,108,255,.75);animation:dashmove 3.2s linear infinite;}
+.ring.o{stroke:rgba(55,224,200,.7);animation:dashmove 3.6s linear infinite reverse;}
+@keyframes dashmove{to{stroke-dashoffset:-160;}}
+.couple{fill:none;stroke:var(--gold);stroke-width:2.4;stroke-dasharray:2 7;stroke-linecap:round;
+  animation:dashmove 1.1s linear infinite;}
+.dot{fill:var(--accent2);}
+.dot.i{fill:var(--accent);}
+.badge{font-size:10px;font-weight:800;fill:#fff;}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:10px 2px 0;font-size:.8rem;color:var(--muted);}
+.legend b{color:var(--ink);}
+.swatch{display:inline-block;width:22px;height:0;border-top:2.4px dashed;vertical-align:middle;margin-right:6px;}
+/* leaderboard */
+.bar{height:9px;border-radius:6px;background:var(--panel2);overflow:hidden;min-width:74px;display:inline-block;vertical-align:middle;}
+.bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.tag{font-size:.66rem;padding:2px 8px;border-radius:999px;border:1px solid var(--line);white-space:nowrap;
+  background:var(--panel2);color:var(--muted);}
+.pill{font-size:.68rem;padding:2px 9px;border-radius:999px;border:1px solid var(--line);}
+.pill.win{color:var(--good);border-color:rgba(55,224,200,.4);background:rgba(55,224,200,.08);}
+.pill.cool{color:var(--warn);border-color:rgba(255,107,139,.4);background:rgba(255,107,139,.08);}
+.pill.na{color:var(--muted);}
+.grpr td{background:var(--panel2);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent2);}
+/* coverage cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0;}
+a.cov{display:block;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.18);transition:transform .12s ease,border-color .12s ease;}
+a.cov:hover{transform:translateY(-2px);border-color:var(--accent);}
+a.cov .cat{font-size:1.02rem;font-weight:700;color:var(--ink);}
+a.cov .file{font-size:.74rem;color:var(--muted);font-family:var(--mono);margin-top:4px;word-break:break-all;}
+a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
+.callout{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:12px;padding:16px 20px;margin:16px 0;color:var(--muted);}
+.callout b{color:var(--accent2);}
+.asof{font-size:.76rem;color:var(--muted);margin:6px 2px 0;}
+.foot{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;}
+.foot code{font-family:var(--mono);color:var(--ink);background:var(--panel2);padding:.1em .4em;border-radius:4px;}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;}}
+</style></head>
+<body data-palette="#7c6cff,#37e0c8,#f0b94a,#ff6b8b">
+<div class="cover">
+  <p class="eyebrow">◆ Crystal Ball · Live Loop Dashboard</p>
+  <h1>The two loops, running.</h1>
+  <p class="sub">The centerpiece view of the Crystal Ball system: an <b>inner prediction loop</b>
+  that mines 162M rows of marketplace history, and an <b>outer commercial flywheel</b> that grades
+  every call-out on money made — each feeding the other. Every number here is computed from the
+  scored call-out ledger or a live query against the data lake.</p>
+  <div class="chips">
+    <span class="chip live"><span class="dot"></span>Live as of 2026-07-02</span>
+    <span class="chip">26 call-outs scored</span>
+    <span class="chip">Amazon · region 1</span>
+    <span class="chip">Sam's Club roadmap</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- 1. KPI STRIP -->
+<section style="margin-top:26px">
+  <div class="kpis">
+    <div class="kpi"><div class="v acc">26</div><div class="k">Call-outs scored</div></div>
+    <div class="kpi"><div class="v">0.824</div><div class="k">Mean IQS (0–1)</div></div>
+    <div class="kpi"><div class="v good">92%</div><div class="k">Matched to sell-through<br>(24 of 26)</div></div>
+    <div class="kpi"><div class="v good">73%</div><div class="k">Reorder rate<br>(19 of 26)</div></div>
+    <div class="kpi"><div class="v gold">$143.0M</div><div class="k">Realized gross<br>across call-outs</div></div>
+    <div class="kpi"><div class="v acc">Jul 2</div><div class="k">Last scored_asof<br>2026-07-02</div></div>
+  </div>
+  <p class="asof">Computed directly from <code style="font-family:var(--mono)">data/callout_ledger.csv</code> (26 rows). Realized gross sums each call-out row as scored; a few concepts recur as paired call-outs (cast-aluminum cookware, candle warmer, beverage dispenser), so gross is attributed per call-out, not per unique SKU.</p>
+</section>
+
+<!-- 2. TWO-LOOP VISUAL -->
+<section>
+  <h2><span class="n">01</span>The two loops</h2>
+  <p class="lead">The <b style="color:var(--accent)">inner loop</b> predicts what will win; the
+  <b style="color:var(--accent2)">outer loop</b> is the real business. They are coupled: the inner
+  loop's <b>Recommend</b> feeds the outer loop's <b>Call-out</b>, and the outer loop's commercial
+  <b>outcomes (IQS)</b> flow back to retrain the inner loop. That feedback is what makes call-out
+  quality compound. The dots show flow direction; live numbers sit on the key nodes.</p>
+  <div class="loopwrap">
+  <svg class="loop" viewBox="0 0 1040 620" role="img" aria-label="The inner Crystal Ball prediction loop coupled to the outer commercial flywheel">
+    <defs>
+      <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--gold)"/>
+      </marker>
+    </defs>
+
+    <!-- loop titles -->
+    <text class="looptag i" x="260" y="34" text-anchor="middle">Inner loop · Crystal Ball</text>
+    <text class="sublbl" x="260" y="52" text-anchor="middle">measure → forecast → reconcile → recommend → score</text>
+    <text class="looptag o" x="770" y="34" text-anchor="middle">Outer loop · Commercial flywheel</text>
+    <text class="sublbl" x="770" y="52" text-anchor="middle">call-out → pitch → buy → ship → sell → reorder</text>
+
+    <!-- rings + travelling dots -->
+    <path class="ring i" d="M260,110 A175,190 0 1 0 260,490 A175,190 0 1 0 260,110"/>
+    <path class="ring o" d="M770,90 A205,210 0 1 1 770,510 A205,210 0 1 1 770,90"/>
+    <circle class="dot i" r="6"><animateMotion dur="7s" repeatCount="indefinite"
+      path="M260,110 A175,190 0 1 0 260,490 A175,190 0 1 0 260,110"/></circle>
+    <circle class="dot" r="6"><animateMotion dur="8s" repeatCount="indefinite"
+      path="M770,90 A205,210 0 1 1 770,510 A205,210 0 1 1 770,90"/></circle>
+
+    <!-- coupling: Recommend -> Call-out (forward, PWS) -->
+    <path class="couple" marker-end="url(#arw)" d="M372,455 Q 470,432 512,318"/>
+    <text class="couplbl" x="418" y="404" text-anchor="middle">Recommend → Call-out</text>
+    <text class="sublbl" x="418" y="420" text-anchor="middle" style="fill:var(--gold);opacity:.85">PWS · F10</text>
+
+    <!-- coupling: outcomes/IQS -> inner Ledger (feedback) -->
+    <path class="couple" marker-end="url(#arw)" d="M708,512 C 520,600 300,470 438,278"/>
+    <text class="couplbl" x="512" y="560" text-anchor="middle">Outcomes · IQS ↺ retrain weights</text>
+
+    <!-- INNER NODES (cx260 cy300 rx175 ry190) -->
+    <!-- 1 Signal top -->
+    <g class="node i key"><rect x="192" y="88" width="136" height="46" rx="10"/>
+      <text class="ntitle" x="260" y="108" text-anchor="middle">1 · Signal Engine</text>
+      <text class="nval" x="260" y="124" text-anchor="middle">~162M rank rows</text></g>
+    <!-- 2 Forecast upper-left -->
+    <g class="node i"><rect x="26" y="214" width="140" height="46" rx="10"/>
+      <text class="ntitle" x="96" y="234" text-anchor="middle">2 · Forecast</text>
+      <text class="nval" x="96" y="250" text-anchor="middle">6–12 mo horizon</text></g>
+    <!-- 3 Reconcile lower-left -->
+    <g class="node i"><rect x="89" y="438" width="140" height="46" rx="10"/>
+      <text class="ntitle" x="159" y="458" text-anchor="middle">3 · Reconcile · POS</text>
+      <text class="nval" x="159" y="474" text-anchor="middle">Epoca sell-through</text></g>
+    <!-- 4 Recommend lower-right -->
+    <g class="node i key"><rect x="295" y="438" width="140" height="46" rx="10"/>
+      <text class="ntitle" x="365" y="458" text-anchor="middle">4 · Recommend</text>
+      <text class="nval" x="365" y="474" text-anchor="middle">PWS (F10)</text></g>
+    <!-- 5 Ledger upper-right -->
+    <g class="node i key"><rect x="356" y="214" width="140" height="46" rx="10"/>
+      <text class="ntitle" x="426" y="234" text-anchor="middle">5 · Ledger + Backtest</text>
+      <text class="nval" x="426" y="250" text-anchor="middle">mean IQS 0.82</text></g>
+
+    <!-- OUTER NODES (cx770 cy300 rx205 ry210) -->
+    <!-- Call-out W -->
+    <g class="node o key"><rect x="497" y="277" width="126" height="46" rx="10"/>
+      <text class="ntitle" x="560" y="297" text-anchor="middle">Call-out</text>
+      <text class="nval" x="560" y="313" text-anchor="middle">26 scored</text></g>
+    <!-- Pitch NW -->
+    <g class="node o"><rect x="566" y="122" width="120" height="46" rx="10"/>
+      <text class="ntitle" x="626" y="142" text-anchor="middle">Pitch</text>
+      <text class="nval" x="626" y="158" text-anchor="middle">20 pitched</text></g>
+    <!-- Buyer accepts N -->
+    <g class="node o"><rect x="710" y="66" width="120" height="46" rx="10"/>
+      <text class="ntitle" x="770" y="86" text-anchor="middle">Buyer accepts</text>
+      <text class="nval" x="770" y="102" text-anchor="middle">not yet logged</text></g>
+    <!-- MRF NE -->
+    <g class="node o"><rect x="854" y="122" width="146" height="46" rx="10"/>
+      <text class="ntitle" x="927" y="142" text-anchor="middle">MRF · Price · Factory</text>
+      <text class="nval" x="927" y="158" text-anchor="middle">~51% avg margin</text></g>
+    <!-- Buy PO E -->
+    <g class="node o"><rect x="912" y="277" width="120" height="46" rx="10"/>
+      <text class="ntitle" x="972" y="297" text-anchor="middle">Buy · PO</text>
+      <text class="nval" x="972" y="313" text-anchor="middle">sourcing</text></g>
+    <!-- Ship SE -->
+    <g class="node o"><rect x="854" y="432" width="120" height="46" rx="10"/>
+      <text class="ntitle" x="914" y="452" text-anchor="middle">Ship</text>
+      <text class="nval" x="914" y="468" text-anchor="middle">freight · HTS</text></g>
+    <!-- Sell-through S -->
+    <g class="node o key"><rect x="704" y="490" width="132" height="46" rx="10"/>
+      <text class="ntitle" x="770" y="510" text-anchor="middle">Sell-through</text>
+      <text class="nval" x="770" y="526" text-anchor="middle">$143.0M gross</text></g>
+    <!-- Reorder SW -->
+    <g class="node o key"><rect x="558" y="432" width="132" height="46" rx="10"/>
+      <text class="ntitle" x="624" y="452" text-anchor="middle">Reorder · Variate</text>
+      <text class="nval" x="624" y="468" text-anchor="middle">73% reorder</text></g>
+  </svg>
+  </div>
+  <div class="legend">
+    <span><span class="swatch" style="border-color:var(--accent)"></span><b>Inner loop</b> — prediction (F1–F13)</span>
+    <span><span class="swatch" style="border-color:var(--accent2)"></span><b>Outer loop</b> — commercial outcomes</span>
+    <span><span class="swatch" style="border-color:var(--gold)"></span><b>Coupling</b> — Recommend feeds Call-out; IQS feeds back</span>
+  </div>
+</section>
+
+<!-- 3. IQS LEADERBOARD -->
+<section>
+  <h2><span class="n">02</span>Call-out leaderboard — by Item Quality Score</h2>
+  <p class="lead">Every call-out graded on its real outer-loop journey (F13 IQS): pitched → accepted →
+  margin → sell-through → reorder. Sorted best-first. The IQS bar is the training label the model
+  learns to predict. Note the saturation at 1.00 for high-volume cookware/bakeware — flagged for
+  re-tune at first retrain.</p>
+  <div class="card tablewrap">
+  <table>
+    <thead><tr>
+      <th class="prod">Call-out concept</th><th>Category</th>
+      <th class="num">IQS</th><th style="width:150px">&nbsp;</th>
+      <th class="num">Realized gross</th><th class="num">Margin</th><th>Reordered</th>
+    </tr></thead>
+    <tbody>
+      <tr class="grpr"><td colspan="7">IQS 1.00 — proven winners (13)</td></tr>
+      <tr><td class="prod">11-pc cast-aluminum PFAS-free ceramic cookware set</td><td><span class="tag">Cookware</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$43.3M</td><td class="num">38%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Modular stackable ceramic bakeware</td><td><span class="tag">Bakeware</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$38.2M</td><td class="num">37%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Cast aluminum cookware set</td><td><span class="tag">Cookware</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$24.5M</td><td class="num">39%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Non-toxic cast aluminum cookware</td><td><span class="tag">Cookware</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$24.5M</td><td class="num">39%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Enameled cast iron bread baker</td><td><span class="tag">Bakeware</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$3.48M</td><td class="num">49%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Stackable air fryer</td><td><span class="tag">Gadgets</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$2.95M</td><td class="num">57%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Ice maker tumbler with snack tray</td><td><span class="tag">Hydration</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$1.17M</td><td class="num">40%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Glass nested food storage w/ bamboo lids</td><td><span class="tag">Food Storage</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$938K</td><td class="num">39%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Magnetic charcuterie / serving set</td><td><span class="tag">Gadgets</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$618K</td><td class="num">55%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">10-piece silicone tool set</td><td><span class="tag">Gadgets</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$485K</td><td class="num">40%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Meat chopper</td><td><span class="tag">Gadgets</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$350K</td><td class="num">53%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Nesting mixing bowls in color</td><td><span class="tag">Gadgets</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$247K</td><td class="num">39%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Stainless steel electric lunch box</td><td><span class="tag">Food Storage</span></td><td class="num">1.00</td><td><span class="bar"><span style="width:100%"></span></span></td><td class="num">$241K</td><td class="num">48%</td><td><span class="pill win">yes</span></td></tr>
+      <tr class="grpr"><td colspan="7">IQS 0.50–0.99 — solid, still learning (9)</td></tr>
+      <tr><td class="prod">Air fryer liners</td><td><span class="tag">Gadgets</span></td><td class="num">0.98</td><td><span class="bar"><span style="width:97.5%"></span></span></td><td class="num">$233K</td><td class="num">65%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Candle warmer lamp</td><td><span class="tag">Candles</span></td><td class="num">0.92</td><td><span class="bar"><span style="width:91.7%"></span></span></td><td class="num">$435K</td><td class="num">55%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Lamp warmer</td><td><span class="tag">Candles</span></td><td class="num">0.92</td><td><span class="bar"><span style="width:91.7%"></span></span></td><td class="num">$435K</td><td class="num">55%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">360 rotating fridge storage rack</td><td><span class="tag">Food Storage</span></td><td class="num">0.90</td><td><span class="bar"><span style="width:90%"></span></span></td><td class="num">$201K</td><td class="num">25%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Instant read thermometer</td><td><span class="tag">Gadgets</span></td><td class="num">0.87</td><td><span class="bar"><span style="width:86.5%"></span></span></td><td class="num">$157K</td><td class="num">70%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Motivational water bottle</td><td><span class="tag">Hydration</span></td><td class="num">0.86</td><td><span class="bar"><span style="width:85.5%"></span></span></td><td class="num">$126K</td><td class="num">57%</td><td><span class="pill cool">no</span></td></tr>
+      <tr><td class="prod">Stackable bakeware</td><td><span class="tag">Bakeware</span></td><td class="num">0.78</td><td><span class="bar"><span style="width:78%"></span></span></td><td class="num">$134K</td><td class="num">59%</td><td><span class="pill win">yes</span></td></tr>
+      <tr><td class="prod">Double-walled insulated beverage dispenser</td><td><span class="tag">Beverage Disp.</span></td><td class="num">0.65</td><td><span class="bar"><span style="width:65.2%"></span></span></td><td class="num">$8.8K</td><td class="num">74%</td><td><span class="pill cool">no</span></td></tr>
+      <tr><td class="prod">Glass double-jar beverage station</td><td><span class="tag">Beverage Disp.</span></td><td class="num">0.65</td><td><span class="bar"><span style="width:65.2%"></span></span></td><td class="num">$8.8K</td><td class="num">74%</td><td><span class="pill cool">no</span></td></tr>
+      <tr class="grpr"><td colspan="7">IQS &lt; 0.50 — weak / unmatched (4)</td></tr>
+      <tr><td class="prod">Magnetic spice organizers</td><td><span class="tag">Gadgets</span></td><td class="num">0.46</td><td><span class="bar"><span style="width:46.2%;background:var(--warn)"></span></span></td><td class="num">$37K</td><td class="num">64%</td><td><span class="pill cool">no</span></td></tr>
+      <tr><td class="prod">Towel warmer</td><td><span class="tag">Home</span></td><td class="num">0.46</td><td><span class="bar"><span style="width:45.9%;background:var(--warn)"></span></span></td><td class="num">$126K</td><td class="num">45%</td><td><span class="pill cool">no</span></td></tr>
+      <tr><td class="prod">Oil sprayer</td><td><span class="tag">Gadgets</span></td><td class="num">0.00</td><td><span class="bar"><span style="width:2%;background:var(--warn)"></span></span></td><td class="num">—</td><td class="num">—</td><td><span class="pill na">no match</span></td></tr>
+      <tr><td class="prod">Glass divided meal prep containers</td><td><span class="tag">Food Storage</span></td><td class="num">0.00</td><td><span class="bar"><span style="width:2%;background:var(--warn)"></span></span></td><td class="num">—</td><td class="num">—</td><td><span class="pill na">no match</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="asof">Source: <code style="font-family:var(--mono)">data/callout_ledger.csv</code> · IQS = F13 Item Quality Score. Two concepts (oil sprayer, glass meal-prep) found no internal sell-through match — an honest zero, and exactly the funnel-attribution signal (F16) the loop is built to surface.</p>
+</section>
+
+<!-- 4. SIGNALS NOW -->
+<section>
+  <h2><span class="n">03</span>Signals now — live breakout climbers</h2>
+  <p class="lead">Top rank-velocity climbers pulled live from the Amazon daily time series (F1, log-rank
+  momentum: last 14 days vs 30–44 days prior; lower rank = more popular, so these are
+  <span class="up">climbing</span>). This is the inner loop's Signal Engine in the act of surfacing
+  pre-peak items across three roadmap categories.</p>
+  <div class="card tablewrap">
+  <table>
+    <thead><tr>
+      <th>Category</th><th class="prod">Product</th><th class="num">Rank prior→now</th>
+      <th class="num">Velocity</th><th class="num">Reviews +30d</th><th class="num">Rating</th><th class="num">Price</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><span class="tag">Cookware</span></td><td class="prod">CAROTE 21-pc Ceramic Cookware Set (PFAS-free)</td><td class="num"><span class="up">88 → 7</span></td><td class="num up">+2.53</td><td class="num">—</td><td class="num">4.68</td><td class="num">$112</td></tr>
+      <tr><td><span class="tag">Cookware</span></td><td class="prod">24-pc Ceramic Non-Stick w/ 8Qt Stock (PFAS-free)</td><td class="num"><span class="up">36 → 6</span></td><td class="num up">+1.82</td><td class="num">+3</td><td class="num">4.91</td><td class="num">$56</td></tr>
+      <tr><td><span class="tag">Cookware</span></td><td class="prod">24-pc Titanium-Reinforced Ceramic Set</td><td class="num"><span class="up">14 → 5</span></td><td class="num up">+1.06</td><td class="num">—</td><td class="num">4.80</td><td class="num">$70</td></tr>
+      <tr><td><span class="tag">Food Storage</span></td><td class="prod">BRIVARA Ceramic-Coated Glass Containers (No PTFE)</td><td class="num"><span class="up">59 → 15</span></td><td class="num up">+1.38</td><td class="num">+8</td><td class="num">4.50</td><td class="num">$233</td></tr>
+      <tr><td><span class="tag">Food Storage</span></td><td class="prod">Vacuum Sealer Bags for Food, 6-pack rolls</td><td class="num"><span class="up">33 → 9</span></td><td class="num up">+1.30</td><td class="num">+127</td><td class="num">4.50</td><td class="num">$15</td></tr>
+      <tr><td><span class="tag">Food Storage</span></td><td class="prod">IKKAB 3-pack Fruit Storage Containers for Fridge</td><td class="num"><span class="up">80 → 25</span></td><td class="num up">+1.15</td><td class="num">—</td><td class="num">3.86</td><td class="num">$11</td></tr>
+      <tr><td><span class="tag">Gadgets</span></td><td class="prod">Sevenblue 4-pack Magnetic Spice Rack for Fridge</td><td class="num"><span class="up">70 → 13</span></td><td class="num up">+1.65</td><td class="num">+273</td><td class="num">4.80</td><td class="num">$12</td></tr>
+      <tr><td><span class="tag">Gadgets</span></td><td class="prod">Air Fryer Paper Liners, 120-pc disposable</td><td class="num"><span class="up">19 → 6</span></td><td class="num up">+1.09</td><td class="num">+416</td><td class="num">4.60</td><td class="num">$9</td></tr>
+      <tr><td><span class="tag">Gadgets</span></td><td class="prod">35-pc Griddle Accessories Kit (flat-top grill)</td><td class="num"><span class="up">66 → 31</span></td><td class="num up">+0.77</td><td class="num">+199</td><td class="num">4.70</td><td class="num">$25</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="asof">Live query: <code style="font-family:var(--mono)">crystalball.list_item</code> (Amazon, region 1 · Cookware cat 35, Food Storage cat 84, Gadgets cat 11) via the read-only Epoca SQL tool, F1/F2/F3 pattern from <code style="font-family:var(--mono)">sql/01_breakout_radar.sql</code>. Data as of 2026-07-02. Signal note: the cookware climbers cluster hard on <b>PFAS-free / ceramic / titanium</b> — the same features driving Epoca's IQS 1.00 cookware winners above. Some breakouts (spice rack, air-fryer liners, meal-prep gadgets) are low-price impulse items — thin margin per unit, read velocity accordingly.</p>
+</section>
+
+<!-- 5. CATEGORY COVERAGE -->
+<section>
+  <h2><span class="n">04</span>Category coverage</h2>
+  <p class="lead">Each category renders its own live Crystal Ball brief off the same model. Open any deck.</p>
+  <div class="grid">
+    <a class="cov" href="crystal-ball-cookware-deck.html"><span class="cat">Cookware</span><span class="file">crystal-ball-cookware-deck.html</span><span class="arw">Open brief →</span></a>
+    <a class="cov" href="crystal-ball-foodstorage-deck.html"><span class="cat">Food Storage</span><span class="file">crystal-ball-foodstorage-deck.html</span><span class="arw">Open brief →</span></a>
+    <a class="cov" href="crystal-ball-bakeware-deck.html"><span class="cat">Bakeware</span><span class="file">crystal-ball-bakeware-deck.html</span><span class="arw">Open brief →</span></a>
+    <a class="cov" href="crystal-ball-gadgets-deck.html"><span class="cat">Gadgets</span><span class="file">crystal-ball-gadgets-deck.html</span><span class="arw">Open brief →</span></a>
+    <a class="cov" href="crystal-ball-candles-deck.html"><span class="cat">Candles</span><span class="file">crystal-ball-candles-deck.html</span><span class="arw">Open brief →</span></a>
+    <a class="cov" href="crystal-ball-drinkware-deck.html"><span class="cat">Drinkware</span><span class="file">crystal-ball-drinkware-deck.html</span><span class="arw">Open brief →</span></a>
+    <a class="cov" href="crystal-ball-cookware-triply-deck.html"><span class="cat">Cookware · Tri-Ply</span><span class="file">crystal-ball-cookware-triply-deck.html</span><span class="arw">Open brief →</span></a>
+    <a class="cov" href="crystal-ball-serveware-deck.html"><span class="cat">Serveware</span><span class="file">crystal-ball-serveware-deck.html</span><span class="arw">Open brief →</span></a>
+  </div>
+  <div class="callout">
+    <b>How to read the coupling.</b> The cookware climbers in §03 (PFAS-free ceramic, titanium) are the
+    live Signal Engine output; the IQS 1.00 cast-aluminum / ceramic cookware in §02 is the outer loop
+    confirming those exact features made real margin. External signal and internal money agree — that
+    agreement is the flywheel turning.
+  </div>
+</section>
+
+<div class="foot">
+  <b>Method &amp; provenance.</b> KPI strip, leaderboard, and IQS scores computed directly from
+  <code>data/callout_ledger.csv</code> (26 scored call-outs, F13 Item Quality Score). Signals-now
+  climbers pulled live from <code>crystalball</code> (Amazon daily rankings, region 1) via the
+  read-only <code>epocadatalake</code> SQL tool using the F1/F2/F3 breakout pattern
+  (<code>sql/01_breakout_radar.sql</code>). Signal-engine scale (~162M rank-history rows; 119,515 rows
+  across 1,314 lists on the latest day) verified live against <code>crystalball.list_item</code>.
+  Outer-loop outcomes trace through <code>shaundatabase</code> sell-through. Model &amp; formulas:
+  <code>docs/CRYSTAL_BALL_LOOP_V2.md</code> · refresh runbook: <code>docs/FLYWHEEL_AUTOMATION.md</code>.
+  All figures live as of <b>2026-07-02</b> — this page renders the model and is meant to regenerate
+  each cycle. Where a signal is thin it is shown as thin (2 unmatched call-outs; buyer-acceptance not
+  yet logged; 14 IQS values saturated at 1.00 pending re-tune).
+</div>
+</div>
+</body></html>
