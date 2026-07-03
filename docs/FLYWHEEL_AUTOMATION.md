@@ -43,13 +43,14 @@ retrain (§4).
 
 | Task | Cadence | Why |
 |---|---|---|
-| **Outcome refresh** (run `06`, update `iqs` + `scored_asof`) | **Monthly** | `v_so_history` rolls up by `yr`/`mth`; a month is the smallest unit where units/margin/active-months actually move. Cheap (one query), keeps IQS labels fresh between deck cycles. |
-| **Drift check** (compare current vs baseline distribution) | **Monthly**, right after the refresh | Cheap; it's the trigger that decides whether a retrain is due. |
+| **Outcome refresh** (run `06`, update `iqs` + `scored_asof`) | **Weekly** (Mon 09:00) | Set per Epoca directive. `v_so_history` rolls up by month so most weeks move little, but a weekly cadence gives an always-fresh label, an auditable drift trail, and early warning the moment a cohort turns. Cost is one cheap query. |
+| **Drift check** (compare current vs baseline distribution) | **Weekly**, right after the refresh | Cheap; it's the trigger that decides whether a retrain is due. Appends to `data/ledger_drift_log.csv`. |
 | **PWS retrain** (re-fit F10/F11 weights on IQS) | **Quarterly** *or* on a drift breach (§4) | Aligns with the seasonal deck cycle (Sam's Club Fall/Holiday/SS windows) and gives new call-outs ~1–2 quarters to accrue sell-through before they become training labels. Retraining faster than that just re-fits noise. |
 
-Rationale: outcomes accrue slowly (a call-out needs months of ship history before
-its IQS is meaningful), so scoring monthly but retraining quarterly matches the
-signal's real update rate without overfitting.
+Rationale: the ledger is **re-scored weekly** for freshness and a fine-grained
+drift trail, while the heavier PWS retrain stays quarterly (or on a drift breach)
+because outcomes accrue over months — scoring often but retraining seasonally
+matches the signal's real update rate without overfitting.
 
 ---
 
@@ -112,11 +113,13 @@ available snapshot and flag it lower-confidence.
 ## 5. Scheduling (documented — DO NOT enable without approval)
 
 The environment exposes scheduled-routine tools (`create_trigger` /
-`send_later`). **A live trigger is intentionally NOT created here** — the
-coordinator/user approves turning it on. When approved, create it exactly as:
+`send_later`). **Status: the weekly trigger is configured to be turned ON per
+Epoca directive, but the create_trigger call is gated behind a one-time approval
+that must be granted in-session** — approve it and the routine below goes live.
+Config to approve:
 
-- **Recurrence (monthly refresh):** cron `0 9 2 * *` (09:00 on the 2nd of each
-  month, after month-end data settles).
+- **Recurrence (weekly refresh):** cron `0 9 * * 1` (Mondays 09:00 UTC), fresh
+  session per fire.
 - **Recurrence (quarterly retrain reminder):** cron `0 9 5 1,4,7,10 *`.
 - **Routine prompt (monthly):**
 
