@@ -1,7 +1,8 @@
 -- =====================================================================
 -- 06_ledger_refresh.sql  —  Crystal Ball Loop 2.0, formula F13 (IQS)
--- THE FLYWHEEL REFRESH PASS. Scores ALL 26 call-outs in
--- ../data/callout_ledger.csv against real outer-loop outcomes in ONE query,
+-- THE FLYWHEEL REFRESH PASS. Scores ALL 34 call-outs in
+-- ../data/callout_ledger.csv (26 historical 2025 seeds + 8 forward-looking
+-- 2026 deck picks) against real outer-loop outcomes in ONE query,
 -- shaped ready to write straight back into the ledger's outcome columns:
 --   callout_id, run_date, items_matched, active_months, units, gross,
 --   margin_pct, iqs
@@ -27,34 +28,47 @@
 -- item_code join for a precise, auditable outcome.
 -- =====================================================================
 
-WITH ledger(callout_id, concept, pat, target_margin) AS (VALUES
-  -- callout_id, concept label, LOWER regex match pattern (synonym-aware), target margin %
-  ('CB-2025-001','Cast aluminum cookware set',                 'cast al|\yca cer\y|\yca\y',            35),
-  ('CB-2025-002','Motivational water bottle',                  'water bottle|motivational',            30),
-  ('CB-2025-003','Magnetic charcuterie / serving set',         'charcuterie|serving|serveware',        35),
-  ('CB-2025-004','Ice maker tumbler with snack tray',          'tumbler|snack tray',                   30),
-  ('CB-2025-005','Towel warmer',                               'towel warmer',                         35),
-  ('CB-2025-006','Oil sprayer',                                'oil spray|oil mist|oil dispenser',     35),  -- 0 matches
-  ('CB-2025-007','Stackable bakeware',                         'bakeware',                             35),
-  ('CB-2025-008','Air fryer liners',                           'fryer liner|air fryer liner',          35),
-  ('CB-2025-009','Stainless steel electric lunch box',         'lunch box|lunch warmer|electric lunch',30),
-  ('CB-2025-010','Candle warmer lamp',                         'candle warmer|warmer lamp|\ywarmer\y', 40),
-  ('CB-2025-011','Instant read thermometer',                   'thermometer',                          35),
-  ('CB-2025-012','Meat chopper',                               'chopper',                              35),
-  ('CB-2025-013','Glass divided meal prep containers',         'meal prep|divided contain',            30),  -- 0 matches
-  ('CB-2025-014','Glass nested food storage w/ bamboo lids',   'bamboo|food storage',                  30),
-  ('CB-2025-015','10-piece silicone tool set',                 'silicone',                             30),
-  ('CB-2025-016','360 rotating fridge storage rack',           'lazy susan|rotating|turntable|fridge', 35),
-  ('CB-2025-017','Enameled cast iron bread baker',             'cast iron|enamel|dutch oven|bread',    35),
-  ('CB-2025-018','Modular stackable ceramic bakeware',         'ceramic|\ycer\y|bakeware',             35),
-  ('CB-2025-019','Double-walled insulated beverage dispenser', 'dispenser|beverage disp',              30),
-  ('CB-2025-020','Non-toxic cast aluminum cookware',           'cast al|\yca cer\y|\yca\y',            35),
-  ('CB-2025-021','Magnetic spice organizer',                   'spice',                                35),
-  ('CB-2025-022','Lamp warmer',                                'candle warmer|warmer lamp|\ywarmer\y', 40),
-  ('CB-2025-023','Stackable air fryer',                        'air fryer',                            35),
-  ('CB-2025-024','Nesting mixing bowls in color',              'mixing bowl|nesting bowl',             35),
-  ('CB-2025-025','11pc cast aluminum PFAS-free ceramic CWS',   'cast al|\yca cer\y|ceramic|\ycer\y|\yca\y', 35),
-  ('CB-2025-026','Glass double-jar beverage station',          'dispenser|beverage|drink station',     30)
+WITH ledger(callout_id, concept, pat, target_margin, since_yr) AS (VALUES
+  -- callout_id, concept label, LOWER regex pattern (synonym-aware), target margin %,
+  -- since_yr = outcome-window START. Historical 2025 seeds score FY2025+;
+  -- forward-looking 2026 picks score FY2026+ ONLY, so a new call-out never
+  -- inherits credit for items sold before it was made. (Exact-item curation via
+  -- linked_item_codes remains the precise fix.)
+  ('CB-2025-001','Cast aluminum cookware set',                 'cast al|\yca cer\y|\yca\y',            35, 2025),
+  ('CB-2025-002','Motivational water bottle',                  'water bottle|motivational',            30, 2025),
+  ('CB-2025-003','Magnetic charcuterie / serving set',         'charcuterie|serving|serveware',        35, 2025),
+  ('CB-2025-004','Ice maker tumbler with snack tray',          'tumbler|snack tray',                   30, 2025),
+  ('CB-2025-005','Towel warmer',                               'towel warmer',                         35, 2025),
+  ('CB-2025-006','Oil sprayer',                                'oil spray|oil mist|oil dispenser',     35, 2025),  -- 0 matches
+  ('CB-2025-007','Stackable bakeware',                         'bakeware',                             35, 2025),
+  ('CB-2025-008','Air fryer liners',                           'fryer liner|air fryer liner',          35, 2025),
+  ('CB-2025-009','Stainless steel electric lunch box',         'lunch box|lunch warmer|electric lunch',30, 2025),
+  ('CB-2025-010','Candle warmer lamp',                         'candle warmer|warmer lamp|\ywarmer\y', 40, 2025),
+  ('CB-2025-011','Instant read thermometer',                   'thermometer',                          35, 2025),
+  ('CB-2025-012','Meat chopper',                               'chopper',                              35, 2025),
+  ('CB-2025-013','Glass divided meal prep containers',         'meal prep|divided contain',            30, 2025),  -- 0 matches
+  ('CB-2025-014','Glass nested food storage w/ bamboo lids',   'bamboo|food storage',                  30, 2025),
+  ('CB-2025-015','10-piece silicone tool set',                 'silicone',                             30, 2025),
+  ('CB-2025-016','360 rotating fridge storage rack',           'lazy susan|rotating|turntable|fridge', 35, 2025),
+  ('CB-2025-017','Enameled cast iron bread baker',             'cast iron|enamel|dutch oven|bread',    35, 2025),
+  ('CB-2025-018','Modular stackable ceramic bakeware',         'ceramic|\ycer\y|bakeware',             35, 2025),
+  ('CB-2025-019','Double-walled insulated beverage dispenser', 'dispenser|beverage disp',              30, 2025),
+  ('CB-2025-020','Non-toxic cast aluminum cookware',           'cast al|\yca cer\y|\yca\y',            35, 2025),
+  ('CB-2025-021','Magnetic spice organizer',                   'spice',                                35, 2025),
+  ('CB-2025-022','Lamp warmer',                                'candle warmer|warmer lamp|\ywarmer\y', 40, 2025),
+  ('CB-2025-023','Stackable air fryer',                        'air fryer',                            35, 2025),
+  ('CB-2025-024','Nesting mixing bowls in color',              'mixing bowl|nesting bowl',             35, 2025),
+  ('CB-2025-025','11pc cast aluminum PFAS-free ceramic CWS',   'cast al|\yca cer\y|ceramic|\ycer\y|\yca\y', 35, 2025),
+  ('CB-2025-026','Glass double-jar beverage station',          'dispenser|beverage|drink station',     30, 2025),
+  -- ---- Forward-looking 2026 picks from the category decks (score FY2026+ only) ----
+  ('CB-2026-027','CA PFAS-free ceramic set w/ detachable handle','cast al|\yca cer\y|detachable',           35, 2026),
+  ('CB-2026-028','2pk leak-proof BPA-free divided bento',        'bento|leak.?proof|borosilicate|divided',  30, 2026),
+  ('CB-2026-029','3pc ceramic baker + roaster w/ cooling rack',  'ceramic bak|roaster|cooling rack',        35, 2026),
+  ('CB-2026-030','Elements 6pc stainless non-slip gadget set',   'stainless.*(gadget|tool)|non.?slip|shredder|\yscale\y', 30, 2026),
+  ('CB-2026-031','PH soy candle gift set + warmer-lamp attach',  'soy candle|candle warmer|warmer lamp',    40, 2026),
+  ('CB-2026-032','Primula DW stainless insulated 2pk gift set',  'double.?wall|insulated.*(mug|tumbler)',   30, 2026),
+  ('CB-2026-033','Value tri-ply 10pc step-up SKU',               'tri.?ply|3.?ply|3ply',                    35, 2026),
+  ('CB-2026-034','CL magnetic charcuterie board w/ det. handle', 'charcuterie|serving board|cheese board',  35, 2026)
 ),
 outcome AS (
   SELECT l.callout_id, l.concept, l.target_margin,
@@ -68,7 +82,7 @@ outcome AS (
   FROM ledger l
   LEFT JOIN shaundatabase.v_so_history h
     ON lower(h.item_code_desc) ~ l.pat            -- PARAM: synonym-aware match
-   AND h.yr >= 2025                               -- PARAM: outcome window
+   AND h.yr >= l.since_yr                         -- per-row outcome window (2025 seeds / 2026 picks)
    AND h.shipped_qty > 0
   GROUP BY l.callout_id, l.concept, l.target_margin
 )
