@@ -12,6 +12,67 @@ reasoning. This document is the plan to combine them and maximize the loop.
 
 ---
 
+## 0. Two loops, one flywheel
+
+There are actually **two** loops, nested. Getting the relationship right is the
+whole game.
+
+**The outer loop — the commercial flywheel.** This is the real business:
+
+```
+   ┌──▶ call out an item ─▶ pitch to buyer ─▶ buyer likes it ─▶ MRF (spec)
+   │                                                               │
+   │                                                     price comparison
+   │                                                               │
+   │                                                     choose factory
+   │                                                               │
+   │                                                        buy (PO)
+   │                                                               │
+   │                                                          ship
+   │                                                               │
+   │                                                     sells well?
+   │                                                               │
+   └──── reorder or variate the item ◀──────────────────────────┘
+```
+
+Every hand-off leaks, and each is moved by its own **impacting variables**:
+buyer fit & timing, spec/tooling feasibility, FOB vs landed cost, MOQ, factory
+reliability & quality, lead time, freight & **tariff/duty** (we hold HTS codes),
+season alignment, competitor launches, price realization, returns, and turns.
+
+**The inner loop — Crystal Ball.** Its entire job is one thing: **raise the
+quality of the items we call out**, so more of them survive the outer loop and
+the ones that do perform better.
+
+**The connection that makes it compound.** The inner loop must be graded on
+**outer-loop outcomes**, not on marketplace rank movement (that's only a proxy).
+The real labels are: *Was it pitched? Did the buyer accept? Did it hit target
+margin after sourcing? Did it sell through vs forecast? Did we reorder/variate?*
+Every one of those already lives in our systems. Feed them back and Crystal Ball
+gets a ground-truth report card every cycle — a **data flywheel** where call-out
+quality compounds. That feedback path (§5A, F13–F16) is the single highest-
+leverage upgrade in this plan.
+
+```
+     OUTER LOOP (commercial outcomes)  ──── labels ────┐
+        pitched · accepted · margin · sold · reordered  │
+                        ▲                                ▼
+                        │                     INNER LOOP (Crystal Ball)
+                        └──── better call-outs ◀──── learns from labels
+```
+
+Where each outcome is captured today:
+
+| Outer-loop stage | Outcome signal | Source system |
+|---|---|---|
+| Pitched | item appears in a deck / offer / item-setup | Librarian |
+| Buyer accepted | approval in emails / meeting notes / setup forms | Librarian (+ mail/notes) |
+| Sourced & bought | PO raised, FOB/landed cost, MOQ, HTS/duty | `sqlmas90` |
+| Sold through | units, velocity vs forecast, price realization | `shaundatabase`, `epocasql` |
+| Reorder / variate | repeat/expanded PO | `sqlmas90` |
+
+---
+
 ## 1. What "the loop" is today
 
 The Crystal Ball loop is the multi-agent workflow described in the Sam's Club
@@ -150,8 +211,13 @@ Individually each is partial. Chained, they close the loop:
 10. **Internal reconciliation.** Blend Epoca POS/sell-through as ground truth so
     a "trend" is only greenlit when it agrees with what we can actually source
     and move.
-
----
+11. **Outcome-driven learning (the flywheel).** Grade every call-out by what it
+    did in the outer loop — accepted? hit margin? sold? reordered? — and retrain
+    the model on those labels so each cycle calls better items than the last.
+    This is the core of "better and better results into the bigger loop" (§0, §5A).
+12. **Margin-feasibility gate.** Predict achievable landed cost/margin from our
+    own MRF/PO history *before* pitching, so we never spend buyer credibility on
+    a trend we can't source to the price point.
 
 ## 5. The formulas (grounded in the actual variables)
 
@@ -224,16 +290,64 @@ PWS_i =  w1·z(V_i) + w2·z(A_i) + w3·z(RV_i)
        - w9·PriceMismatchToGuardrail
 ```
 
-**F11 — Backtest / Hit-Rate (closes the loop).** Freeze the model as of
+**F11 — Backtest / Hit-Rate (closes the *inner* loop).** Freeze the model as of
 `T − 12mo`, generate predictions, and measure **precision@K** and rank-gain of
-predicted vs actual. Use it to (a) report accuracy to buyers and (b) grid/Bayes-
-tune the PWS weights. Without F11 there is no loop — only a report.
+predicted vs actual marketplace movement. This tunes the model against an
+external proxy. But the *real* grading signal is the outer loop — see F13.
 
 **F12 — Whitespace / Cross-Retailer Gap.**
 ```
 Gap_c = PredictedDemand_c(W)  ×  (1 − AssortmentCoverage_c at target retailer)
 ```
 High demand × low coverage = the priority pick.
+
+---
+
+## 5A. Outcome-driven learning — closing the *outer* loop
+
+F1–F12 predict what *should* trend. F13–F16 grade Crystal Ball on what actually
+happened commercially, and feed it back so call-out quality compounds (§0).
+
+**F13 — Outcome-Weighted Item Quality Score (the training label).** For every
+item we ever called out, roll its outer-loop journey into one score — this is
+the ground-truth label `y` the model is trained to predict, replacing "did rank
+go up" with "did it make money":
+```
+IQS_i =  a·Pitched_i          (0/1  — reached a deck/offer)
+       + b·BuyerAccepted_i    (0/1  — approved)
+       + c·MarginAchieved_i   (SRP − landed cost, vs target margin)
+       + d·SellThroughRatio_i (actual units ÷ forecast units)
+       + e·Reordered_i        (0/1/variate — the strongest winner signal)
+```
+Later, stronger stages get more weight (`a < b < c < d < e`). Partial credit
+means even a buyer-rejected pick still teaches the model.
+
+**F14 — Margin-Feasibility Prior (call it only if we can source it).** From
+historical MRF/PO cost data (`sqlmas90`) + tariff/HTS + freight, predict the
+achievable landed cost and margin for a concept *before* we pitch it. Filters
+out ideas that trend but can't hit the retailer's price/pack guardrail —
+stops us wasting buyer credibility on un-sourceable winners.
+```
+FeasibleMargin_c(W) = SRP_guardrail − f(historical FOB, MOQ, duty, freight)
+```
+Fold it into the PWS as a gate/penalty: `PWS' = PWS × 1[FeasibleMargin ≥ target]`.
+
+**F15 — Forecast Calibration (learn our own conversion rate).** Map the model's
+predicted demand (review-velocity / PWS) to *realized Epoca units* using past
+sell-through (`shaundatabase`, `epocasql`). Re-fit each cycle so the unit
+forecast that drives buy quantities gets more accurate over time (shrinking MAPE
+= fewer overbuys/stockouts in the outer loop).
+
+**F16 — Funnel Attribution (fix the leakiest stage).** Decompose why good
+call-outs died — buyer pass vs margin fail vs sourcing vs sell-through miss — so
+we know whether to improve *what we surface*, *how we price/spec it*, or *how we
+pitch it*. Turns the loop's misses into targeted upstream fixes.
+
+**Retraining.** Each cycle, regress the pre-launch feature vector
+(V, A, RV, SDV, SL, seasonal fit, lifecycle, feature-lift tokens) against the
+realized `IQS` (F13). The fitted coefficients become the next cycle's PWS
+weights (F10) — so the system literally learns which signals predict *commercial*
+winners for Epoca specifically, not just marketplace movement.
 
 ---
 
@@ -288,14 +402,21 @@ across every category, marketplace, and the social/search leading indicators.
         └───────────────────────────┬─────────────────────────────┘
                                      ▼
         ┌─────────────────────────────────────────────────────────┐
-        │  5. PREDICTION LEDGER + BACKTEST  (F11)  ── retune ──┐   │
+        │  5. PREDICTION LEDGER + OUTCOME FEEDBACK                 │
+        │     F11 backtest (proxy) · F13 IQS from OUTER LOOP:      │
+        │     pitched→accepted→margin→sold→reordered               │
+        │     F14 margin prior · F15 forecast calib · F16 attrib   │
         └──────────────────────────────────────────────────────┘  │
                      ▲                                              │
-                     └──────────── feeds weights back to 1 & 4 ────┘
+                     └──── refits PWS weights back into 1 & 4 ─────┘
+                     ▲
+                     │  outer-loop results (sqlmas90 / shaundatabase / epocasql / Librarian)
 ```
 
-Stage 5 is the addition that makes it a **loop**. Each cycle grades the last
-cycle and tunes the weights.
+Stage 5 is what makes it a **loop**. The inner backtest (F11) tunes against a
+proxy; the outer-loop outcomes (F13–F16) tune against **money made**. Each cycle
+grades the last one on real commercial results and refits the weights — quality
+compounds.
 
 ---
 
@@ -321,15 +442,25 @@ cycle and tunes the weights.
 - F7 STL forecasting, F8 lifecycle staging, F9 feature-lift leaderboard.
 - *Deliverable: "features & benefits trending into <season>" as measured lift.*
 
-**Phase 4 — Reconcile & score (weeks 8–10)**
+**Phase 4 — Reconcile & score, inner loop (weeks 8–10)**
 - Fuse POS/sell-through via Librarian + foreign schemas.
 - Stand up the F11 prediction ledger; run the first backtest and publish a
-  hit rate. Tune PWS weights.
+  hit rate. Tune PWS weights against the marketplace proxy.
+
+**Phase 4B — Instrument the OUTER loop (weeks 10–13) — highest leverage**
+- Build the prediction ledger that tracks every called-out item through
+  pitched → accepted → MRF/margin → PO → sell-through → reorder, joining
+  Librarian (decks/offers/setups) with `sqlmas90` (POs, cost, HTS/duty),
+  `shaundatabase` + `epocasql` (sell-through).
+- Compute F13 IQS labels; add F14 margin-feasibility gate; F15 forecast
+  calibration; F16 funnel attribution.
+- *Deliverable: retrain PWS on real commercial outcomes — the data flywheel
+  turns on, and every future cycle inherits a smarter model.*
 
 **Phase 5 — Productize the loop (ongoing)**
 - Composite PWS (F10) as the one ranked output, auto-filtered per retailer
-  roadmap; Fable writes the narrative; imagery generated per pick; ledger
-  auto-scores each cycle.
+  roadmap and gated by margin feasibility; Fable writes the narrative; imagery
+  generated per pick; ledger auto-scores each cycle against outer-loop results.
 
 ---
 
@@ -344,6 +475,17 @@ cycle and tunes the weights.
 - **Forecast error** — MAPE of F7 demand curves vs realized rank/review velocity.
 - **Cycle latency** — time to re-tailor a full recommendation set for a new
   retailer/season (goal: minutes, from the living model, vs days of deck-building).
+
+**Outer-loop (the metrics that actually pay):**
+- **Buyer acceptance rate** of called-out items — trending up cycle over cycle.
+- **Margin-hit rate** — share of accepted items that reached target margin after
+  sourcing (proves F14 is filtering well).
+- **Sell-through vs forecast** — realized units ÷ forecast (F15 calibration).
+- **Reorder / variate rate** — the north star: share of called-out items that
+  earned a second PO. This is "better and better results into the bigger loop"
+  made measurable.
+- **IQS trend** — average Item Quality Score (F13) of each cohort of call-outs,
+  rising over time = the flywheel is compounding.
 
 ---
 
