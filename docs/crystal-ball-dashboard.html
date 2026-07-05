@@ -58,6 +58,8 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var
 .kpi .k{font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.3;text-transform:uppercase;letter-spacing:.06em;}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:520px){.kpis{grid-template-columns:repeat(2,1fr);}.kpi .v{font-size:1.6rem;}}
+.kpis.k4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:900px){.kpis.k4{grid-template-columns:repeat(2,1fr);}}
 /* loop */
 .loopwrap{overflow-x:auto;background:
    radial-gradient(700px 300px at 22% 8%,rgba(124,108,255,.14),transparent 60%),
@@ -346,6 +348,40 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
     live Signal Engine output; the IQS 1.00 cast-aluminum / ceramic cookware in §02 is the outer loop
     confirming those exact features made real margin. External signal and internal money agree — that
     agreement is the flywheel turning.
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>Backtest v0 — the honesty engine</h2>
+  <p class="lead">Signals frozen at Jul&nbsp;'24 / Jan&nbsp;'25 / Jul&nbsp;'25 with zero look-ahead;
+    200 picks per strategy scored against what actually ranked 6 and 12 months later
+    (F11 harness, <code>sql/07_backtest_hit_rate.sql</code>, deterministic, run live 2026-07-05).</p>
+  <div class="kpis k4">
+    <div class="kpi"><div class="v acc">6.5%</div><div class="k">Baseline precision@10 · 6&nbsp;mo top-10 · the number to beat</div></div>
+    <div class="kpi"><div class="v" style="color:var(--warn)">0.5%</div><div class="k">Pure F1 velocity precision · falsified as a stand-alone picker</div></div>
+    <div class="kpi"><div class="v good">66%</div><div class="k">6-mo survival · velocity confirmed by review volume</div></div>
+    <div class="kpi"><div class="v gold">−0.192</div><div class="k">Median Δρ · volume-confirmed picks (baseline −0.596)</div></div>
+  </div>
+  <div class="card tablewrap">
+    <table>
+      <thead><tr><th>Strategy</th><th>Horizon</th><th class="num">Survived</th><th class="num">Top-10</th><th class="num">Top-20</th><th class="num">Median Δρ</th></tr></thead>
+      <tbody>
+        <tr><td>A · Bestseller proximity (baseline)</td><td>6 mo</td><td class="num">50.5%</td><td class="num">6.5%</td><td class="num">19.0%</td><td class="num">−0.596</td></tr>
+        <tr><td>B · Pure F1 velocity</td><td>6 mo</td><td class="num">28.0%</td><td class="num down">0.5%</td><td class="num">4.5%</td><td class="num">−0.519</td></tr>
+        <tr><td>C · Velocity + review volume</td><td>6 mo</td><td class="num up">66.0%</td><td class="num">1.0%</td><td class="num">8.5%</td><td class="num up">−0.192</td></tr>
+        <tr><td>A · Bestseller proximity (baseline)</td><td>12 mo</td><td class="num">43.0%</td><td class="num">3.0%</td><td class="num">15.5%</td><td class="num">−0.647</td></tr>
+        <tr><td>B · Pure F1 velocity</td><td>12 mo</td><td class="num">30.5%</td><td class="num">1.0%</td><td class="num">3.0%</td><td class="num">−0.664</td></tr>
+        <tr><td>C · Velocity + review volume</td><td>12 mo</td><td class="num up">55.0%</td><td class="num">1.0%</td><td class="num">7.0%</td><td class="num up">−0.177</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <b>What it taught us.</b> Mean reversion is the house edge — the median challenger declines under
+    every strategy, and ~half of all picks fall off the top-100 within 6 months. Pure momentum is a
+    <i>worse</i> picker than the free baseline; momentum <i>confirmed by review volume</i> doubles
+    survival, cuts the median decline ~70%, and reaches deep climbers (rank 57→17, 53→20) proximity
+    can't touch. Method, winner list, and caveats:
+    <a href="https://github.com/brianmelzer/Epo1/blob/main/docs/BACKTEST_V0.md">docs/BACKTEST_V0.md</a>.
   </div>
 </section>
 
