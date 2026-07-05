@@ -2,7 +2,8 @@
 
 *The first run of the F11 backtest harness
 ([`../sql/07_backtest_hit_rate.sql`](../sql/07_backtest_hit_rate.sql)),
-executed live against the `crystalball` data lake on **2026-07-03**. This is
+executed live against the `crystalball` data lake on **2026-07-03** and
+re-run for validation on **2026-07-05** (see §5, *Reproduction*). This is
 the number [`PLATFORM_ARCHITECTURE.md`](PLATFORM_ARCHITECTURE.md) Phase 1
 demands the platform produce before anything else: not a demo, but our own
 measured performance — including where our naive signal loses.*
@@ -46,7 +47,7 @@ window; falling off the top-100 counts as a loss. *Winner* = average rank ≤ 10
 |---|---|---|---|---|
 | A — bestseller proximity | 101 (50.5%) | **13 (6.5%)** | 38 (19.0%) | −0.596 |
 | B — pure velocity | 56 (28.0%) | 1 (0.5%) | 9 (4.5%) | −0.519 |
-| C — velocity + volume | **132 (66.0%)** | 2 (1.0%) | 18 (9.0%) | **−0.192** |
+| C — velocity + volume | **132 (66.0%)** | 2 (1.0%) | 17 (8.5%) | **−0.192** |
 
 ### 12-month horizon
 
@@ -54,13 +55,13 @@ window; falling off the top-100 counts as a loss. *Winner* = average rank ≤ 10
 |---|---|---|---|---|
 | A — bestseller proximity | 86 (43.0%) | 6 (3.0%) | 31 (15.5%) | −0.647 |
 | B — pure velocity | 61 (30.5%) | 2 (1.0%) | 6 (3.0%) | −0.664 |
-| C — velocity + volume | **110 (55.0%)** | 3 (1.5%) | 15 (7.5%) | **−0.177** |
+| C — velocity + volume | **110 (55.0%)** | 2 (1.0%) | 14 (7.0%) | **−0.177** |
 
 Per-category splits (same run) show the pattern holds everywhere: A leads on
 absolute top-10 conversion in most categories; C leads on survival and
 trajectory in every category; B trails on both nearly everywhere.
 
-### What strategy C actually caught (6-month top-20 winners, 18 of 200)
+### What strategy C actually caught (6-month top-20 winners, 17 of 200)
 
 A sample of the deep climbs — picks the proximity baseline cannot make by
 construction:
@@ -72,7 +73,7 @@ construction:
 | Bakeware | 2025-07 | Heavy-duty cooling racks 2 pc | 41 → 16 |
 | Food Storage | 2024-07 | Vtopmart glass meal-prep 8-pack | 39 → 15 |
 | Candles | 2025-01 | Yankee Candle MidSummer's Night | 16 → 5 |
-| Cookware Sets | 2025-07 | Astercook 21-pc ceramic set | 23 → 19 |
+| Food Storage | 2025-01 | GladWare deep-dish containers | 26 → 14 |
 
 ---
 
@@ -130,6 +131,17 @@ promoted.
   conditioning is visible.
 - **Category-average rank.** Products appearing on multiple lists within a
   category are averaged, consistent with the SQL pack's conventions.
+- **Reproduction (2026-07-05 re-run).** Executing the committed file verbatim
+  two days after the first run reproduced every headline metric. The test
+  surfaced two things, both fixed or documented: (1) the pick-ranking
+  `ORDER BY`s originally had no tie-breaker, so exact ties at the pick
+  boundary made pick sets order-dependent — `cb_product_id` tie-breakers were
+  added and the tables above are the canonical deterministic results (the
+  fix moved strategy C's win counts by one pick in three cells); (2) one
+  baseline cell in the truncated 12-month window drifted by one winner as
+  two new collection days arrived — live confirmation of why the platform
+  architecture pins predictions to immutable data snapshots (§3.2/§3.3 of
+  [`PLATFORM_ARCHITECTURE.md`](PLATFORM_ARCHITECTURE.md)).
 
 ## 6. Next iterations of the harness (cheap now that it exists)
 

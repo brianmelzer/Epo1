@@ -76,11 +76,15 @@ challengers AS (
     AND r_now > 10                                -- exclude top-10 incumbents
 ),
 picks AS (
+  -- cb_product_id tie-breakers keep pick sets deterministic across runs
   SELECT *,
-    row_number() OVER (PARTITION BY cat_name, t0 ORDER BY r_now ASC)     AS rn_base,
-    row_number() OVER (PARTITION BY cat_name, t0 ORDER BY velocity DESC) AS rn_vel,
     row_number() OVER (PARTITION BY cat_name, t0
-      ORDER BY CASE WHEN velocity > 0 THEN rev_gain END DESC NULLS LAST) AS rn_comp
+      ORDER BY r_now ASC, cb_product_id)                                 AS rn_base,
+    row_number() OVER (PARTITION BY cat_name, t0
+      ORDER BY velocity DESC, cb_product_id)                             AS rn_vel,
+    row_number() OVER (PARTITION BY cat_name, t0
+      ORDER BY CASE WHEN velocity > 0 THEN rev_gain END DESC NULLS LAST,
+               cb_product_id)                                            AS rn_comp
   FROM challengers
 ),
 strat AS (
