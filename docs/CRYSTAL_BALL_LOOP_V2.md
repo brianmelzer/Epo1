@@ -10,6 +10,10 @@ separate — the **Crystal Ball data lake** (live SQL), the **Librarian**
 (internal document + email knowledge base), and **Fable's** research/analysis
 reasoning. This document is the plan to combine them and maximize the loop.
 
+> **Systems blueprint:** the platform architecture that operationalizes this
+> strategy — agent contract, planes, ledger spine, tech decisions, phased
+> roadmap — lives in [`PLATFORM_ARCHITECTURE.md`](PLATFORM_ARCHITECTURE.md).
+
 ---
 
 ## 0. Two loops, one flywheel

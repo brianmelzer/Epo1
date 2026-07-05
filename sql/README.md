@@ -16,6 +16,9 @@ these are query **templates** you paste and parameterize, not stored objects).
 | `02_feature_lift.sql` | F9 | Which title **features/benefits** are associated with faster movement |
 | `03_cross_retailer_gap.sql` | F12 | Concepts surging on one marketplace but thin on another (early, low-risk picks) |
 | `04_outer_loop_ledger.sql` | F13–F15 | The flywheel: grade items on real sell-through / margin / reorder, and bridge Crystal Ball rankings to internal outcomes (see [`../docs/OUTER_LOOP_LEDGER_FINDINGS.md`](../docs/OUTER_LOOP_LEDGER_FINDINGS.md)) |
+| `05_callout_outcomes.sql` | F13 | Score individual call-out concepts against realized sell-through |
+| `06_ledger_refresh.sql` | F13 | One-pass weekly re-score of the whole call-out ledger (run by [`flywheel-weekly.yml`](../.github/workflows/flywheel-weekly.yml)) |
+| `07_backtest_hit_rate.sql` | F11 | The **backtest harness**: freeze signals at past dates, score strategy picks against 6/12-month actuals (first run: [`../docs/BACKTEST_V0.md`](../docs/BACKTEST_V0.md)) |
 
 ## How to read the signals
 
