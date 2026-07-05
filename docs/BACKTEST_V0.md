@@ -131,6 +131,9 @@ promoted.
   conditioning is visible.
 - **Category-average rank.** Products appearing on multiple lists within a
   category are averaged, consistent with the SQL pack's conventions.
+- **Current list membership.** The category→list mapping reads the list table
+  as of the run, so a list added to a category after a freeze date can
+  contribute outcome rows only. Strategy-symmetric, but a v0 limitation.
 - **Reproduction (2026-07-05 re-run).** Executing the committed file verbatim
   two days after the first run reproduced every headline metric. The test
   surfaced two things, both fixed or documented: (1) the pick-ranking
