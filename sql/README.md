@@ -19,6 +19,9 @@ these are query **templates** you paste and parameterize, not stored objects).
 | `05_callout_outcomes.sql` | F13 | Score individual call-out concepts against realized sell-through |
 | `06_ledger_refresh.sql` | F13 | One-pass weekly re-score of the whole call-out ledger (run by [`flywheel-weekly.yml`](../.github/workflows/flywheel-weekly.yml)) |
 | `07_backtest_hit_rate.sql` | F11 | The **backtest harness**: freeze signals at past dates, score strategy picks against 6/12-month actuals (first run: [`../docs/BACKTEST_V0.md`](../docs/BACKTEST_V0.md)) |
+| `08_backtest_v1_composite.sql` | F10/F11 | Backtest v1 multi-source strategies A–G + ablation (results: [`../docs/BACKTEST_V1_RESULTS.md`](../docs/BACKTEST_V1_RESULTS.md)) |
+| `09_concept_graph_extracts.sql` | — | Source extracts feeding the **Concept Graph v0** builder (see [`../docs/CONCEPT_GRAPH_V0.md`](../docs/CONCEPT_GRAPH_V0.md)) |
+| `09_concept_rollups.sql` | — | Concept-level rank/search/outcome rollups + double-count check for Backtest v2 |
 
 ## How to read the signals
 

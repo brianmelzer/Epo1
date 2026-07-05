@@ -1,0 +1,273 @@
+run_date,entity_type,entity_key,proposed_concept_id,match_type,match_confidence,evidence,disposition
+2026-07-05,amz_product,B0GW8K9DKD,CG-0001,rule_attribute,0.75,title ~* 'cast alumin' in mapped category,needs_review
+2026-07-05,amz_product,B0GW969TGF,CG-0001,rule_attribute,0.75,title ~* 'cast alumin' in mapped category,needs_review
+2026-07-05,amz_product,B0GTGC1SSH,CG-0001,rule_attribute,0.75,title ~* 'cast alumin' in mapped category,needs_review
+2026-07-05,amz_product,B0GZF2QSLY,CG-0001,rule_attribute,0.75,title ~* 'cast alumin' in mapped category,needs_review
+2026-07-05,amz_product,B0GWWGVVKD,CG-0001,rule_attribute,0.75,title ~* 'cast alumin' in mapped category,needs_review
+2026-07-05,amz_product,B0GH7LT5HZ,CG-0002,rule_attribute,0.70,title ~* 'motivational|time.?marker' in mapped category,needs_review
+2026-07-05,amz_product,B0G2RTSQDW,CG-0002,rule_attribute,0.70,title ~* 'motivational|time.?marker' in mapped category,needs_review
+2026-07-05,amz_product,B0G2RTV1K1,CG-0002,rule_attribute,0.70,title ~* 'motivational|time.?marker' in mapped category,needs_review
+2026-07-05,amz_product,B0FS18K5H9,CG-0002,rule_attribute,0.70,title ~* 'motivational|time.?marker' in mapped category,needs_review
+2026-07-05,amz_product,B0FS182374,CG-0002,rule_attribute,0.70,title ~* 'motivational|time.?marker' in mapped category,needs_review
+2026-07-05,amz_product,B0FH6YL3XC,CG-0003,rule_attribute,0.55,title ~* 'charcuterie' in mapped category,needs_review
+2026-07-05,amz_product,B0GJS7YNWN,CG-0003,rule_attribute,0.55,title ~* 'charcuterie' in mapped category,needs_review
+2026-07-05,amz_product,B0G4PY9Y2M,CG-0003,rule_attribute,0.55,title ~* 'charcuterie' in mapped category,needs_review
+2026-07-05,amz_product,B0D2P1HSCV,CG-0003,rule_attribute,0.55,title ~* 'charcuterie' in mapped category,needs_review
+2026-07-05,amz_product,B0G631DYNC,CG-0003,rule_attribute,0.55,title ~* 'charcuterie' in mapped category,needs_review
+2026-07-05,amz_product,B0CJF94M8J,CG-0006,rule_attribute,0.75,title ~* 'oil spray' in mapped category,needs_review
+2026-07-05,amz_product,B0CP4XY9QC,CG-0006,rule_attribute,0.75,title ~* 'oil spray' in mapped category,needs_review
+2026-07-05,amz_product,B0GZ5Z7VFC,CG-0006,rule_attribute,0.75,title ~* 'oil spray' in mapped category,needs_review
+2026-07-05,amz_product,B0GSK1GZFW,CG-0006,rule_attribute,0.75,title ~* 'oil spray' in mapped category,needs_review
+2026-07-05,amz_product,B0GVN3QTF3,CG-0006,rule_attribute,0.75,title ~* 'oil spray' in mapped category,needs_review
+2026-07-05,amz_product,B0GGGDT759,CG-0007,rule_attribute,0.55,title ~* 'stackable' in mapped category,needs_review
+2026-07-05,amz_product,B09VY7BW48,CG-0007,rule_attribute,0.55,title ~* 'stackable' in mapped category,needs_review
+2026-07-05,amz_product,B0GWFVRB5W,CG-0007,rule_attribute,0.55,title ~* 'stackable' in mapped category,needs_review
+2026-07-05,amz_product,B09VXTT9QZ,CG-0007,rule_attribute,0.55,title ~* 'stackable' in mapped category,needs_review
+2026-07-05,amz_product,B0D9W58553,CG-0007,rule_attribute,0.55,title ~* 'stackable' in mapped category,needs_review
+2026-07-05,amz_product,B0C6Y8NYK1,CG-0008,rule_attribute,0.80,"title ~* 'air fryer.{0,20}liner' in mapped category",needs_review
+2026-07-05,amz_product,B0B6PLG6G2,CG-0008,rule_attribute,0.80,"title ~* 'air fryer.{0,20}liner' in mapped category",needs_review
+2026-07-05,amz_product,B0GXPJBX7H,CG-0008,rule_attribute,0.80,"title ~* 'air fryer.{0,20}liner' in mapped category",needs_review
+2026-07-05,amz_product,B0G276ZQRB,CG-0008,rule_attribute,0.80,"title ~* 'air fryer.{0,20}liner' in mapped category",needs_review
+2026-07-05,amz_product,B0BKR66QGC,CG-0008,rule_attribute,0.80,"title ~* 'air fryer.{0,20}liner' in mapped category",needs_review
+2026-07-05,amz_product,B0GK1ZR1TJ,CG-0010,rule_attribute,0.80,title ~* 'candle warmer|warmer lamp' in mapped category,needs_review
+2026-07-05,amz_product,B0GWDV1FL5,CG-0010,rule_attribute,0.80,title ~* 'candle warmer|warmer lamp' in mapped category,needs_review
+2026-07-05,amz_product,B0GLFL395M,CG-0010,rule_attribute,0.80,title ~* 'candle warmer|warmer lamp' in mapped category,needs_review
+2026-07-05,amz_product,B0CTJGJL2T,CG-0010,rule_attribute,0.80,title ~* 'candle warmer|warmer lamp' in mapped category,needs_review
+2026-07-05,amz_product,B0DZFGTCLR,CG-0010,rule_attribute,0.80,title ~* 'candle warmer|warmer lamp' in mapped category,needs_review
+2026-07-05,amz_product,B0GVM8N2CK,CG-0011,rule_attribute,0.75,"title ~* 'instant read.{0,15}thermometer' in mapped category",needs_review
+2026-07-05,amz_product,B00S93EQUK,CG-0011,rule_attribute,0.75,"title ~* 'instant read.{0,15}thermometer' in mapped category",needs_review
+2026-07-05,amz_product,B07XXSYLL8,CG-0011,rule_attribute,0.75,"title ~* 'instant read.{0,15}thermometer' in mapped category",needs_review
+2026-07-05,amz_product,B0F5X4FM3Q,CG-0011,rule_attribute,0.75,"title ~* 'instant read.{0,15}thermometer' in mapped category",needs_review
+2026-07-05,amz_product,B0GZ3173YY,CG-0011,rule_attribute,0.75,"title ~* 'instant read.{0,15}thermometer' in mapped category",needs_review
+2026-07-05,amz_product,B0GD71NSS8,CG-0012,rule_attribute,0.80,title ~* 'meat chopper' in mapped category,needs_review
+2026-07-05,amz_product,B08JKXDFQ9,CG-0012,rule_attribute,0.80,title ~* 'meat chopper' in mapped category,needs_review
+2026-07-05,amz_product,B0GS5N64FN,CG-0012,rule_attribute,0.80,title ~* 'meat chopper' in mapped category,needs_review
+2026-07-05,amz_product,B0FQB7WL2D,CG-0012,rule_attribute,0.80,title ~* 'meat chopper' in mapped category,needs_review
+2026-07-05,amz_product,B08JLC49HY,CG-0012,rule_attribute,0.80,title ~* 'meat chopper' in mapped category,needs_review
+2026-07-05,amz_product,B0D9QBSDGW,CG-0013,rule_attribute,0.75,"title ~* 'glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass' in mapped category",needs_review
+2026-07-05,amz_product,B0CZTMHKQT,CG-0013,rule_attribute,0.75,"title ~* 'glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass' in mapped category",needs_review
+2026-07-05,amz_product,B0GRTKQBCN,CG-0013,rule_attribute,0.75,"title ~* 'glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass' in mapped category",needs_review
+2026-07-05,amz_product,B0GFWRN61Q,CG-0013,rule_attribute,0.75,"title ~* 'glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass' in mapped category",needs_review
+2026-07-05,amz_product,B0GR4K5WF3,CG-0013,rule_attribute,0.75,"title ~* 'glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass' in mapped category",needs_review
+2026-07-05,amz_product,B0G2LL8WS1,CG-0014,rule_attribute,0.65,"title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo' in mapped category",needs_review
+2026-07-05,amz_product,B0DMP7H3Q9,CG-0014,rule_attribute,0.65,"title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo' in mapped category",needs_review
+2026-07-05,amz_product,B09Z7TVWN1,CG-0014,rule_attribute,0.65,"title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo' in mapped category",needs_review
+2026-07-05,amz_product,B0CFHKLR7Z,CG-0014,rule_attribute,0.65,"title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo' in mapped category",needs_review
+2026-07-05,amz_product,B0CLM6PS1G,CG-0014,rule_attribute,0.65,"title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo' in mapped category",needs_review
+2026-07-05,amz_product,B0GWR5PP3C,CG-0015,rule_attribute,0.70,"title ~* 'silicone.{0,30}(utensil|tool|spatula)' in mapped category",needs_review
+2026-07-05,amz_product,B0GWCGDW49,CG-0015,rule_attribute,0.70,"title ~* 'silicone.{0,30}(utensil|tool|spatula)' in mapped category",needs_review
+2026-07-05,amz_product,B08573DQ39,CG-0015,rule_attribute,0.70,"title ~* 'silicone.{0,30}(utensil|tool|spatula)' in mapped category",needs_review
+2026-07-05,amz_product,B0GTMS3JLP,CG-0015,rule_attribute,0.70,"title ~* 'silicone.{0,30}(utensil|tool|spatula)' in mapped category",needs_review
+2026-07-05,amz_product,B0GTMYRSYK,CG-0015,rule_attribute,0.70,"title ~* 'silicone.{0,30}(utensil|tool|spatula)' in mapped category",needs_review
+2026-07-05,amz_product,B0GRMHHYKV,CG-0016,rule_attribute,0.70,"title ~* 'lazy susan|rotating.{0,25}(fridge|organizer)|fridge.{0,25}rotating' in mapped category",needs_review
+2026-07-05,amz_product,B0GRM9WG58,CG-0016,rule_attribute,0.70,"title ~* 'lazy susan|rotating.{0,25}(fridge|organizer)|fridge.{0,25}rotating' in mapped category",needs_review
+2026-07-05,amz_product,B0GRM5CWFF,CG-0016,rule_attribute,0.70,"title ~* 'lazy susan|rotating.{0,25}(fridge|organizer)|fridge.{0,25}rotating' in mapped category",needs_review
+2026-07-05,amz_product,B0F7RV7KY8,CG-0017,rule_attribute,0.80,"title ~* 'cast iron.{0,30}bread|bread.{0,30}cast iron' in mapped category",needs_review
+2026-07-05,amz_product,B0F7RVG7MQ,CG-0017,rule_attribute,0.80,"title ~* 'cast iron.{0,30}bread|bread.{0,30}cast iron' in mapped category",needs_review
+2026-07-05,amz_product,B0GSQ2SDZ3,CG-0017,rule_attribute,0.80,"title ~* 'cast iron.{0,30}bread|bread.{0,30}cast iron' in mapped category",needs_review
+2026-07-05,amz_product,B0GGGQ3MPP,CG-0017,rule_attribute,0.80,"title ~* 'cast iron.{0,30}bread|bread.{0,30}cast iron' in mapped category",needs_review
+2026-07-05,amz_product,B0GHQ45T2H,CG-0017,rule_attribute,0.80,"title ~* 'cast iron.{0,30}bread|bread.{0,30}cast iron' in mapped category",needs_review
+2026-07-05,amz_product,B0GZWVZ4LL,CG-0018,rule_attribute,0.60,"title ~* 'ceramic.{0,30}bakeware|bakeware.{0,30}ceramic' in mapped category",needs_review
+2026-07-05,amz_product,B0G1KY973X,CG-0018,rule_attribute,0.60,"title ~* 'ceramic.{0,30}bakeware|bakeware.{0,30}ceramic' in mapped category",needs_review
+2026-07-05,amz_product,B08T99DPF3,CG-0018,rule_attribute,0.60,"title ~* 'ceramic.{0,30}bakeware|bakeware.{0,30}ceramic' in mapped category",needs_review
+2026-07-05,amz_product,B0FJV7852C,CG-0018,rule_attribute,0.60,"title ~* 'ceramic.{0,30}bakeware|bakeware.{0,30}ceramic' in mapped category",needs_review
+2026-07-05,amz_product,B0FJTVK59F,CG-0018,rule_attribute,0.60,"title ~* 'ceramic.{0,30}bakeware|bakeware.{0,30}ceramic' in mapped category",needs_review
+2026-07-05,amz_product,B0036POD8Q,CG-0019,rule_attribute,0.70,title ~* 'beverage dispenser|drink dispenser' in mapped category,needs_review
+2026-07-05,amz_product,B073JY752D,CG-0019,rule_attribute,0.70,title ~* 'beverage dispenser|drink dispenser' in mapped category,needs_review
+2026-07-05,amz_product,B0CHHVKMPL,CG-0020,rule_attribute,0.80,"title ~* 'magnetic.{0,25}spice|spice.{0,25}magnetic' in mapped category",needs_review
+2026-07-05,amz_product,B0C3H9MJQV,CG-0020,rule_attribute,0.80,"title ~* 'magnetic.{0,25}spice|spice.{0,25}magnetic' in mapped category",needs_review
+2026-07-05,amz_product,B0F488W76G,CG-0020,rule_attribute,0.80,"title ~* 'magnetic.{0,25}spice|spice.{0,25}magnetic' in mapped category",needs_review
+2026-07-05,amz_product,B0F3GGNSFD,CG-0022,rule_attribute,0.55,title ~* 'mixing bowl' in mapped category,needs_review
+2026-07-05,amz_product,B073JY752D,CG-0023,rule_attribute,0.65,"title ~* 'glass.{0,35}dispenser|dispenser.{0,35}glass|drink jar' in mapped category",needs_review
+2026-07-05,amz_product,B0G5YNWGZK,CG-0024,rule_attribute,0.70,title ~* 'bento' in mapped category,needs_review
+2026-07-05,amz_product,B0GSFJN98W,CG-0024,rule_attribute,0.70,title ~* 'bento' in mapped category,needs_review
+2026-07-05,amz_product,B0GSFK84QH,CG-0024,rule_attribute,0.70,title ~* 'bento' in mapped category,needs_review
+2026-07-05,amz_product,B0GF7VLM6J,CG-0024,rule_attribute,0.70,title ~* 'bento' in mapped category,needs_review
+2026-07-05,amz_product,B0B9S5HZ26,CG-0024,rule_attribute,0.70,title ~* 'bento' in mapped category,needs_review
+2026-07-05,amz_product,B07JDSL353,CG-0026,rule_attribute,0.65,"title ~* 'non.?slip.{0,30}(gadget|tool|grater|shredder)|kitchen gadget set' in mapped category",needs_review
+2026-07-05,amz_product,B0D88HLFWT,CG-0026,rule_attribute,0.65,"title ~* 'non.?slip.{0,30}(gadget|tool|grater|shredder)|kitchen gadget set' in mapped category",needs_review
+2026-07-05,amz_product,B07JFFTT24,CG-0026,rule_attribute,0.65,"title ~* 'non.?slip.{0,30}(gadget|tool|grater|shredder)|kitchen gadget set' in mapped category",needs_review
+2026-07-05,amz_product,B0GHPRVD1Z,CG-0026,rule_attribute,0.65,"title ~* 'non.?slip.{0,30}(gadget|tool|grater|shredder)|kitchen gadget set' in mapped category",needs_review
+2026-07-05,amz_product,B0D883N35Z,CG-0026,rule_attribute,0.65,"title ~* 'non.?slip.{0,30}(gadget|tool|grater|shredder)|kitchen gadget set' in mapped category",needs_review
+2026-07-05,amz_product,B0GXZ2HWGJ,CG-0027,rule_attribute,0.55,title ~* 'soy candle' in mapped category,needs_review
+2026-07-05,amz_product,B0GJCY2TJ9,CG-0027,rule_attribute,0.55,title ~* 'soy candle' in mapped category,needs_review
+2026-07-05,amz_product,B0CCGM4BCZ,CG-0027,rule_attribute,0.55,title ~* 'soy candle' in mapped category,needs_review
+2026-07-05,amz_product,B0GQR3N1RT,CG-0027,rule_attribute,0.55,title ~* 'soy candle' in mapped category,needs_review
+2026-07-05,amz_product,B000YBFJQU,CG-0027,rule_attribute,0.55,title ~* 'soy candle' in mapped category,needs_review
+2026-07-05,amz_product,B0D7KNVDMW,CG-0028,rule_attribute,0.60,"title ~* 'primula|double.?wall.{0,25}stainless' in mapped category",needs_review
+2026-07-05,amz_product,B0D83KHBY2,CG-0028,rule_attribute,0.60,"title ~* 'primula|double.?wall.{0,25}stainless' in mapped category",needs_review
+2026-07-05,amz_product,B0D75NGVTR,CG-0028,rule_attribute,0.60,"title ~* 'primula|double.?wall.{0,25}stainless' in mapped category",needs_review
+2026-07-05,amz_product,B0DYKZVCWL,CG-0028,rule_attribute,0.60,"title ~* 'primula|double.?wall.{0,25}stainless' in mapped category",needs_review
+2026-07-05,amz_product,B0DK2HSBDX,CG-0028,rule_attribute,0.60,"title ~* 'primula|double.?wall.{0,25}stainless' in mapped category",needs_review
+2026-07-05,amz_product,B0GP2MS45Z,CG-0029,rule_attribute,0.60,title ~* 'tri.?ply|3.?ply|triply' in mapped category,needs_review
+2026-07-05,amz_product,B0GJ5SJPYL,CG-0029,rule_attribute,0.60,title ~* 'tri.?ply|3.?ply|triply' in mapped category,needs_review
+2026-07-05,amz_product,B0GVK81WCF,CG-0029,rule_attribute,0.60,title ~* 'tri.?ply|3.?ply|triply' in mapped category,needs_review
+2026-07-05,amz_product,B0GGZ1SQR9,CG-0029,rule_attribute,0.60,title ~* 'tri.?ply|3.?ply|triply' in mapped category,needs_review
+2026-07-05,amz_product,B004T6M6XA,CG-0029,rule_attribute,0.60,title ~* 'tri.?ply|3.?ply|triply' in mapped category,needs_review
+2026-07-05,amz_search_term,water bottle with time marker,CG-0002,rule_keyword,0.75,term ~* 'motivational water bottle|time marker' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,motivational water bottle,CG-0002,rule_keyword,0.75,term ~* 'motivational water bottle|time marker' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,charcuterie boards,CG-0003,rule_keyword,0.70,term ~* 'charcuterie' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,charcuterie cups,CG-0003,rule_keyword,0.70,term ~* 'charcuterie' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,charcuterie,CG-0003,rule_keyword,0.70,term ~* 'charcuterie' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,charcuterie boxes,CG-0003,rule_keyword,0.70,term ~* 'charcuterie' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,charcuterie accessories,CG-0003,rule_keyword,0.70,term ~* 'charcuterie' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,oil sprayer for cooking,CG-0006,rule_keyword,0.80,term ~* 'oil sprayer|oil mister' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,olive oil sprayer,CG-0006,rule_keyword,0.80,term ~* 'oil sprayer|oil mister' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,oil sprayer,CG-0006,rule_keyword,0.80,term ~* 'oil sprayer|oil mister' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,cooking oil sprayer,CG-0006,rule_keyword,0.80,term ~* 'oil sprayer|oil mister' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,olivia oil sprayer,CG-0006,rule_keyword,0.80,term ~* 'oil sprayer|oil mister' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,air fryer liners disposable,CG-0008,rule_keyword,0.85,term ~* 'air fryer liner' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,air fryer liners,CG-0008,rule_keyword,0.85,term ~* 'air fryer liner' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,ninja air fryer liners,CG-0008,rule_keyword,0.85,term ~* 'air fryer liner' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,air fryer liner,CG-0008,rule_keyword,0.85,term ~* 'air fryer liner' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,silicone air fryer liners,CG-0008,rule_keyword,0.85,term ~* 'air fryer liner' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,dupasu electric lunch box food warmer 100w heated,CG-0009,rule_keyword,0.85,term ~* 'electric lunch box|lunch warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,electric lunch box,CG-0009,rule_keyword,0.85,term ~* 'electric lunch box|lunch warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,electric lunch box for adults,CG-0009,rule_keyword,0.85,term ~* 'electric lunch box|lunch warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,east oak cordless electric lunch box for adults,CG-0009,rule_keyword,0.85,term ~* 'electric lunch box|lunch warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,cordless electric lunch box,CG-0009,rule_keyword,0.85,term ~* 'electric lunch box|lunch warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,candle warmer lamp,CG-0010,rule_keyword,0.85,term ~* 'candle warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,candle warmer,CG-0010,rule_keyword,0.85,term ~* 'candle warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,candle warmer lamp with timer,CG-0010,rule_keyword,0.85,term ~* 'candle warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,candle warmers,CG-0010,rule_keyword,0.85,term ~* 'candle warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,lamp candle warmer,CG-0010,rule_keyword,0.85,term ~* 'candle warmer' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,meat thermometer,CG-0011,rule_keyword,0.75,term ~* 'instant read thermometer|meat thermometer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,meat thermometer digital,CG-0011,rule_keyword,0.75,term ~* 'instant read thermometer|meat thermometer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,digital meat thermometer,CG-0011,rule_keyword,0.75,term ~* 'instant read thermometer|meat thermometer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,wireless meat thermometer,CG-0011,rule_keyword,0.75,term ~* 'instant read thermometer|meat thermometer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,instant read meat thermometer,CG-0011,rule_keyword,0.75,term ~* 'instant read thermometer|meat thermometer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,meat chopper,CG-0012,rule_keyword,0.85,term ~* 'meat chopper' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,ground meat chopper,CG-0012,rule_keyword,0.85,term ~* 'meat chopper' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,meat chopper for ground beef,CG-0012,rule_keyword,0.85,term ~* 'meat chopper' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,meat chopper silicone,CG-0012,rule_keyword,0.85,term ~* 'meat chopper' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,glass food storage containers with lids,CG-0013,rule_keyword,0.75,term ~* 'glass meal prep|divided meal prep|glass food storage' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,glass meal prep containers,CG-0013,rule_keyword,0.75,term ~* 'glass meal prep|divided meal prep|glass food storage' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,glass food storage,CG-0013,rule_keyword,0.75,term ~* 'glass meal prep|divided meal prep|glass food storage' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,glass food storage containers,CG-0013,rule_keyword,0.75,term ~* 'glass meal prep|divided meal prep|glass food storage' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,rubbermaid glass food storage containers,CG-0013,rule_keyword,0.75,term ~* 'glass meal prep|divided meal prep|glass food storage' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,glass containers with bamboo lids,CG-0014,rule_keyword,0.75,term ~* 'bamboo lid' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,glass jars with bamboo lids,CG-0014,rule_keyword,0.75,term ~* 'bamboo lid' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,silicone spatula,CG-0015,rule_keyword,0.70,term ~* 'silicone utensil|silicone spatula' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,silicone spatula set,CG-0015,rule_keyword,0.70,term ~* 'silicone utensil|silicone spatula' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,silicone utensils set for cooking,CG-0015,rule_keyword,0.70,term ~* 'silicone utensil|silicone spatula' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,silicone utensils,CG-0015,rule_keyword,0.70,term ~* 'silicone utensil|silicone spatula' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,small silicone spatula,CG-0015,rule_keyword,0.70,term ~* 'silicone utensil|silicone spatula' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,fridge organizers and storage,CG-0016,rule_keyword,0.70,term ~* 'lazy susan|fridge organizer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,lazy susan,CG-0016,rule_keyword,0.70,term ~* 'lazy susan|fridge organizer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,lazy susan organizer for cabinet,CG-0016,rule_keyword,0.70,term ~* 'lazy susan|fridge organizer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,lazy susan for table top,CG-0016,rule_keyword,0.70,term ~* 'lazy susan|fridge organizer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,fridge organizer,CG-0016,rule_keyword,0.70,term ~* 'lazy susan|fridge organizer' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,bread pan,CG-0017,rule_keyword,0.65,term ~* 'bread pan|dutch oven bread|cast iron bread' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,bread pans for homemade bread,CG-0017,rule_keyword,0.65,term ~* 'bread pan|dutch oven bread|cast iron bread' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,bread pans,CG-0017,rule_keyword,0.65,term ~* 'bread pan|dutch oven bread|cast iron bread' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,baguette bread pan,CG-0017,rule_keyword,0.65,term ~* 'bread pan|dutch oven bread|cast iron bread' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,banana bread pan,CG-0017,rule_keyword,0.65,term ~* 'bread pan|dutch oven bread|cast iron bread' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,ceramic bakeware set,CG-0018,rule_keyword,0.80,term ~* 'ceramic bakeware' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,ceramic bakeware,CG-0018,rule_keyword,0.80,term ~* 'ceramic bakeware' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,drink dispenser,CG-0019,rule_keyword,0.80,term ~* 'beverage dispenser|drink dispenser' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,drink dispensers for parties,CG-0019,rule_keyword,0.80,term ~* 'beverage dispenser|drink dispenser' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,beverage dispenser,CG-0019,rule_keyword,0.80,term ~* 'beverage dispenser|drink dispenser' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,glass drink dispenser,CG-0019,rule_keyword,0.80,term ~* 'beverage dispenser|drink dispenser' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,drink dispenser for fridge,CG-0019,rule_keyword,0.80,term ~* 'beverage dispenser|drink dispenser' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,magnetic spice rack for refrigerator,CG-0020,rule_keyword,0.85,term ~* 'magnetic spice' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,magnetic spice rack,CG-0020,rule_keyword,0.85,term ~* 'magnetic spice' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,magnetic spice jars,CG-0020,rule_keyword,0.85,term ~* 'magnetic spice' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,mixing bowls,CG-0022,rule_keyword,0.70,term ~* 'mixing bowls' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,cook with color mixing bowls,CG-0022,rule_keyword,0.70,term ~* 'mixing bowls' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,mixing bowls with lids set,CG-0022,rule_keyword,0.70,term ~* 'mixing bowls' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,stainless steel mixing bowls,CG-0022,rule_keyword,0.70,term ~* 'mixing bowls' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,glass mixing bowls,CG-0022,rule_keyword,0.70,term ~* 'mixing bowls' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,glass drink dispenser,CG-0023,rule_keyword,0.85,term ~* 'glass drink dispenser' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,glass drink dispenser with stand,CG-0023,rule_keyword,0.85,term ~* 'glass drink dispenser' in last 8 weekly periods,auto_accepted
+2026-07-05,amz_search_term,bento box for kids,CG-0024,rule_keyword,0.75,term ~* 'bento box|bento' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,bento box,CG-0024,rule_keyword,0.75,term ~* 'bento box|bento' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,bento box adult,CG-0024,rule_keyword,0.75,term ~* 'bento box|bento' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,bento lunch box for kids,CG-0024,rule_keyword,0.75,term ~* 'bento box|bento' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,stainless steel bento box,CG-0024,rule_keyword,0.75,term ~* 'bento box|bento' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,chicken shredder,CG-0026,rule_keyword,0.70,term ~* 'kitchen gadget set|chicken shredder' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,chicken shredder tool twist,CG-0026,rule_keyword,0.70,term ~* 'kitchen gadget set|chicken shredder' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,chicken shredder tool,CG-0026,rule_keyword,0.70,term ~* 'kitchen gadget set|chicken shredder' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,double wall tumbler,CG-0028,rule_keyword,0.65,term ~* 'insulated tumbler 2 pack|double wall tumbler' in last 8 weekly periods,needs_review
+2026-07-05,amz_search_term,tramontina tri-ply clad stainless steel,CG-0029,rule_keyword,0.70,term ~* 'tri-ply|3 ply cookware|triply' in last 8 weekly periods,needs_review
+2026-07-05,sm_hashtag,ceramiccookware,CG-0001,rule_keyword,0.60,hashtag ~* 'castaluminum|ceramiccookware|nontoxiccookware',needs_review
+2026-07-05,sm_hashtag,amazonkitchenware,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,artisanalkitchenware,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,cookware,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,cookwarecollection,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,cookwareset,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,cookwaresets,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,enamelcookware,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,kitchengadgets,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,kitchengadgetsmakemehappy,CAT-KITCHEN,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',auto_accepted
+2026-07-05,sm_hashtag,amazonfinds,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,amazonhomefinds,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,amazonhomefinds2023,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,homefinds,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,homedecor,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,diyhomedecor,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,homedecoration,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,homedecorideas,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,homedecortrends,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,sm_hashtag,modernhomedecor,CAT-HOME,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',auto_accepted
+2026-07-05,wm_product,540323682,CG-0001,rule_attribute,0.68,walmart title ~* 'cast alumin',needs_review
+2026-07-05,wm_product,247845956,CG-0001,rule_attribute,0.68,walmart title ~* 'cast alumin',needs_review
+2026-07-05,wm_product,803996967,CG-0001,rule_attribute,0.68,walmart title ~* 'cast alumin',needs_review
+2026-07-05,wm_product,9796074999,CG-0003,rule_attribute,0.50,walmart title ~* 'charcuterie',needs_review
+2026-07-05,wm_product,1368706292,CG-0003,rule_attribute,0.50,walmart title ~* 'charcuterie',needs_review
+2026-07-05,wm_product,15287958709,CG-0003,rule_attribute,0.50,walmart title ~* 'charcuterie',needs_review
+2026-07-05,wm_product,15087660791,CG-0008,rule_attribute,0.72,"walmart title ~* 'air fryer.{0,20}liner'",needs_review
+2026-07-05,wm_product,15378761937,CG-0008,rule_attribute,0.72,"walmart title ~* 'air fryer.{0,20}liner'",needs_review
+2026-07-05,wm_product,14124807326,CG-0008,rule_attribute,0.72,"walmart title ~* 'air fryer.{0,20}liner'",needs_review
+2026-07-05,wm_product,5572923302,CG-0010,rule_attribute,0.72,walmart title ~* 'candle warmer|warmer lamp',needs_review
+2026-07-05,wm_product,12190955251,CG-0010,rule_attribute,0.72,walmart title ~* 'candle warmer|warmer lamp',needs_review
+2026-07-05,wm_product,8633111579,CG-0013,rule_attribute,0.68,"walmart title ~* 'glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass'",needs_review
+2026-07-05,wm_product,5808036819,CG-0013,rule_attribute,0.68,"walmart title ~* 'glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass'",needs_review
+2026-07-05,wm_product,5129928089,CG-0013,rule_attribute,0.68,"walmart title ~* 'glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass'",needs_review
+2026-07-05,epoca_item_code,ECACR-3220 DST,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B086T73KJW); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,ECAG-3220 DST,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B00E3NMCBU); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,ECAGR-3220 DST,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B086T6CY7Y); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,EOI5-D2816,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B0858VNZTM); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,EOI5-D4506,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B08591GHP8); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,EOI5-D5120,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B0858VDSHN); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,EOI5-D5124,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B0858Y9547); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,EOI5-D5128,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B085916KSD); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,EOI6-L5120,CG-0001,exact_key_via_rule,0.75,asinxref exact ASIN<->item_code (B08WYT4QHH); concept via title ~* 'cast alumin',needs_review
+2026-07-05,epoca_item_code,GFA01-K049,CG-0007,exact_key_via_rule,0.55,asinxref exact ASIN<->item_code (B08BR7SP37); concept via title ~* 'stackable',needs_review
+2026-07-05,epoca_item_code,GFB09-K049,CG-0007,exact_key_via_rule,0.55,asinxref exact ASIN<->item_code (B08BZYZPL7); concept via title ~* 'stackable',needs_review
+2026-07-05,epoca_item_code,GFE00-K049,CG-0007,exact_key_via_rule,0.55,asinxref exact ASIN<->item_code (B08BR3LTVB); concept via title ~* 'stackable',needs_review
+2026-07-05,epoca_item_code,GFE03-K049,CG-0007,exact_key_via_rule,0.55,asinxref exact ASIN<->item_code (B08C1MJY39); concept via title ~* 'stackable',needs_review
+2026-07-05,epoca_item_code,GFP05-K049,CG-0007,exact_key_via_rule,0.55,asinxref exact ASIN<->item_code (B08BZYVTMB); concept via title ~* 'stackable',needs_review
+2026-07-05,epoca_item_code,EEYBK-1220 DST,CG-0014,exact_key_via_rule,0.65,"asinxref exact ASIN<->item_code (B086V87344); concept via title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo'",needs_review
+2026-07-05,epoca_item_code,GZA10-P029,CG-0014,exact_key_via_rule,0.65,"asinxref exact ASIN<->item_code (B084TM9VB3); concept via title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo'",needs_review
+2026-07-05,epoca_item_code,GZA11-P033,CG-0014,exact_key_via_rule,0.65,"asinxref exact ASIN<->item_code (B084TMPDYC); concept via title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo'",needs_review
+2026-07-05,epoca_item_code,GZR05-P029,CG-0014,exact_key_via_rule,0.65,"asinxref exact ASIN<->item_code (B084TMDG84); concept via title ~* 'bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo'",needs_review
+2026-07-05,epoca_item_code,CCCUL-1213 DST,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B08V8DWWTV); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,CCCUR-1213 DST,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B07DRPWQ4F); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,CCCUR-5102,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B081P67S8Y); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,CLC04-P004,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B081P8QVV6); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,CLK00-K002,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B081QWFXKN); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,CLR00-K020,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B081TRP7Z2); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,CLX01-K018,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B081R3L8N6); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,EKPBK-4215 DST,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B086R7CSR8); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,EKUL-1620 DST,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B00FZH3WGC); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,EKUL-2428 DST,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B00FZH3WAS); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,EVRE-3228 DST,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B00BF9Q1G2); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,EVRE-5120,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B00BF9Q1H6); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,GFX05-K003,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B07TVDFXS9); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,GFX08-K019,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B08BQZ5YF5); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,GFY01-K023,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B084TNY4MQ); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,TBGN-0142,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B005M8GFFO); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,TBHS-0142,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B005M8GFFY); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,XSP-6503,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B003PUPXPY); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,XSP-6506,CG-0015,exact_key_via_rule,0.70,"asinxref exact ASIN<->item_code (B003PUP1FQ); concept via title ~* 'silicone.{0,30}(utensil|tool|spatula)'",needs_review
+2026-07-05,epoca_item_code,CCCUA-9526 DST,CG-0018,exact_key_via_rule,0.60,"asinxref exact ASIN<->item_code (B08V8YNRJJ); concept via title ~* 'ceramic.{0,30}bakeware|bakeware.{0,30}ceramic'",needs_review
+2026-07-05,epoca_item_code,CCCUL-1213 DST,CG-0018,exact_key_via_rule,0.60,"asinxref exact ASIN<->item_code (B08V8DWWTV); concept via title ~* 'ceramic.{0,30}bakeware|bakeware.{0,30}ceramic'",needs_review
+2026-07-05,merge_proposal,CG-0007+CG-0018,CG-0018,alias_jaccard,0.67,"shared tokens ['bakeware', 'stackable']",needs_review
+2026-07-05,merge_proposal,CG-0010+CG-0027,CG-0027,alias_jaccard,0.60,"shared tokens ['candle', 'lamp', 'warmer']",needs_review
+2026-07-05,merge_proposal,CG-0013+CG-0014,CG-0014,alias_jaccard,0.38,"shared tokens ['food', 'glass', 'storage']",needs_review
+2026-07-05,merge_proposal,CG-0019+CG-0023,CG-0023,alias_jaccard,0.75,"shared tokens ['beverage', 'dispenser', 'drink']",needs_review
+2026-07-05,amz_product,(none),CG-0004,rule_attribute,0.00,rule matched no ranked product in 90d window,unmatched
+2026-07-05,amz_product,(none),CG-0005,rule_attribute,0.00,no rule defined (no category mapping),unmatched
+2026-07-05,amz_product,(none),CG-0009,rule_attribute,0.00,rule matched no ranked product in 90d window,unmatched
+2026-07-05,amz_product,(none),CG-0021,rule_attribute,0.00,rule matched no ranked product in 90d window,unmatched
+2026-07-05,amz_product,(none),CG-0025,rule_attribute,0.00,rule matched no ranked product in 90d window,unmatched

@@ -1,0 +1,133 @@
+concept_id,alias_text,alias_type,source,added_by
+CG-0001,cast aluminum,ledger_keyword,CB-2025-001,builder
+CG-0001,CA CER,ledger_keyword,CB-2025-001,builder
+CG-0001,non-toxic,ledger_keyword,CB-2025-020,builder
+CG-0001,PFAS,ledger_keyword,CB-2025-020,builder
+CG-0001,ceramic,ledger_keyword,CB-2025-025,builder
+CG-0001,cast al,ledger_keyword,CB-2026-027,builder
+CG-0001,detachable,ledger_keyword,CB-2026-027,builder
+CG-0001,castaluminum,social_pattern,matching_rules,builder
+CG-0001,ceramiccookware,social_pattern,matching_rules,builder
+CG-0001,nontoxiccookware,social_pattern,matching_rules,builder
+CG-0002,motivational,ledger_keyword,CB-2025-002,builder
+CG-0002,water bottle,ledger_keyword,CB-2025-002,builder
+CG-0002,time marker,ledger_keyword,CB-2025-002,builder
+CG-0002,motivational water bottle,search_pattern,matching_rules,builder
+CG-0002,time marker,search_pattern,matching_rules,builder
+CG-0002,motivationalwaterbottle,social_pattern,matching_rules,builder
+CG-0003,charcuterie,ledger_keyword,CB-2025-003,builder
+CG-0003,magnetic,ledger_keyword,CB-2025-003,builder
+CG-0003,detachable,ledger_keyword,CB-2026-034,builder
+CG-0003,acacia,ledger_keyword,CB-2026-034,builder
+CG-0003,charcuterie,search_pattern,matching_rules,builder
+CG-0003,charcuterie,social_pattern,matching_rules,builder
+CG-0004,tumbler,ledger_keyword,CB-2025-004,builder
+CG-0004,snack tray,ledger_keyword,CB-2025-004,builder
+CG-0005,towel warmer,ledger_keyword,CB-2025-005,builder
+CG-0006,oil sprayer,ledger_keyword,CB-2025-006,builder
+CG-0006,oil dispenser,ledger_keyword,CB-2025-006,builder
+CG-0006,oil sprayer,search_pattern,matching_rules,builder
+CG-0006,oil mister,search_pattern,matching_rules,builder
+CG-0006,oilsprayer,social_pattern,matching_rules,builder
+CG-0007,stackable,ledger_keyword,CB-2025-007,builder
+CG-0007,bakeware,ledger_keyword,CB-2025-007,builder
+CG-0007,stackable bakeware,search_pattern,matching_rules,builder
+CG-0008,air fryer liner,ledger_keyword,CB-2025-008,builder
+CG-0008,air fryer liner,search_pattern,matching_rules,builder
+CG-0008,airfryer,social_pattern,matching_rules,builder
+CG-0009,electric lunch box,ledger_keyword,CB-2025-009,builder
+CG-0009,lunch warmer,ledger_keyword,CB-2025-009,builder
+CG-0009,electric lunch box,search_pattern,matching_rules,builder
+CG-0009,lunch warmer,search_pattern,matching_rules,builder
+CG-0010,candle warmer,ledger_keyword,CB-2025-010,builder
+CG-0010,warmer lamp,ledger_keyword,CB-2025-010,builder
+CG-0010,candle warmer,search_pattern,matching_rules,builder
+CG-0010,candlewarmer,social_pattern,matching_rules,builder
+CG-0011,thermometer,ledger_keyword,CB-2025-011,builder
+CG-0011,instant read thermometer,search_pattern,matching_rules,builder
+CG-0011,meat thermometer,search_pattern,matching_rules,builder
+CG-0012,meat chopper,ledger_keyword,CB-2025-012,builder
+CG-0012,meat chopper,search_pattern,matching_rules,builder
+CG-0013,glass,ledger_keyword,CB-2025-013,builder
+CG-0013,meal prep,ledger_keyword,CB-2025-013,builder
+CG-0013,divided,ledger_keyword,CB-2025-013,builder
+CG-0013,glass meal prep,search_pattern,matching_rules,builder
+CG-0013,divided meal prep,search_pattern,matching_rules,builder
+CG-0013,glass food storage,search_pattern,matching_rules,builder
+CG-0013,mealprep,social_pattern,matching_rules,builder
+CG-0014,glass,ledger_keyword,CB-2025-014,builder
+CG-0014,bamboo,ledger_keyword,CB-2025-014,builder
+CG-0014,food storage,ledger_keyword,CB-2025-014,builder
+CG-0014,bamboo lid,search_pattern,matching_rules,builder
+CG-0015,silicone,ledger_keyword,CB-2025-015,builder
+CG-0015,tool set,ledger_keyword,CB-2025-015,builder
+CG-0015,silicone utensil,search_pattern,matching_rules,builder
+CG-0015,silicone spatula,search_pattern,matching_rules,builder
+CG-0016,fridge,ledger_keyword,CB-2025-016,builder
+CG-0016,rotating,ledger_keyword,CB-2025-016,builder
+CG-0016,lazy susan,ledger_keyword,CB-2025-016,builder
+CG-0016,lazy susan,search_pattern,matching_rules,builder
+CG-0016,fridge organizer,search_pattern,matching_rules,builder
+CG-0017,enamel,ledger_keyword,CB-2025-017,builder
+CG-0017,cast iron,ledger_keyword,CB-2025-017,builder
+CG-0017,bread,ledger_keyword,CB-2025-017,builder
+CG-0017,bread pan,search_pattern,matching_rules,builder
+CG-0017,dutch oven bread,search_pattern,matching_rules,builder
+CG-0017,cast iron bread,search_pattern,matching_rules,builder
+CG-0017,sourdough,social_pattern,matching_rules,builder
+CG-0017,breadbaking,social_pattern,matching_rules,builder
+CG-0018,ceramic,ledger_keyword,CB-2025-018,builder
+CG-0018,stackable,ledger_keyword,CB-2025-018,builder
+CG-0018,bakeware,ledger_keyword,CB-2025-018,builder
+CG-0018,ceramic bakeware,search_pattern,matching_rules,builder
+CG-0019,beverage dispenser,ledger_keyword,CB-2025-019,builder
+CG-0019,dispenser,ledger_keyword,CB-2025-019,builder
+CG-0019,beverage dispenser,search_pattern,matching_rules,builder
+CG-0019,drink dispenser,search_pattern,matching_rules,builder
+CG-0020,magnetic,ledger_keyword,CB-2025-021,builder
+CG-0020,spice,ledger_keyword,CB-2025-021,builder
+CG-0020,magnetic spice,search_pattern,matching_rules,builder
+CG-0021,air fryer,ledger_keyword,CB-2025-023,builder
+CG-0021,stackable,ledger_keyword,CB-2025-023,builder
+CG-0021,stackable air fryer,search_pattern,matching_rules,builder
+CG-0022,mixing bowl,ledger_keyword,CB-2025-024,builder
+CG-0022,nesting,ledger_keyword,CB-2025-024,builder
+CG-0022,mixing bowls,search_pattern,matching_rules,builder
+CG-0023,beverage dispenser,ledger_keyword,CB-2025-026,builder
+CG-0023,glass,ledger_keyword,CB-2025-026,builder
+CG-0023,dispenser,ledger_keyword,CB-2025-026,builder
+CG-0023,glass drink dispenser,search_pattern,matching_rules,builder
+CG-0024,bento,ledger_keyword,CB-2026-028,builder
+CG-0024,leak,ledger_keyword,CB-2026-028,builder
+CG-0024,borosilicate,ledger_keyword,CB-2026-028,builder
+CG-0024,divided,ledger_keyword,CB-2026-028,builder
+CG-0024,bento box,search_pattern,matching_rules,builder
+CG-0024,bento,search_pattern,matching_rules,builder
+CG-0024,bento,social_pattern,matching_rules,builder
+CG-0025,ceramic bak,ledger_keyword,CB-2026-029,builder
+CG-0025,roaster,ledger_keyword,CB-2026-029,builder
+CG-0025,cooling rack,ledger_keyword,CB-2026-029,builder
+CG-0025,ceramic baker,search_pattern,matching_rules,builder
+CG-0025,ceramic roaster,search_pattern,matching_rules,builder
+CG-0026,stainless,ledger_keyword,CB-2026-030,builder
+CG-0026,non-slip,ledger_keyword,CB-2026-030,builder
+CG-0026,shredder,ledger_keyword,CB-2026-030,builder
+CG-0026,scale,ledger_keyword,CB-2026-030,builder
+CG-0026,kitchen gadget set,search_pattern,matching_rules,builder
+CG-0026,chicken shredder,search_pattern,matching_rules,builder
+CG-0027,soy candle,ledger_keyword,CB-2026-031,builder
+CG-0027,candle warmer,ledger_keyword,CB-2026-031,builder
+CG-0027,warmer lamp,ledger_keyword,CB-2026-031,builder
+CG-0027,soy candle,search_pattern,matching_rules,builder
+CG-0027,soycandle,social_pattern,matching_rules,builder
+CG-0028,double wall,ledger_keyword,CB-2026-032,builder
+CG-0028,insulated,ledger_keyword,CB-2026-032,builder
+CG-0028,primula,ledger_keyword,CB-2026-032,builder
+CG-0028,insulated tumbler 2 pack,search_pattern,matching_rules,builder
+CG-0028,double wall tumbler,search_pattern,matching_rules,builder
+CG-0029,tri-ply,ledger_keyword,CB-2026-033,builder
+CG-0029,3-ply,ledger_keyword,CB-2026-033,builder
+CG-0029,triply,ledger_keyword,CB-2026-033,builder
+CG-0029,tri-ply,search_pattern,matching_rules,builder
+CG-0029,3 ply cookware,search_pattern,matching_rules,builder
+CG-0029,triply,search_pattern,matching_rules,builder

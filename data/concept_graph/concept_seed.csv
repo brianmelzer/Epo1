@@ -1,0 +1,30 @@
+concept_id,canonical_name,category,subcategory,brand,attributes,price_band,callout_ids
+CG-0001,Cast-aluminum PFAS-free ceramic cookware set,Cookware,Cookware Sets,,material:cast_aluminum|coating:ceramic|attr:pfas_free|variant:detachable_handle|variant:induction,mid,CB-2025-001;CB-2025-020;CB-2025-025;CB-2026-027
+CG-0002,Motivational water bottle with time markers,Hydration,Water Bottles,,attr:time_marker|attr:motivational,value,CB-2025-002
+CG-0003,Magnetic charcuterie / serving board,Serveware,Boards,Country Living (variant),material:acacia_or_slate|attr:magnetic|variant:detachable_handle,mid,CB-2025-003;CB-2026-034
+CG-0004,Ice-maker tumbler with snack tray,Hydration,Tumblers,,attr:snack_tray,value,CB-2025-004
+CG-0005,Towel warmer,Home,Bath,,function:warming,mid,CB-2025-005
+CG-0006,Oil sprayer / dispenser 2-in-1,Gadgets,Oil Dispensers,,function:spray_dispense|material:glass,value,CB-2025-006
+CG-0007,Stackable bakeware set,Bakeware,Bakeware Sets,,attr:stackable,value,CB-2025-007
+CG-0008,Air fryer liners (disposable),Gadgets,Air Fryer Accessories,,attr:disposable|material:parchment,value,CB-2025-008
+CG-0009,Stainless electric lunch box,Food Storage,Lunch,,function:heating|material:stainless,value,CB-2025-009
+CG-0010,Candle warmer lamp,Candles,Warmers,,function:warming|attr:timer_dimmer,value,CB-2025-010;CB-2025-022
+CG-0011,Instant-read meat thermometer,Gadgets,Thermometers,,attr:instant_read,value,CB-2025-011
+CG-0012,Meat chopper,Gadgets,Prep Tools,,function:chopping,value,CB-2025-012
+CG-0013,Glass divided meal-prep containers,Food Storage,Glass Storage,,material:glass|attr:divided,value,CB-2025-013
+CG-0014,Glass nested storage with bamboo lids,Food Storage,Glass Storage,,material:glass|material:bamboo_lid|attr:nesting,value,CB-2025-014
+CG-0015,Silicone kitchen tool set,Gadgets,Utensil Sets,,material:silicone|attr:10pc_set,value,CB-2025-015
+CG-0016,Rotating fridge storage rack,Food Storage,Organizers,,attr:rotating|attr:lazy_susan,value,CB-2025-016
+CG-0017,Enameled cast-iron bread baker,Bakeware,Bread,,material:cast_iron|coating:enamel|use:sourdough,mid,CB-2025-017
+CG-0018,Modular stackable ceramic bakeware,Bakeware,Bakeware Sets,,material:ceramic|attr:stackable|attr:modular,mid,CB-2025-018
+CG-0019,Double-walled insulated beverage dispenser,Beverage Dispensers,Dispensers,,attr:double_wall|attr:insulated,mid,CB-2025-019
+CG-0020,Magnetic spice organizer,Gadgets,Spice Storage,,attr:magnetic,value,CB-2025-021
+CG-0021,Stackable air fryer,Gadgets,Appliances,,attr:stackable,mid,CB-2025-023
+CG-0022,Nesting mixing bowls in color,Gadgets,Mixing Bowls,,attr:nesting|attr:colorful,value,CB-2025-024
+CG-0023,Glass double-jar beverage station,Beverage Dispensers,Dispensers,,material:glass|attr:double_jar,mid,CB-2025-026
+CG-0024,Leak-proof divided glass bento (2-pack),Food Storage,Bento,,material:borosilicate|attr:divided|attr:leak_proof,value,CB-2026-028
+CG-0025,PFAS-free ceramic baker + roaster set,Bakeware,Bakers,,material:ceramic|attr:pfas_free|includes:cooling_rack,mid,CB-2026-029
+CG-0026,Stainless non-slip kitchen gadget set,Gadgets,Gadget Sets,Elements/Primula,material:stainless|attr:non_slip|hero:protein_tool,value,CB-2026-030
+CG-0027,Scented soy candle gift set (2-pack),Candles,Candles,PH,material:soy|attr:gift_set|attach:candle_warmer,value,CB-2026-031
+CG-0028,Primula double-wall insulated drinkware 2-pack,Drinkware,Tumblers,Primula,attr:double_wall|attr:insulated|attr:gift_set,value,CB-2026-032
+CG-0029,Value tri-ply stainless cookware set,Cookware,Cookware Sets,,material:tri_ply_stainless|position:step_up,mid,CB-2026-033
