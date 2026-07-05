@@ -22,6 +22,7 @@ these are query **templates** you paste and parameterize, not stored objects).
 | `08_backtest_v1_composite.sql` | F10/F11 | Backtest v1 multi-source strategies A–G + ablation (results: [`../docs/BACKTEST_V1_RESULTS.md`](../docs/BACKTEST_V1_RESULTS.md)) |
 | `09_concept_graph_extracts.sql` | — | Source extracts feeding the **Concept Graph v0** builder (see [`../docs/CONCEPT_GRAPH_V0.md`](../docs/CONCEPT_GRAPH_V0.md)) |
 | `09_concept_rollups.sql` | — | Concept-level rank/search/outcome rollups + double-count check for Backtest v2 |
+| `10_backtest_v2_concept_leadlag.sql` | F6 | Backtest v2.0: concept-level search↔rank lead-lag + outcome-label provenance check (findings: [`../docs/BACKTEST_V2.md`](../docs/BACKTEST_V2.md)) |
 
 ## How to read the signals
 
