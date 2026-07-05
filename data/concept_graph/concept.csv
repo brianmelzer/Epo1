@@ -1,0 +1,30 @@
+concept_id,canonical_name,level_of_truth,category,subcategory,brand,attributes,price_band,status,merged_into,created_from,created_at,updated_at
+CG-0001,Cast-aluminum PFAS-free ceramic cookware set,concept,Cookware,Cookware Sets,,material:cast_aluminum|coating:ceramic|attr:pfas_free|variant:detachable_handle|variant:induction,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0002,Motivational water bottle with time markers,concept,Hydration,Water Bottles,,attr:time_marker|attr:motivational,value,active,,ledger,2026-07-05,2026-07-05
+CG-0003,Magnetic charcuterie / serving board,concept,Serveware,Boards,Country Living (variant),material:acacia_or_slate|attr:magnetic|variant:detachable_handle,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0004,Ice-maker tumbler with snack tray,concept,Hydration,Tumblers,,attr:snack_tray,value,active,,ledger,2026-07-05,2026-07-05
+CG-0005,Towel warmer,concept,Home,Bath,,function:warming,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0006,Oil sprayer / dispenser 2-in-1,concept,Gadgets,Oil Dispensers,,function:spray_dispense|material:glass,value,active,,ledger,2026-07-05,2026-07-05
+CG-0007,Stackable bakeware set,concept,Bakeware,Bakeware Sets,,attr:stackable,value,active,,ledger,2026-07-05,2026-07-05
+CG-0008,Air fryer liners (disposable),concept,Gadgets,Air Fryer Accessories,,attr:disposable|material:parchment,value,active,,ledger,2026-07-05,2026-07-05
+CG-0009,Stainless electric lunch box,concept,Food Storage,Lunch,,function:heating|material:stainless,value,active,,ledger,2026-07-05,2026-07-05
+CG-0010,Candle warmer lamp,concept,Candles,Warmers,,function:warming|attr:timer_dimmer,value,active,,ledger,2026-07-05,2026-07-05
+CG-0011,Instant-read meat thermometer,concept,Gadgets,Thermometers,,attr:instant_read,value,active,,ledger,2026-07-05,2026-07-05
+CG-0012,Meat chopper,concept,Gadgets,Prep Tools,,function:chopping,value,active,,ledger,2026-07-05,2026-07-05
+CG-0013,Glass divided meal-prep containers,concept,Food Storage,Glass Storage,,material:glass|attr:divided,value,active,,ledger,2026-07-05,2026-07-05
+CG-0014,Glass nested storage with bamboo lids,concept,Food Storage,Glass Storage,,material:glass|material:bamboo_lid|attr:nesting,value,active,,ledger,2026-07-05,2026-07-05
+CG-0015,Silicone kitchen tool set,concept,Gadgets,Utensil Sets,,material:silicone|attr:10pc_set,value,active,,ledger,2026-07-05,2026-07-05
+CG-0016,Rotating fridge storage rack,concept,Food Storage,Organizers,,attr:rotating|attr:lazy_susan,value,active,,ledger,2026-07-05,2026-07-05
+CG-0017,Enameled cast-iron bread baker,concept,Bakeware,Bread,,material:cast_iron|coating:enamel|use:sourdough,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0018,Modular stackable ceramic bakeware,concept,Bakeware,Bakeware Sets,,material:ceramic|attr:stackable|attr:modular,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0019,Double-walled insulated beverage dispenser,concept,Beverage Dispensers,Dispensers,,attr:double_wall|attr:insulated,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0020,Magnetic spice organizer,concept,Gadgets,Spice Storage,,attr:magnetic,value,active,,ledger,2026-07-05,2026-07-05
+CG-0021,Stackable air fryer,concept,Gadgets,Appliances,,attr:stackable,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0022,Nesting mixing bowls in color,concept,Gadgets,Mixing Bowls,,attr:nesting|attr:colorful,value,active,,ledger,2026-07-05,2026-07-05
+CG-0023,Glass double-jar beverage station,concept,Beverage Dispensers,Dispensers,,material:glass|attr:double_jar,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0024,Leak-proof divided glass bento (2-pack),concept,Food Storage,Bento,,material:borosilicate|attr:divided|attr:leak_proof,value,active,,ledger,2026-07-05,2026-07-05
+CG-0025,PFAS-free ceramic baker + roaster set,concept,Bakeware,Bakers,,material:ceramic|attr:pfas_free|includes:cooling_rack,mid,active,,ledger,2026-07-05,2026-07-05
+CG-0026,Stainless non-slip kitchen gadget set,concept,Gadgets,Gadget Sets,Elements/Primula,material:stainless|attr:non_slip|hero:protein_tool,value,active,,ledger,2026-07-05,2026-07-05
+CG-0027,Scented soy candle gift set (2-pack),concept,Candles,Candles,PH,material:soy|attr:gift_set|attach:candle_warmer,value,active,,ledger,2026-07-05,2026-07-05
+CG-0028,Primula double-wall insulated drinkware 2-pack,concept,Drinkware,Tumblers,Primula,attr:double_wall|attr:insulated|attr:gift_set,value,active,,ledger,2026-07-05,2026-07-05
+CG-0029,Value tri-ply stainless cookware set,concept,Cookware,Cookware Sets,,material:tri_ply_stainless|position:step_up,mid,active,,ledger,2026-07-05,2026-07-05

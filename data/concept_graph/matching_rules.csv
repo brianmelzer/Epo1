@@ -1,0 +1,67 @@
+rule_set,concept_id,pattern,amz_category_ids,base_confidence,notes
+product,CG-0001,cast alumin,35;45,0.75,multi-token material rule
+product,CG-0002,motivational|time.?marker,91,0.70,requires bottle context from category
+product,CG-0003,charcuterie,112;11,0.55,single token; catches cutting boards - review
+product,CG-0004,"tumbler.{0,30}snack|snack.{0,30}tumbler",91;8,0.70,proximity pair
+product,CG-0006,oil spray,11,0.75,strong two-token stem
+product,CG-0007,stackable,2,0.55,single token within Bakeware category
+product,CG-0008,"air fryer.{0,20}liner",2;11,0.80,strong proximity pair
+product,CG-0009,electric lunch|lunch warmer|heated lunch,84,0.75,function pair
+product,CG-0010,candle warmer|warmer lamp,925,0.80,strong pair in Candles
+product,CG-0011,"instant read.{0,15}thermometer",11,0.75,attribute pair
+product,CG-0012,meat chopper,11,0.80,exact product term
+product,CG-0013,"glass.{0,40}(meal prep|divided)|(meal prep|divided).{0,40}glass",84,0.75,material+function proximity
+product,CG-0014,"bamboo.{0,30}(lid|glass)|glass.{0,40}bamboo",84,0.65,catches spice jars - review
+product,CG-0015,"silicone.{0,30}(utensil|tool|spatula)",11;62,0.70,material+type proximity
+product,CG-0016,"lazy susan|rotating.{0,25}(fridge|organizer)|fridge.{0,25}rotating",84,0.70,function terms
+product,CG-0017,"cast iron.{0,30}bread|bread.{0,30}cast iron",2,0.80,material+use proximity
+product,CG-0018,"ceramic.{0,30}bakeware|bakeware.{0,30}ceramic",2,0.60,missing modular/stackable qualifier - review
+product,CG-0019,beverage dispenser|drink dispenser,26;112,0.70,type term
+product,CG-0020,"magnetic.{0,25}spice|spice.{0,25}magnetic",11;84,0.80,attribute+type proximity
+product,CG-0021,"stackable.{0,20}air fryer|air fryer.{0,20}stackable",11,0.70,appliance likely off-list
+product,CG-0022,mixing bowl,11;62,0.55,single term; broad - review
+product,CG-0023,"glass.{0,35}dispenser|dispenser.{0,35}glass|drink jar",26;112,0.65,material+type proximity
+product,CG-0024,bento,84,0.70,type term
+product,CG-0025,"ceramic.{0,25}(baker|roaster)",2,0.75,material+type proximity
+product,CG-0026,"non.?slip.{0,30}(gadget|tool|grater|shredder)|kitchen gadget set",11;62,0.65,type terms
+product,CG-0027,soy candle,925,0.55,generic in Candles - review
+product,CG-0028,"primula|double.?wall.{0,25}stainless",8,0.60,brand term or attribute pair - review non-brand hits
+product,CG-0029,tri.?ply|3.?ply|triply,35;45,0.60,catches 3-ply accessories - review
+search,CG-0002,motivational water bottle|time marker,,0.75,term-level; level_of_truth=concept
+search,CG-0003,charcuterie,,0.70,term family
+search,CG-0006,oil sprayer|oil mister,,0.80,term family
+search,CG-0007,stackable bakeware,,0.85,exact concept term
+search,CG-0008,air fryer liner,,0.85,exact concept term
+search,CG-0009,electric lunch box|lunch warmer,,0.85,exact concept term
+search,CG-0010,candle warmer,,0.85,exact concept term
+search,CG-0011,instant read thermometer|meat thermometer,,0.75,term family
+search,CG-0012,meat chopper,,0.85,exact concept term
+search,CG-0013,glass meal prep|divided meal prep|glass food storage,,0.75,term family
+search,CG-0014,bamboo lid,,0.75,attribute term
+search,CG-0015,silicone utensil|silicone spatula,,0.70,term family
+search,CG-0016,lazy susan|fridge organizer,,0.70,term family
+search,CG-0017,bread pan|dutch oven bread|cast iron bread,,0.65,broad family - review
+search,CG-0018,ceramic bakeware,,0.80,exact concept term
+search,CG-0019,beverage dispenser|drink dispenser,,0.80,term family
+search,CG-0020,magnetic spice,,0.85,exact concept term
+search,CG-0021,stackable air fryer,,0.85,exact concept term
+search,CG-0022,mixing bowls,,0.70,broad term
+search,CG-0023,glass drink dispenser,,0.85,exact concept term
+search,CG-0024,bento box|bento,,0.75,term family
+search,CG-0025,ceramic baker|ceramic roaster,,0.85,exact concept term
+search,CG-0026,kitchen gadget set|chicken shredder,,0.70,hero-tool term included
+search,CG-0027,soy candle,,0.80,exact concept term
+search,CG-0028,insulated tumbler 2 pack|double wall tumbler,,0.65,no brand volume - review
+search,CG-0029,tri-ply|3 ply cookware|triply,,0.70,term family
+social,CG-0001,castaluminum|ceramiccookware|nontoxiccookware,,0.60,concept-level tags
+social,CG-0002,motivationalwaterbottle,,0.70,concept tag
+social,CG-0003,charcuterie,,0.70,concept tag family
+social,CG-0006,oilsprayer,,0.70,concept tag
+social,CG-0008,airfryer,,0.50,adjacent appliance tag - category-ish
+social,CG-0010,candlewarmer,,0.70,concept tag
+social,CG-0013,mealprep,,0.55,use-case tag
+social,CG-0017,sourdough|breadbaking,,0.55,use-case tags
+social,CG-0024,bento,,0.65,concept tag
+social,CG-0027,soycandle,,0.70,concept tag
+social,CAT-KITCHEN,kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware,,0.90,category-level; level_of_truth=category
+social,CAT-HOME,homefinds|amazonfinds|homedecor,,0.90,category-level; level_of_truth=category

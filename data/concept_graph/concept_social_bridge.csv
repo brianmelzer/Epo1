@@ -1,0 +1,21 @@
+concept_id,cb_hashtag_id,hashtag,followed,level_of_truth,match_type,match_confidence,evidence,caveats,human_review_needed,review_status,reviewer,valid_from
+CG-0001,43763,ceramiccookware,true,concept,rule_keyword,0.60,hashtag ~* 'castaluminum|ceramiccookware|nontoxiccookware',concept-level tags; followed_since=2025-02-20,true,,,2026-07-05
+CAT-KITCHEN,143115,amazonkitchenware,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-KITCHEN,681731,artisanalkitchenware,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-11-15,false,,,2026-07-05
+CAT-KITCHEN,4222,cookware,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-04-07,false,,,2026-07-05
+CAT-KITCHEN,18000,cookwarecollection,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-KITCHEN,7751,cookwareset,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-KITCHEN,44509,cookwaresets,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-KITCHEN,136344,enamelcookware,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-KITCHEN,3870,kitchengadgets,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-KITCHEN,118603,kitchengadgetsmakemehappy,true,category,rule_keyword,0.90,hashtag ~* 'kitchengadget|kitchenfinds|kitchentok|cookware|kitchenware',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-HOME,3903,amazonfinds,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-HOME,4858,amazonhomefinds,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-HOME,118192,amazonhomefinds2023,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-HOME,4565,homefinds,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2023-04-08,false,,,2026-07-05
+CAT-HOME,324,homedecor,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2024-08-05,false,,,2026-07-05
+CAT-HOME,5571,diyhomedecor,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2024-08-05,false,,,2026-07-05
+CAT-HOME,6493,homedecoration,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2024-08-05,false,,,2026-07-05
+CAT-HOME,6886,homedecorideas,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2024-08-05,false,,,2026-07-05
+CAT-HOME,28022,homedecortrends,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2023-11-14,false,,,2026-07-05
+CAT-HOME,36943,modernhomedecor,true,category,rule_keyword,0.90,hashtag ~* 'homefinds|amazonfinds|homedecor',category-level; level_of_truth=category; followed_since=2025-02-20,false,,,2026-07-05
