@@ -58,6 +58,8 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var
 .kpi .k{font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.3;text-transform:uppercase;letter-spacing:.06em;}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:520px){.kpis{grid-template-columns:repeat(2,1fr);}.kpi .v{font-size:1.6rem;}}
+.kpis.k4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:900px){.kpis.k4{grid-template-columns:repeat(2,1fr);}}
 /* loop */
 .loopwrap{overflow-x:auto;background:
    radial-gradient(700px 300px at 22% 8%,rgba(124,108,255,.14),transparent 60%),
@@ -354,7 +356,7 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
   <p class="lead">Signals frozen at Jul&nbsp;'24 / Jan&nbsp;'25 / Jul&nbsp;'25 with zero look-ahead;
     200 picks per strategy scored against what actually ranked 6 and 12 months later
     (F11 harness, <code>sql/07_backtest_hit_rate.sql</code>, deterministic, run live 2026-07-05).</p>
-  <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+  <div class="kpis k4">
     <div class="kpi"><div class="v acc">6.5%</div><div class="k">Baseline precision@10 · 6&nbsp;mo top-10 · the number to beat</div></div>
     <div class="kpi"><div class="v" style="color:var(--warn)">0.5%</div><div class="k">Pure F1 velocity precision · falsified as a stand-alone picker</div></div>
     <div class="kpi"><div class="v good">66%</div><div class="k">6-mo survival · velocity confirmed by review volume</div></div>
