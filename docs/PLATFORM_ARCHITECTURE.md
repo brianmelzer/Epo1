@@ -499,6 +499,9 @@ schemas; connector health alarms; ledger moves from CSV to the event-sourced
 spine (CSV becomes a projection).
 *Outcomes moved: #1, #2. Exit: a published, reproducible backtest hit rate —
 the number every future model must beat.*
+*Started: the harness v0 ran on 2026-07-03 and published the first baselines —
+see [`BACKTEST_V0.md`](BACKTEST_V0.md), including the falsification of pure
+F1 velocity as a picking strategy.*
 
 **Phase 2 (months 3–6) — Agent runtime + knowledge agents.**
 Temporal runtime + agent contract + registry; Orchestrator, Trend Hunter,
