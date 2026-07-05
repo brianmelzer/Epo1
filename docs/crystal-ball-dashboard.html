@@ -115,6 +115,27 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
 .foot{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;}
 .foot code{font-family:var(--mono);color:var(--ink);background:var(--panel2);padding:.1em .4em;border-radius:4px;}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;}}
+/* tabs */
+.tabbar{position:sticky;top:0;z-index:20;display:flex;gap:8px;padding:10px 7vw;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);}
+.tabbtn{appearance:none;cursor:pointer;font-family:var(--sans);font-size:.78rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--panel2);
+  border:1px solid var(--line);border-radius:999px;padding:8px 18px;transition:color .12s,border-color .12s;}
+.tabbtn:hover{color:var(--ink);border-color:var(--accent);}
+.tabbtn[aria-selected="true"]{color:var(--ink);border-color:var(--accent);
+  background:linear-gradient(90deg,rgba(124,108,255,.22),rgba(55,224,200,.14));}
+.tabbtn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;}
+[role="tabpanel"][hidden]{display:none;}
+/* how-it-works */
+.how h3{font-size:1.05rem;margin:14px 0 4px;color:var(--ink);}
+.how p,.how li{color:var(--muted);font-size:.92rem;}
+.how ul{margin:.4em 0 .9em;padding-left:1.2em;}
+.how li{margin:4px 0;}
+.how li b,.how p b{color:var(--ink);}
+.how code{font-family:var(--mono);color:var(--ink);background:var(--panel2);padding:.08em .4em;border-radius:4px;font-size:.85em;}
+.formula{font-family:var(--mono);font-size:.84rem;color:var(--ink);background:var(--panel2);
+  border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0;overflow-x:auto;white-space:nowrap;}
 </style></head>
 <body data-palette="#7c6cff,#37e0c8,#f0b94a,#ff6b8b">
 <div class="cover">
@@ -132,7 +153,13 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
   </div>
 </div>
 
-<div class="wrap">
+<!-- TAB BAR -->
+<div class="tabbar" role="tablist" aria-label="Dashboard views">
+  <button class="tabbtn" id="tab-dashboard" role="tab" aria-selected="true" aria-controls="panel-dashboard" tabindex="0">Dashboard</button>
+  <button class="tabbtn" id="tab-how" role="tab" aria-selected="false" aria-controls="panel-how" tabindex="-1">How It Works</button>
+</div>
+
+<div class="wrap" id="panel-dashboard" role="tabpanel" aria-labelledby="tab-dashboard">
 
 <!-- 1. KPI STRIP -->
 <section style="margin-top:26px">
@@ -399,4 +426,160 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
   yet logged; 14 IQS values saturated at 1.00 pending re-tune).
 </div>
 </div>
+
+<!-- TAB 2: HOW IT WORKS -->
+<div class="wrap how" id="panel-how" role="tabpanel" aria-labelledby="tab-how" hidden>
+
+<section style="margin-top:26px">
+  <h2>How this dashboard is built</h2>
+  <p class="lead">One card per Dashboard section: what it shows, where the data comes from,
+  and exactly how each number is computed. Nothing on Tab&nbsp;1 is hand-entered — every figure
+  is either a ledger aggregate or a live SQL result.</p>
+</section>
+
+<!-- HOW: KPI STRIP -->
+<section>
+  <h2><span class="n">§</span>KPI strip</h2>
+  <div class="card">
+    <h3>Source</h3>
+    <p><code>data/callout_ledger.csv</code> — the scored call-out ledger (34 call-outs), refreshed by
+    <code>sql/06_ledger_refresh.sql</code> against <code>shaundatabase.v_so_history</code> (internal sell-through).</p>
+    <h3>Each stat, defined</h3>
+    <ul>
+      <li><b>Call-outs scored</b> — count of ledger rows with a computed IQS.</li>
+      <li><b>Mean IQS</b> — simple average of the <code>iqs</code> column across scored rows.</li>
+      <li><b>% matched</b> — share of call-outs whose keywords matched at least one internal item with sell-through.</li>
+      <li><b>Reorder rate</b> — share of rows with <code>reordered = yes</code>.</li>
+      <li><b>Total realized gross</b> — sum of <code>realized_gross</code> across rows. Note: paired call-outs
+      (e.g. cast-aluminum cookware, candle warmer, beverage dispenser) describe the same concept twice,
+      so gross is attributed per call-out and double-counts some concepts.</li>
+      <li><b>Last scored_asof</b> — max of the <code>scored_asof</code> column = date of the last flywheel refresh.</li>
+    </ul>
+    <h3>The IQS formula (F13 Item Quality Score)</h3>
+    <div class="formula">IQS = 0.20·min(items/3, 1) + 0.35·min(margin/target, 1) + 0.25·min(units/50000, 1) + 0.20·min(active_months/12, 1)</div>
+    <p>Computed per call-out by <code>sql/06_ledger_refresh.sql</code> over matched items in
+    <code>shaundatabase.v_so_history</code>. Outcome windows are set per row: 2025 seed call-outs are
+    scored on a different realization window than 2026 picks, so early picks aren't penalized for
+    having had less time to sell.</p>
+  </div>
+</section>
+
+<!-- HOW: TWO-LOOP VISUAL -->
+<section>
+  <h2><span class="n">§</span>The two-loop visual</h2>
+  <div class="card">
+    <h3>Inner loop — the signal engine</h3>
+    <p>Runs over the <code>crystalball</code> schema: 169M+ daily Amazon rank rows since 2021-08,
+    plus Walmart, Five Below, weekly search terms, and social signals. It measures, forecasts,
+    reconciles against Epoca POS, and recommends.</p>
+    <h3>Outer loop — the commercial flywheel</h3>
+    <p>The real business journey: call-out → pitch → MRF → PO → ship → sell-through → reorder.
+    Sourced from Librarian call-out documents plus <code>sqlmas90</code> (invoices, POs) and
+    <code>shaundatabase</code> (inventory, sell-through).</p>
+    <h3>The coupling</h3>
+    <p><b>Recommend feeds Call-out</b> (inner → outer), and commercial <b>outcomes (IQS) retrain the
+    inner loop's weights</b> (outer → inner). That feedback is the flywheel.</p>
+    <h3>Where the node numbers come from</h3>
+    <ul>
+      <li><b>Rank-row scale</b> — live row count of <code>crystalball.list_item</code>.</li>
+      <li><b>Gross, reorder rate, IQS, call-outs scored</b> — aggregates of the call-out ledger (same CSV as the KPI strip).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- HOW: IQS LEADERBOARD -->
+<section>
+  <h2><span class="n">§</span>IQS leaderboard</h2>
+  <div class="card">
+    <h3>Source &amp; sort</h3>
+    <p>The ledger CSV, sorted by IQS descending. Each row is one call-out graded on its real
+    outer-loop journey.</p>
+    <h3>How call-outs are matched to sales</h3>
+    <p>Matching is <b>synonym-aware regex</b> against internal item descriptions — e.g.
+    <code>CA</code> = cast aluminum, <code>CER</code> = ceramic — using each row's
+    <code>match_keywords</code> patterns.</p>
+    <h3>Caveats</h3>
+    <ul>
+      <li>2 rows found <b>zero matches</b> (honest zeros, shown as "no match" on Tab 1).</li>
+      <li>Broad patterns can <b>over-match</b>, attributing unrelated items' sales to a call-out.</li>
+      <li>The precise fix is curation: populating <code>linked_item_codes</code> per call-out replaces
+      regex guessing with exact item attribution.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- HOW: SIGNALS NOW -->
+<section>
+  <h2><span class="n">§</span>Signals now</h2>
+  <div class="card">
+    <h3>Source</h3>
+    <p>Live SQL against <code>crystalball.list_item</code> (Amazon daily rankings) using the
+    <code>sql/01_breakout_radar.sql</code> pattern.</p>
+    <h3>Velocity (log-rank momentum, F1)</h3>
+    <div class="formula">velocity = (−ln(avg rank, last 14d)) − (−ln(avg rank, 30–44d prior))</div>
+    <p>Lower rank = more popular, so a <b>positive</b> velocity means the item is climbing. The log
+    makes a 5→3 move count more than 80→78.</p>
+    <h3>Review gain (sales proxy)</h3>
+    <div class="formula">review_gain = max(review_count, last 7d) − max(review_count, 23–37d prior)</div>
+    <p>New reviews trail sales, so review gain confirms that rank velocity is demand, not noise.</p>
+    <h3>Data-as-of stamp</h3>
+    <p><code>max(cb_stamp)</code> — the newest observation date in the table at query time.</p>
+  </div>
+</section>
+
+<!-- HOW: CATEGORY COVERAGE -->
+<section>
+  <h2><span class="n">§</span>Category coverage</h2>
+  <div class="card">
+    <p>The 8 deck files linked on Tab 1 are each a <b>render of the same formulas</b> over that
+    category's slice of the data:</p>
+    <ul>
+      <li><b>F1/F2/F3 breakout radar</b> — rank velocity + review confirmation (<code>sql/01_breakout_radar.sql</code>).</li>
+      <li><b>F9 feature lift</b> — feature share of the top-50 vs. review-gain-weighted share (<code>sql/02_feature_lift.sql</code>).</li>
+      <li><b>F12 whitespace</b> — cross-retailer gaps (<code>sql/03_cross_retailer_gap.sql</code>).</li>
+    </ul>
+    <p>Same model, eight lenses — a deck is never hand-curated content, it's a query result with prose.</p>
+  </div>
+</section>
+
+<!-- HOW: REFRESH CADENCE -->
+<section>
+  <div class="callout">
+    <b>Refresh cadence.</b> The flywheel refreshes weekly via GitHub Actions: the ledger is re-scored
+    (<code>sql/06_ledger_refresh.sql</code>), KPIs recompute, and the category decks regenerate each cycle.
+  </div>
+  <div class="foot">
+    <b>Honesty footer.</b> Matching is proxy-based (regex on descriptions, not curated item links);
+    rank signals cover the <b>top-100 list scope</b> only, so items falling off the list go dark rather
+    than to zero; and outcome windows are provisional — 2026 picks have had less time to realize than
+    2025 seeds, so their IQS will move as sell-through accrues.
+  </div>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var tabs=[document.getElementById('tab-dashboard'),document.getElementById('tab-how')];
+  var panels=[document.getElementById('panel-dashboard'),document.getElementById('panel-how')];
+  function select(i){
+    tabs.forEach(function(t,j){
+      var on=(j===i);
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.tabIndex=on?0:-1;
+      panels[j].hidden=!on;
+    });
+    tabs[i].focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(i);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();select((i+1)%tabs.length);}
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();select((i-1+tabs.length)%tabs.length);}
+      else if(e.key==='Home'){e.preventDefault();select(0);}
+      else if(e.key==='End'){e.preventDefault();select(tabs.length-1);}
+    });
+  });
+})();
+</script>
 </body></html>
