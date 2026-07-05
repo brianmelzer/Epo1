@@ -5,7 +5,13 @@ Layer": a panel of grounded, adversarial simulation agents that stress-test
 top-scored concepts **after** the deterministic prediction council and
 **before** a human spends buyer credibility on them.*
 
-**Status:** Design doc (no code). Proposed as the design artifact for PR #9.
+> **DEFERRED (2026-07-05, per Epoca direction):** this layer is **not** the
+> next PR. PR #9 is **Concept Graph v0 — product identity spine** — Backtest
+> v1's own ablation showed search/social signals fail at the identity join,
+> so the mapping layer comes before any simulation work. This document
+> remains a design note for a later phase.
+
+**Status:** Design doc (no code) — deferred; superseded as next-PR by Concept Graph v0.
 **Depends on:** [`CRYSTAL_BALL_LOOP_V2.md`](CRYSTAL_BALL_LOOP_V2.md) (the
 two-loop strategy, F1–F16), `PLATFORM_ARCHITECTURE.md` on
 `claude/crystal-ball-architecture-ukj4uc` (PR #7 — the honesty engine:
