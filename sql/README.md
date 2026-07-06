@@ -12,7 +12,7 @@ these are query **templates** you paste and parameterize, not stored objects).
 
 | File | Formula | What it produces |
 |---|---|---|
-| `01_breakout_radar.sql` | F1 + F2 + F3 | Per-product rank **velocity**, **acceleration**, and **review velocity** in a category → the ranked "climbers" list |
+| `01_breakout_radar.sql` | PWS_v1 (F10) | Per-product **composite score** in a category — `1.5·z(prox) + 0.25·z(vel) + 0.75·z(lnRevGain) + 0.25·priceBand`, the proximity-dominant blend validated by [`../docs/BACKTEST_V1_RESULTS.md`](../docs/BACKTEST_V1_RESULTS.md) (search SDV dropped: concept-level only). Velocity (F1) and acceleration (F2) remain visible as watch columns, but pure velocity was falsified as a standalone ranker |
 | `02_feature_lift.sql` | F9 | Which title **features/benefits** are associated with faster movement |
 | `03_cross_retailer_gap.sql` | F12 | Concepts surging on one marketplace but thin on another (early, low-risk picks) |
 | `04_outer_loop_ledger.sql` | F13–F15 | The flywheel: grade items on real sell-through / margin / reorder, and bridge Crystal Ball rankings to internal outcomes (see [`../docs/OUTER_LOOP_LEDGER_FINDINGS.md`](../docs/OUTER_LOOP_LEDGER_FINDINGS.md)) |
