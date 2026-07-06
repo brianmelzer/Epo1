@@ -1,20 +1,19 @@
 name: Deploy site to GitHub Pages
 
-# Publishes the static site to GitHub Pages on every push to main.
-# Uses configure-pages enablement so Pages turns on automatically the
-# first time this runs — no manual Settings step required.
+# Site intentionally taken offline: deploys a blank placeholder over the
+# previous public FERVEUR site. To remove Pages entirely, also unpublish
+# under repo Settings -> Pages after this deploy runs.
 
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment; newer pushes cancel in-progress runs.
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -26,22 +25,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Create blank site
+        run: |
+          mkdir -p _blank
+          echo '<!DOCTYPE html><title>Offline</title><p>This site is no longer available.</p>' > _blank/index.html
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - name: Remove internal Crystal Ball content (served privately via Claude artifact)
-        run: rm -rf docs data sql scripts
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # The site lives at the repo root (index.html, assets/).
-          path: .
+          path: _blank
 
       - name: Deploy to GitHub Pages
         id: deployment
