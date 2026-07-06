@@ -34,6 +34,9 @@ jobs:
         with:
           enablement: true
 
+      - name: Remove internal Crystal Ball content (served privately via Claude artifact)
+        run: rm -rf docs data sql scripts
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
