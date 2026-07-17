@@ -21,21 +21,11 @@
 html,body{max-width:100%;overflow-x:hidden;}
 body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px;}
-.cover{background:
-   radial-gradient(1200px 400px at 80% -10%,rgba(124,108,255,.35),transparent 60%),
-   radial-gradient(900px 400px at 0% 10%,rgba(55,224,200,.18),transparent 55%),
-   linear-gradient(180deg,var(--bg2),var(--bg));
-  padding:56px 7vw 40px;border-bottom:1px solid var(--line);}
-.eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--accent2);margin:0;}
-.cover h1{font-size:2.5rem;line-height:1.08;margin:.35em 0 .2em;letter-spacing:.01em;}
-.cover .sub{color:var(--muted);font-size:1.05rem;max-width:680px;}
-.chips{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;}
-.chip{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);
-  background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 13px;}
-.live{color:var(--good);}
-.live .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--good);margin-right:6px;
-  box-shadow:0 0 0 0 rgba(55,224,200,.6);animation:pulse 2.2s infinite;}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(55,224,200,.5);}70%{box-shadow:0 0 0 7px rgba(55,224,200,0);}100%{box-shadow:0 0 0 0 rgba(55,224,200,0);}}
+/* slim header */
+.slimhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;justify-content:space-between;
+  padding:14px 7vw;background:var(--bg2);border-bottom:1px solid var(--line);}
+.slimhead b{font-size:1.05rem;letter-spacing:.01em;}
+.slimhead .stamp{font-size:.75rem;color:var(--muted);font-family:var(--mono);}
 section{margin-top:44px;}
 h2{font-size:1.5rem;margin:0 0 .1em;letter-spacing:.01em;}
 h2 .n{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:.5em;}
@@ -49,17 +39,6 @@ td.prod{white-space:normal;min-width:210px;}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);}
 .up{color:var(--good);font-weight:600;}.down{color:var(--warn);font-weight:600;}
 .tablewrap{overflow-x:auto;}
-/* KPI strip */
-.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:20px 0 4px;}
-.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;
-  box-shadow:0 12px 40px rgba(0,0,0,.22);}
-.kpi .v{font-size:2rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1;}
-.kpi .v.acc{color:var(--accent);}.kpi .v.good{color:var(--good);}.kpi .v.gold{color:var(--gold);}
-.kpi .k{font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.3;text-transform:uppercase;letter-spacing:.06em;}
-@media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:520px){.kpis{grid-template-columns:repeat(2,1fr);}.kpi .v{font-size:1.6rem;}}
-.kpis.k4{grid-template-columns:repeat(4,1fr);}
-@media(max-width:900px){.kpis.k4{grid-template-columns:repeat(2,1fr);}}
 /* loop */
 .loopwrap{overflow-x:auto;background:
    radial-gradient(700px 300px at 22% 8%,rgba(124,108,255,.14),transparent 60%),
@@ -100,20 +79,19 @@ svg.loop{display:block;min-width:940px;width:100%;height:auto;}
 .pill.cool{color:var(--warn);border-color:rgba(255,107,139,.4);background:rgba(255,107,139,.08);}
 .pill.na{color:var(--muted);}
 .grpr td{background:var(--panel2);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent2);}
-/* coverage cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0;}
-a.cov{display:block;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:14px;
-  padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.18);transition:transform .12s ease,border-color .12s ease;}
-a.cov:hover{transform:translateY(-2px);border-color:var(--accent);}
-a.cov .cat{font-size:1.02rem;font-weight:700;color:var(--ink);}
-a.cov .file{font-size:.74rem;color:var(--muted);font-family:var(--mono);margin-top:4px;word-break:break-all;}
-a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
-.callout{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
-  border-left:3px solid var(--accent);border-radius:12px;padding:16px 20px;margin:16px 0;color:var(--muted);}
-.callout b{color:var(--accent2);}
+/* top-10 category cards */
+.catgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:4px 18px;margin:6px 0;}
+.catcard h3{margin:18px 2px 0;font-size:1.06rem;letter-spacing:.01em;}
+.catcard h3 .tag{margin-left:8px;vertical-align:middle;}
+.catcard .card{margin:10px 0 4px;}
+.catcard .brief{margin:2px 2px 8px;font-size:.8rem;}
+.catcard .brief a{color:var(--accent2);text-decoration:none;}
+.catcard .brief a:hover{text-decoration:underline;}
+td.prod a{color:var(--ink);text-decoration:underline;
+  text-decoration-color:color-mix(in srgb,var(--accent) 55%,transparent);text-underline-offset:2px;}
+td.prod a:hover{color:var(--accent);}
+.empty{color:var(--muted);font-size:.86rem;padding:14px 2px;}
 .asof{font-size:.76rem;color:var(--muted);margin:6px 2px 0;}
-.foot{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;}
-.foot code{font-family:var(--mono);color:var(--ink);background:var(--panel2);padding:.1em .4em;border-radius:4px;}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;}}
 /* tabs */
 .tabbar{position:sticky;top:0;z-index:20;display:flex;gap:8px;padding:10px 7vw;
@@ -136,21 +114,14 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
 .how code{font-family:var(--mono);color:var(--ink);background:var(--panel2);padding:.08em .4em;border-radius:4px;font-size:.85em;}
 .formula{font-family:var(--mono);font-size:.84rem;color:var(--ink);background:var(--panel2);
   border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0;overflow-x:auto;white-space:nowrap;}
+.foot{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;}
+.foot code{font-family:var(--mono);color:var(--ink);background:var(--panel2);padding:.1em .4em;border-radius:4px;}
 </style></head>
 <body data-palette="#7c6cff,#37e0c8,#f0b94a,#ff6b8b">
-<div class="cover">
-  <p class="eyebrow">◆ Crystal Ball · Live Loop Dashboard</p>
-  <h1>The two loops, running.</h1>
-  <p class="sub">The centerpiece view of the Crystal Ball system: an <b>inner prediction loop</b>
-  that mines 162M rows of marketplace history, and an <b>outer commercial flywheel</b> that grades
-  every call-out on money made — each feeding the other. Every number here is computed from the
-  scored call-out ledger or a live query against the data lake.</p>
-  <div class="chips">
-    <span class="chip live"><span class="dot"></span>Live as of 2026-07-02</span>
-    <span class="chip">26 call-outs scored</span>
-    <span class="chip">Amazon · region 1</span>
-    <span class="chip">Sam's Club roadmap</span>
-  </div>
+<!-- SLIM HEADER -->
+<div class="slimhead">
+  <b>Crystal Ball — Live Dashboard</b>
+  <span class="stamp">data as of 2026-07-14 · anchor = max(cb_stamp) · Amazon, region 1</span>
 </div>
 
 <!-- TAB BAR -->
@@ -161,27 +132,9 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
 
 <div class="wrap" id="panel-dashboard" role="tabpanel" aria-labelledby="tab-dashboard">
 
-<!-- 1. KPI STRIP -->
+<!-- 1. TWO-LOOP VISUAL -->
 <section style="margin-top:26px">
-  <div class="kpis">
-    <div class="kpi"><div class="v acc">26</div><div class="k">Call-outs scored</div></div>
-    <div class="kpi"><div class="v">0.824</div><div class="k">Mean IQS (0–1)</div></div>
-    <div class="kpi"><div class="v good">92%</div><div class="k">Matched to sell-through<br>(24 of 26)</div></div>
-    <div class="kpi"><div class="v good">73%</div><div class="k">Reorder rate<br>(19 of 26)</div></div>
-    <div class="kpi"><div class="v gold">$143.0M</div><div class="k">Realized gross<br>across call-outs</div></div>
-    <div class="kpi"><div class="v acc">Jul 2</div><div class="k">Last scored_asof<br>2026-07-02</div></div>
-  </div>
-  <p class="asof">Computed directly from <code style="font-family:var(--mono)">data/callout_ledger.csv</code> (26 rows). Realized gross sums each call-out row as scored; a few concepts recur as paired call-outs (cast-aluminum cookware, candle warmer, beverage dispenser), so gross is attributed per call-out, not per unique SKU.</p>
-</section>
-
-<!-- 2. TWO-LOOP VISUAL -->
-<section>
   <h2><span class="n">01</span>The two loops</h2>
-  <p class="lead">The <b style="color:var(--accent)">inner loop</b> predicts what will win; the
-  <b style="color:var(--accent2)">outer loop</b> is the real business. They are coupled: the inner
-  loop's <b>Recommend</b> feeds the outer loop's <b>Call-out</b>, and the outer loop's commercial
-  <b>outcomes (IQS)</b> flow back to retrain the inner loop. That feedback is what makes call-out
-  quality compound. The dots show flow direction; live numbers sit on the key nodes.</p>
   <div class="loopwrap">
   <svg class="loop" viewBox="0 0 1040 620" role="img" aria-label="The inner Crystal Ball prediction loop coupled to the outer commercial flywheel">
     <defs>
@@ -277,10 +230,227 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
   </div>
 </section>
 
-<!-- 3. IQS LEADERBOARD -->
+<!-- 2. SIGNALS NOW -->
 <section>
-  <h2><span class="n">02</span>Call-out leaderboard — by Item Quality Score</h2>
-  <p class="lead">Every call-out graded on its real outer-loop journey (F13 IQS): pitched → accepted →
+  <h2><span class="n">02</span>Signals now — live breakout climbers</h2>
+  <p class="lead">Top rank-velocity climbers pulled live from the Amazon daily time series (F1, log-rank
+  momentum: last 14 days vs 30–44 days prior; lower rank = more popular, so these are
+  <span class="up">climbing</span>). This is the inner loop's Signal Engine in the act of surfacing
+  pre-peak items across three roadmap categories.</p>
+  <div class="card tablewrap">
+  <table>
+    <thead><tr>
+      <th>Category</th><th class="prod">Product</th><th class="num">Rank prior→now</th>
+      <th class="num">Velocity</th><th class="num">Reviews +30d</th><th class="num">Rating</th><th class="num">Price</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><span class="tag">Cookware</span></td><td class="prod">CAROTE 21-pc Ceramic Cookware Set (PFAS-free)</td><td class="num"><span class="up">88 → 7</span></td><td class="num up">+2.53</td><td class="num">—</td><td class="num">4.68</td><td class="num">$112</td></tr>
+      <tr><td><span class="tag">Cookware</span></td><td class="prod">24-pc Ceramic Non-Stick w/ 8Qt Stock (PFAS-free)</td><td class="num"><span class="up">36 → 6</span></td><td class="num up">+1.82</td><td class="num">+3</td><td class="num">4.91</td><td class="num">$56</td></tr>
+      <tr><td><span class="tag">Cookware</span></td><td class="prod">24-pc Titanium-Reinforced Ceramic Set</td><td class="num"><span class="up">14 → 5</span></td><td class="num up">+1.06</td><td class="num">—</td><td class="num">4.80</td><td class="num">$70</td></tr>
+      <tr><td><span class="tag">Food Storage</span></td><td class="prod">BRIVARA Ceramic-Coated Glass Containers (No PTFE)</td><td class="num"><span class="up">59 → 15</span></td><td class="num up">+1.38</td><td class="num">+8</td><td class="num">4.50</td><td class="num">$233</td></tr>
+      <tr><td><span class="tag">Food Storage</span></td><td class="prod">Vacuum Sealer Bags for Food, 6-pack rolls</td><td class="num"><span class="up">33 → 9</span></td><td class="num up">+1.30</td><td class="num">+127</td><td class="num">4.50</td><td class="num">$15</td></tr>
+      <tr><td><span class="tag">Food Storage</span></td><td class="prod">IKKAB 3-pack Fruit Storage Containers for Fridge</td><td class="num"><span class="up">80 → 25</span></td><td class="num up">+1.15</td><td class="num">—</td><td class="num">3.86</td><td class="num">$11</td></tr>
+      <tr><td><span class="tag">Gadgets</span></td><td class="prod">Sevenblue 4-pack Magnetic Spice Rack for Fridge</td><td class="num"><span class="up">70 → 13</span></td><td class="num up">+1.65</td><td class="num">+273</td><td class="num">4.80</td><td class="num">$12</td></tr>
+      <tr><td><span class="tag">Gadgets</span></td><td class="prod">Air Fryer Paper Liners, 120-pc disposable</td><td class="num"><span class="up">19 → 6</span></td><td class="num up">+1.09</td><td class="num">+416</td><td class="num">4.60</td><td class="num">$9</td></tr>
+      <tr><td><span class="tag">Gadgets</span></td><td class="prod">35-pc Griddle Accessories Kit (flat-top grill)</td><td class="num"><span class="up">66 → 31</span></td><td class="num up">+0.77</td><td class="num">+199</td><td class="num">4.70</td><td class="num">$25</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="asof">Live query: <code style="font-family:var(--mono)">crystalball.list_item</code> (Amazon, region 1 · Cookware cat 35, Food Storage cat 84, Gadgets cat 11) via the read-only Epoca SQL tool, F1/F2/F3 pattern from <code style="font-family:var(--mono)">sql/01_breakout_radar.sql</code>. Data as of 2026-07-02. Signal note: the cookware climbers cluster hard on <b>PFAS-free / ceramic / titanium</b> — the same features driving Epoca's IQS 1.00 cookware winners. Some breakouts (spice rack, air-fryer liners, meal-prep gadgets) are low-price impulse items — thin margin per unit, read velocity accordingly.</p>
+</section>
+
+<!-- 3. TOP 10 BY CATEGORY — LIVE -->
+<section>
+  <h2><span class="n">03</span>Top 10 by category — live</h2>
+  <p class="lead">For each roadmap category: the top 10 products ranked by <b>PWS_v1</b>
+  (proximity-dominant blend, <code style="font-family:var(--mono)">sql/01_breakout_radar.sql</code>),
+  run live at anchor <b>2026-07-14</b> (max cb_stamp), Amazon region 1. Titles link to the live
+  Amazon listing. Rank = current 14-day average list rank.</p>
+
+  <div class="catgrid">
+
+  <div class="catcard">
+    <h3>Cookware <span class="tag">cats 35 · 5 · 45</span></h3>
+    <div class="card tablewrap">
+    <table>
+      <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0F2937DQQ" target="_blank" rel="noopener">Astercook 21 Pcs Pots and Pans Set Non Stick, Ceramic Cookware Set Det…</a></td><td class="num">8.748</td><td class="num">$57</td></tr>
+        <tr><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0F9WBM8H3" target="_blank" rel="noopener">CAROTE 26PCS Pots and Pans Set Non Stick, Cookware Set Pots and Pans I…</a></td><td class="num">8.646</td><td class="num">$113</td></tr>
+        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0GRYST1NS" target="_blank" rel="noopener">Idymere Tri-ply Stainless Steel Pot - 1.5 Qt &amp; 2.5 Qt Heavy Duty Sauce…</a></td><td class="num">7.865</td><td class="num">$27</td></tr>
+        <tr><td class="num">8</td><td class="prod"><a href="https://www.amazon.com/dp/B0C8HPJW4J" target="_blank" rel="noopener">CAROTE 21Pcs Pots and Pans Set, Nonstick Cookware Sets, White Granite…</a></td><td class="num">7.025</td><td class="num">$130</td></tr>
+        <tr><td class="num">3</td><td class="prod"><a href="https://www.amazon.com/dp/B074R27NWN" target="_blank" rel="noopener">Egg Poacher - Eggssentials Poached Egg Maker, Stainless Steel Egg Poac…</a></td><td class="num">6.811</td><td class="num">$40</td></tr>
+        <tr><td class="num">6</td><td class="prod"><a href="https://www.amazon.com/dp/B005H05SXM" target="_blank" rel="noopener">Cuisinart 11-Piece Cookware Set, Chef's Classic Stainless Steel Collec…</a></td><td class="num">6.612</td><td class="num">$117</td></tr>
+        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B09J999JWK" target="_blank" rel="noopener">RORBAM Microwave Ramen Cooker,Ramen Bowl Set,Microwave Noodle Bowl,Ram…</a></td><td class="num">6.233</td><td class="num">$10</td></tr>
+        <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B09ZV37WC6" target="_blank" rel="noopener">HexClad Hybrid Nonstick 12-Inch Fry Pan with Tempered Glass Lid, Stay-…</a></td><td class="num">5.462</td><td class="num">$145</td></tr>
+        <tr><td class="num">8</td><td class="prod"><a href="https://www.amazon.com/dp/B0CXDTP94L" target="_blank" rel="noopener">68oz 304 Stainless Steel Oil Filter Pot Large Capacity Versatile Oil F…</a></td><td class="num">4.829</td><td class="num">$24</td></tr>
+        <tr><td class="num">21</td><td class="prod"><a href="https://www.amazon.com/dp/B0CJQWWTHZ" target="_blank" rel="noopener">SENSARTE 17 Piece Pots and Pans Set, Nonstick Detachable Handle Cookwa…</a></td><td class="num">4.304</td><td class="num">$78</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="brief"><a href="https://claude.ai/code/artifact/5d7da8c8-ff0d-4e51-8bb8-bdac4466aa55">Full brief →</a></p>
+  </div>
+
+  <div class="catcard">
+    <h3>Food Storage <span class="tag">cat 84</span></h3>
+    <div class="card tablewrap">
+    <table>
+      <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="prod"><a href="https://www.amazon.com/dp/B0DS94KCHR" target="_blank" rel="noopener">Crudités 4-Pack Portable Snack Tray | Food Containers with Reversible…</a></td><td class="num">7.139</td><td class="num">$60</td></tr>
+        <tr><td class="num">3</td><td class="prod"><a href="https://www.amazon.com/dp/B08BR9HBZ3" target="_blank" rel="noopener">Rubbermaid Brilliance Glass Storage Food Containers with Lids (18 Piec…</a></td><td class="num">6.054</td><td class="num">$74</td></tr>
+        <tr><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0B9S5HZ26" target="_blank" rel="noopener">Vtopmart 8 Pack Glass Food Storage Containers , Meal Prep , Airtight B…</a></td><td class="num">5.576</td><td class="num">$22</td></tr>
+        <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B0B27MDKXD" target="_blank" rel="noopener">5 PCS Large Fruit Containers for Fridge - Leakproof Food Storage Conta…</a></td><td class="num">5.357</td><td class="num">$20</td></tr>
+        <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B0028JURDQ" target="_blank" rel="noopener">FoodSaver Custom Length Vacuum Sealer Bags Multipack, 5 Count Rolls fo…</a></td><td class="num">5.231</td><td class="num">$31</td></tr>
+        <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B079M8FPTW" target="_blank" rel="noopener">Rubbermaid Brilliance Food Storage Containers, BPA Free, Airtight Lids…</a></td><td class="num">5.225</td><td class="num">$31</td></tr>
+        <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B08ZK5WDWN" target="_blank" rel="noopener">Airtight Food Storage Containers with Lids, Vtopmart 24 pcs Plastic Ki…</a></td><td class="num">4.029</td><td class="num">$31</td></tr>
+        <tr><td class="num">10</td><td class="prod"><a href="https://www.amazon.com/dp/B0C5BWRMQL" target="_blank" rel="noopener">Bonsenkitchen Vacuum Sealer Rolls Bags, 6 Pack 3 Rolls 11" x 20' + 3 R…</a></td><td class="num">3.494</td><td class="num">$16</td></tr>
+        <tr><td class="num">15</td><td class="prod"><a href="https://www.amazon.com/dp/B08NSPDY5F" target="_blank" rel="noopener">Vacuum Sealer Bags For Food:6 Pack 3 Rolls11"x20' +3 Rolls 8"x20' Comm…</a></td><td class="num">3.249</td><td class="num">$16</td></tr>
+        <tr><td class="num">16</td><td class="prod"><a href="https://www.amazon.com/dp/B0D7P6XKNP" target="_blank" rel="noopener">Vtopmart 5Pack 22oz Glass Storage Containers with Lids, Meal Prep Food…</a></td><td class="num">2.936</td><td class="num">$22</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="brief"><a href="https://claude.ai/code/artifact/39b14392-b71b-405b-a966-2d5f3e326101">Full brief →</a></p>
+  </div>
+
+  <div class="catcard">
+    <h3>Gadgets <span class="tag">cats 11 · 62 · 68</span></h3>
+    <div class="card tablewrap">
+    <table>
+      <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0D6T59JGQ" target="_blank" rel="noopener">Amazon Basics Disposable Striped Plastic Flex Straws, Assorted Colors,…</a></td><td class="num">7.630</td><td class="num">$2</td></tr>
+        <tr><td class="num">3</td><td class="prod"><a href="https://www.amazon.com/dp/B09H6DKZ9T" target="_blank" rel="noopener">Onigiri Mold, 3 Pack Rice Mold Musubi Maker Kit, Musubi Maker Press, C…</a></td><td class="num">6.316</td><td class="num">$6</td></tr>
+        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B01698J0RU" target="_blank" rel="noopener">Tofuture Tofu Press - The Orginal and Best Tofu Press. Easily And Quic…</a></td><td class="num">5.812</td><td class="num">$23</td></tr>
+        <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B0C6Y8NYK1" target="_blank" rel="noopener">Air Fryer Paper Liners, 120Pcs Air Fryer Disposable Liners, Non-Stick…</a></td><td class="num">5.797</td><td class="num">$9</td></tr>
+        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B08CXQ1HV9" target="_blank" rel="noopener">Kitchen Gadgets Set 5 Pieces, Stackable Cooking Tools Space Saving for…</a></td><td class="num">5.768</td><td class="num">$9</td></tr>
+        <tr><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0CQK73SGQ" target="_blank" rel="noopener">ICEBREAKER POP 2.0 2024: Make And Serve Ice Without Ever Touching The…</a></td><td class="num">5.705</td><td class="num">$24</td></tr>
+        <tr><td class="num">10</td><td class="prod"><a href="https://www.amazon.com/dp/B0CP4XY9QC" target="_blank" rel="noopener">YARRAMATE Oil Sprayer for Cooking, 2 in 1 Olive Oil Dispenser Bottle f…</a></td><td class="num">5.494</td><td class="num">$7</td></tr>
+        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B09L3FH1F5" target="_blank" rel="noopener">Alas Complete 20 Piece Sushi Making Set - Kit for Beginners &amp; Pros wit…</a></td><td class="num">5.431</td><td class="num">$22</td></tr>
+        <tr><td class="num">8</td><td class="prod"><a href="https://www.amazon.com/dp/B0CJF94M8J" target="_blank" rel="noopener">TrendPlain 16oz Olive Oil Dispenser Bottle for Kitchen - 2 in 1 Oil Di…</a></td><td class="num">5.422</td><td class="num">$7</td></tr>
+        <tr><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0DGTR965B" target="_blank" rel="noopener">Heated Ice Cream Scoop Electric Ice Cream Scoops Best Rated, Rechargea…</a></td><td class="num">5.311</td><td class="num">$27</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="brief"><a href="https://claude.ai/code/artifact/d2c5a5c4-9944-47cf-90ce-ea0f1395324d">Full brief →</a></p>
+  </div>
+
+  <div class="catcard">
+    <h3>Bakeware <span class="tag">cat 2</span></h3>
+    <div class="card tablewrap">
+    <table>
+      <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B07PFYT8MC" target="_blank" rel="noopener">Reynolds Kitchens Unbleached Parchment Paper Roll, 45 Square Feet</a></td><td class="num">6.833</td><td class="num">$3</td></tr>
+        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B0026RHI3M" target="_blank" rel="noopener">GoodCook Everyday Nonstick Carbon Steel Baking Sheet Set, 3 Pack – Sma…</a></td><td class="num">6.080</td><td class="num">$16</td></tr>
+        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B09NQGXJ5C" target="_blank" rel="noopener">Amazon Basics Parchment Paper, 90 Sq Ft Roll</a></td><td class="num">5.770</td><td class="num">$6</td></tr>
+        <tr><td class="num">12</td><td class="prod"><a href="https://www.amazon.com/dp/B0BNSYKZSN" target="_blank" rel="noopener">Bake Choice 200pcs Natural Tulip Cupcake Liners for Baking Cups Unblea…</a></td><td class="num">4.489</td><td class="num">$8</td></tr>
+        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B0GSZ4QVZJ" target="_blank" rel="noopener">Kootek 124Pcs Icing Piping Bags and Tips Set, Cake Decorating Kit with…</a></td><td class="num">4.448</td><td class="num">$6</td></tr>
+        <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B0CGNZ7BGR" target="_blank" rel="noopener">Riccle Piping Bags and Tips Set, 11.8 Inch 100 Anti Burst Piping Bags,…</a></td><td class="num">3.850</td><td class="num">$7</td></tr>
+        <tr><td class="num">11</td><td class="prod"><a href="https://www.amazon.com/dp/B08RJXN5VT" target="_blank" rel="noopener">Colour Mill Oil-Based Food Coloring, 20 Milliliters Black</a></td><td class="num">3.758</td><td class="num">$9</td></tr>
+        <tr><td class="num">8</td><td class="prod"><a href="https://www.amazon.com/dp/B08T99DPF3" target="_blank" rel="noopener">MALACASA Casserole Dishes for Oven, Porcelain Baking Dishes, Ceramic B…</a></td><td class="num">3.480</td><td class="num">$47</td></tr>
+        <tr><td class="num">12</td><td class="prod"><a href="https://www.amazon.com/dp/B0BSJ1Z3SP" target="_blank" rel="noopener">Colour Mill Kickstarter-Pack Oil-Based Food Coloring, 20 Milliliters E…</a></td><td class="num">3.437</td><td class="num">$62</td></tr>
+        <tr><td class="num">22</td><td class="prod"><a href="https://www.amazon.com/dp/B0C6Y8NYK1" target="_blank" rel="noopener">Air Fryer Paper Liners, 120Pcs Air Fryer Disposable Liners, Non-Stick…</a></td><td class="num">3.404</td><td class="num">$10</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="brief"><a href="https://claude.ai/code/artifact/242c29df-44b1-4cb9-b6ce-687f4b67e460">Full brief →</a></p>
+  </div>
+
+  <div class="catcard">
+    <h3>Candles <span class="tag">cat 925</span></h3>
+    <div class="card tablewrap">
+    <table>
+      <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="prod"><a href="https://www.amazon.com/dp/B0CTJGJL2T" target="_blank" rel="noopener">GODONLIF Candle Warmer Lamp, Adjustable Height Candle Warmer, Timer, D…</a></td><td class="num">7.477</td><td class="num">$19</td></tr>
+        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B0F3DQSZKT" target="_blank" rel="noopener">Yankee Candle Large Jar Scented Candle with up to 150 Hour Burn Time,…</a></td><td class="num">4.927</td><td class="num">$10</td></tr>
+        <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B0F3DQK6YY" target="_blank" rel="noopener">Yankee Candle Pink Sands Scented Candle, 22oz Large Jar with up to 150…</a></td><td class="num">4.472</td><td class="num">$10</td></tr>
+        <tr><td class="num">6</td><td class="prod"><a href="https://www.amazon.com/dp/B0F3DQPLSP" target="_blank" rel="noopener">Yankee Candle Large Jar Scented Candle with up to 150 Hour Burn Time,…</a></td><td class="num">4.283</td><td class="num">$10</td></tr>
+        <tr><td class="num">11</td><td class="prod"><a href="https://www.amazon.com/dp/B0F3DPKTVT" target="_blank" rel="noopener">Yankee Candle Vanilla Cupcake Scented Candle, 22oz Large Jar with up t…</a></td><td class="num">3.307</td><td class="num">$10</td></tr>
+        <tr><td class="num">6</td><td class="prod"><a href="https://www.amazon.com/dp/B08X6LYL5V" target="_blank" rel="noopener">PHD CAKE Gold Long Thin Metallic Birthday Candles, Cake Candles, Birth…</a></td><td class="num">3.091</td><td class="num">$6</td></tr>
+        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0DZFGTCLR" target="_blank" rel="noopener">Innqoo Candle Warmer Lamp with Timer, Dimmable Candle Warmer for Jar C…</a></td><td class="num">2.839</td><td class="num">$15</td></tr>
+        <tr><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0DK5DTR5Z" target="_blank" rel="noopener">Citronella Candles Outdoor, 2 Pack Lemongrass Scented Soy Wax Candles…</a></td><td class="num">2.661</td><td class="num">$20</td></tr>
+        <tr><td class="num">8</td><td class="prod"><a href="https://www.amazon.com/dp/B01M7TTA2S" target="_blank" rel="noopener">Bath &amp; Body Works White Barn 3-Wick Candle in Mahogany Teakwood High I…</a></td><td class="num">2.641</td><td class="num">$21</td></tr>
+        <tr><td class="num">17</td><td class="prod"><a href="https://www.amazon.com/dp/B0D3YZNQYP" target="_blank" rel="noopener">PHD CAKE 2.76 Inch Number 3 Spider Birthday Candles, Spider Cartoon Th…</a></td><td class="num">1.791</td><td class="num">$6</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="brief"><a href="https://claude.ai/code/artifact/ae359e27-ed02-4a84-8b48-47f084338d86">Full brief →</a></p>
+  </div>
+
+  <div class="catcard">
+    <h3>Drinkware <span class="tag">cat 8</span></h3>
+    <div class="card tablewrap">
+    <table>
+      <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0CRLHDKS1" target="_blank" rel="noopener">BrüMate Era 40 oz Tumbler with Handle and Straw | 100% Leakproof Insul…</a></td><td class="num">5.378</td><td class="num">$45</td></tr>
+        <tr><td class="num">12</td><td class="prod"><a href="https://www.amazon.com/dp/B0767QGBVD" target="_blank" rel="noopener">Libbey Ascent 16-Piece Tumbler and Rocks Glass Set</a></td><td class="num">4.673</td><td class="num">$38</td></tr>
+        <tr><td class="num">1</td><td class="prod"><a href="https://www.amazon.com/dp/B0D6C6GS58" target="_blank" rel="noopener">HydroJug Traveler (32oz): Pink Sand</a></td><td class="num">4.114</td><td class="num">$30</td></tr>
+        <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B073WJMKHN" target="_blank" rel="noopener">YETI Rambler 20 oz Stainless Steel Vacuum Insulated Tumbler w/MagSlide…</a></td><td class="num">3.868</td><td class="num">$35</td></tr>
+        <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B0BHBP1X1B" target="_blank" rel="noopener">Simple Modern 40 oz Tumbler with Handle and Straw Lid | Insulated Cup…</a></td><td class="num">3.642</td><td class="num">$23</td></tr>
+        <tr><td class="num">12</td><td class="prod"><a href="https://www.amazon.com/dp/B0CR5HLCVQ" target="_blank" rel="noopener">Owala Kids Insulation Stainless Steel Tumbler with Spill Resistant Fle…</a></td><td class="num">3.010</td><td class="num">$20</td></tr>
+        <tr><td class="num">11</td><td class="prod"><a href="https://www.amazon.com/dp/B0DR9S2DQR" target="_blank" rel="noopener">STANLEY Quencher ProTour Flip Straw Tumbler with Leakproof Lid | Built…</a></td><td class="num">2.946</td><td class="num">$45</td></tr>
+        <tr><td class="num">10</td><td class="prod"><a href="https://www.amazon.com/dp/B09QKTQ9TB" target="_blank" rel="noopener">NETANY Drinking Glasses with Bamboo Lids and Glass Straw 4pcs Set - 16…</a></td><td class="num">2.128</td><td class="num">$17</td></tr>
+        <tr><td class="num">17</td><td class="prod"><a href="https://www.amazon.com/dp/B08JD13LSJ" target="_blank" rel="noopener">US Acrylic Optix Plastic Reusable Drinking Glasses (Set of 8) 20oz Wat…</a></td><td class="num">1.898</td><td class="num">$20</td></tr>
+        <tr><td class="num">11</td><td class="prod"><a href="https://www.amazon.com/dp/B08BL8P8TS" target="_blank" rel="noopener">Red Wine Glasses Set of 4- Premium Crystal Wine Glasses Hand Blown-15…</a></td><td class="num">1.798</td><td class="num">$32</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="brief"><a href="https://claude.ai/code/artifact/2d45f31b-ed65-4999-a1d5-8262e7a1caca">Full brief →</a></p>
+  </div>
+
+  <div class="catcard">
+    <h3>Cookware · Tri-Ply <span class="tag">cats 35 · 5 · 45 · title match tri-ply / 3-ply / hybrid / carbon steel</span></h3>
+    <div class="card tablewrap">
+    <table>
+      <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
+      <tbody>
+        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0GRYST1NS" target="_blank" rel="noopener">Idymere Tri-ply Stainless Steel Pot - 1.5 Qt &amp; 2.5 Qt Heavy Duty Sauce…</a></td><td class="num">4.702</td><td class="num">$27</td></tr>
+        <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B09ZV37WC6" target="_blank" rel="noopener">HexClad Hybrid Nonstick 12-Inch Fry Pan with Tempered Glass Lid, Stay-…</a></td><td class="num">4.061</td><td class="num">$145</td></tr>
+        <tr><td class="num">26</td><td class="prod"><a href="https://www.amazon.com/dp/B0CLHLDB84" target="_blank" rel="noopener">HexClad Hybrid Nonstick 5.5 Qt Deep Sauté Pan and Lid, Dishwasher and…</a></td><td class="num">2.459</td><td class="num">$148</td></tr>
+        <tr><td class="num">33</td><td class="prod"><a href="https://www.amazon.com/dp/B09ZBF3856" target="_blank" rel="noopener">HexClad Hybrid Nonstick 6-Piece Fry Pan Set, 8, 10 and 12-Inch Frying…</a></td><td class="num">1.195</td><td class="num">$307</td></tr>
+        <tr><td class="num">45</td><td class="prod"><a href="https://www.amazon.com/dp/B0F8B9CDS6" target="_blank" rel="noopener">SNOWCLAD Pots and Pans set non stick, 10 pcs Hybrid Stainless Steel Co…</a></td><td class="num">0.542</td><td class="num">$156</td></tr>
+        <tr><td class="num">58</td><td class="prod"><a href="https://www.amazon.com/dp/B0FB337JMT" target="_blank" rel="noopener">COOKER KING Stainless Steel Cookware Set, Pots and Pans Set Non Stick,…</a></td><td class="num">-0.013</td><td class="num">$131</td></tr>
+        <tr><td class="num">56</td><td class="prod"><a href="https://www.amazon.com/dp/B0F6CYHVKX" target="_blank" rel="noopener">SNOWCLAD Pots and Pans Set Non Stick, 14 Pcs Hybrid Stainless Steel Co…</a></td><td class="num">-0.165</td><td class="num">$200</td></tr>
+        <tr><td class="num">49</td><td class="prod"><a href="https://www.amazon.com/dp/B00JDL2GXG" target="_blank" rel="noopener">Tramontina Tri-Ply Clad Stainless Steel 12-Piece Cookware Set with Lid…</a></td><td class="num">-0.330</td><td class="num">$300</td></tr>
+        <tr><td class="num">88</td><td class="prod"><a href="https://www.amazon.com/dp/B0B991217N" target="_blank" rel="noopener">HexClad Hybrid Nonstick Wok, 10-Inch, Stay-Cool Handle, Dishwasher Saf…</a></td><td class="num">-0.491</td><td class="num">$98</td></tr>
+        <tr><td class="num">52</td><td class="prod"><a href="https://www.amazon.com/dp/B00JAP44MQ" target="_blank" rel="noopener">Tramontina Seattle Tri-Ply Clad Stainless Steel 12-Inch Large Frying P…</a></td><td class="num">-0.648</td><td class="num">$23</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="brief"><a href="https://claude.ai/code/artifact/688a32e6-0abd-4041-ae9d-02271aec1635">Full brief →</a></p>
+  </div>
+
+  <div class="catcard">
+    <h3>Serveware <span class="tag">cats 112 · 111</span></h3>
+    <div class="card">
+      <p class="empty">No live rows: Amazon categories 112 (Serveware) and 111 (Dinnerware &amp; Serveware)
+      exist in <code style="font-family:var(--mono)">crystalball.list_category</code> but have no ranked
+      lists in region 1 at anchor 2026-07-14 — shown as an honest zero rather than a proxy.</p>
+    </div>
+    <p class="brief"><a href="https://claude.ai/code/artifact/3cdcaf35-438c-4694-a0b1-1428cbb709b3">Full brief →</a></p>
+  </div>
+
+  </div>
+  <p class="asof">Live query per category: PWS_v1 pattern from <code style="font-family:var(--mono)">sql/01_breakout_radar.sql</code>
+  (PWS = 1.5·z(prox) + 0.25·z(vel) + 0.75·z(ln review gain) + 0.25·price-band), anchor 2026-07-14 = max(cb_stamp),
+  Amazon region 1; ASINs joined via <code style="font-family:var(--mono)">crystalball.amz_product</code>.
+  Tri-Ply = cookware categories filtered to titles matching tri-ply / 3-ply / hybrid / carbon steel
+  (z-scores computed within that filtered universe, hence lower absolute PWS values).</p>
+</section>
+
+</div>
+
+<!-- TAB 2: HOW IT WORKS -->
+<div class="wrap how" id="panel-how" role="tabpanel" aria-labelledby="tab-how" hidden>
+
+<!-- MOVED FROM TAB 1: IQS LEADERBOARD -->
+<section style="margin-top:26px">
+  <h2><span class="n">§</span>Call-out leaderboard — by Item Quality Score</h2>
+  <p class="lead">The system's grading ledger (moved here from the dashboard): every call-out graded on
+  its real outer-loop journey (F13 IQS): pitched → accepted →
   margin → sell-through → reorder. Sorted best-first. The IQS bar is the training label the model
   learns to predict. Note the saturation at 1.00 for high-volume cookware/bakeware — flagged for
   re-tune at first retrain.</p>
@@ -327,110 +497,7 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
   <p class="asof">Source: <code style="font-family:var(--mono)">data/callout_ledger.csv</code> · IQS = F13 Item Quality Score. Two concepts (oil sprayer, glass meal-prep) found no internal sell-through match — an honest zero, and exactly the funnel-attribution signal (F16) the loop is built to surface.</p>
 </section>
 
-<!-- 4. SIGNALS NOW -->
 <section>
-  <h2><span class="n">03</span>Signals now — live breakout climbers</h2>
-  <p class="lead">Top rank-velocity climbers pulled live from the Amazon daily time series (F1, log-rank
-  momentum: last 14 days vs 30–44 days prior; lower rank = more popular, so these are
-  <span class="up">climbing</span>). This is the inner loop's Signal Engine in the act of surfacing
-  pre-peak items across three roadmap categories.</p>
-  <div class="card tablewrap">
-  <table>
-    <thead><tr>
-      <th>Category</th><th class="prod">Product</th><th class="num">Rank prior→now</th>
-      <th class="num">Velocity</th><th class="num">Reviews +30d</th><th class="num">Rating</th><th class="num">Price</th>
-    </tr></thead>
-    <tbody>
-      <tr><td><span class="tag">Cookware</span></td><td class="prod">CAROTE 21-pc Ceramic Cookware Set (PFAS-free)</td><td class="num"><span class="up">88 → 7</span></td><td class="num up">+2.53</td><td class="num">—</td><td class="num">4.68</td><td class="num">$112</td></tr>
-      <tr><td><span class="tag">Cookware</span></td><td class="prod">24-pc Ceramic Non-Stick w/ 8Qt Stock (PFAS-free)</td><td class="num"><span class="up">36 → 6</span></td><td class="num up">+1.82</td><td class="num">+3</td><td class="num">4.91</td><td class="num">$56</td></tr>
-      <tr><td><span class="tag">Cookware</span></td><td class="prod">24-pc Titanium-Reinforced Ceramic Set</td><td class="num"><span class="up">14 → 5</span></td><td class="num up">+1.06</td><td class="num">—</td><td class="num">4.80</td><td class="num">$70</td></tr>
-      <tr><td><span class="tag">Food Storage</span></td><td class="prod">BRIVARA Ceramic-Coated Glass Containers (No PTFE)</td><td class="num"><span class="up">59 → 15</span></td><td class="num up">+1.38</td><td class="num">+8</td><td class="num">4.50</td><td class="num">$233</td></tr>
-      <tr><td><span class="tag">Food Storage</span></td><td class="prod">Vacuum Sealer Bags for Food, 6-pack rolls</td><td class="num"><span class="up">33 → 9</span></td><td class="num up">+1.30</td><td class="num">+127</td><td class="num">4.50</td><td class="num">$15</td></tr>
-      <tr><td><span class="tag">Food Storage</span></td><td class="prod">IKKAB 3-pack Fruit Storage Containers for Fridge</td><td class="num"><span class="up">80 → 25</span></td><td class="num up">+1.15</td><td class="num">—</td><td class="num">3.86</td><td class="num">$11</td></tr>
-      <tr><td><span class="tag">Gadgets</span></td><td class="prod">Sevenblue 4-pack Magnetic Spice Rack for Fridge</td><td class="num"><span class="up">70 → 13</span></td><td class="num up">+1.65</td><td class="num">+273</td><td class="num">4.80</td><td class="num">$12</td></tr>
-      <tr><td><span class="tag">Gadgets</span></td><td class="prod">Air Fryer Paper Liners, 120-pc disposable</td><td class="num"><span class="up">19 → 6</span></td><td class="num up">+1.09</td><td class="num">+416</td><td class="num">4.60</td><td class="num">$9</td></tr>
-      <tr><td><span class="tag">Gadgets</span></td><td class="prod">35-pc Griddle Accessories Kit (flat-top grill)</td><td class="num"><span class="up">66 → 31</span></td><td class="num up">+0.77</td><td class="num">+199</td><td class="num">4.70</td><td class="num">$25</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <p class="asof">Live query: <code style="font-family:var(--mono)">crystalball.list_item</code> (Amazon, region 1 · Cookware cat 35, Food Storage cat 84, Gadgets cat 11) via the read-only Epoca SQL tool, F1/F2/F3 pattern from <code style="font-family:var(--mono)">sql/01_breakout_radar.sql</code>. Data as of 2026-07-02. Signal note: the cookware climbers cluster hard on <b>PFAS-free / ceramic / titanium</b> — the same features driving Epoca's IQS 1.00 cookware winners above. Some breakouts (spice rack, air-fryer liners, meal-prep gadgets) are low-price impulse items — thin margin per unit, read velocity accordingly.</p>
-</section>
-
-<!-- 5. CATEGORY COVERAGE -->
-<section>
-  <h2><span class="n">04</span>Category coverage</h2>
-  <p class="lead">Each category renders its own live Crystal Ball brief off the same model. Open any deck.</p>
-  <div class="grid">
-    <a class="cov" href="crystal-ball-cookware-deck.html"><span class="cat">Cookware</span><span class="file">crystal-ball-cookware-deck.html</span><span class="arw">Open brief →</span></a>
-    <a class="cov" href="crystal-ball-foodstorage-deck.html"><span class="cat">Food Storage</span><span class="file">crystal-ball-foodstorage-deck.html</span><span class="arw">Open brief →</span></a>
-    <a class="cov" href="crystal-ball-bakeware-deck.html"><span class="cat">Bakeware</span><span class="file">crystal-ball-bakeware-deck.html</span><span class="arw">Open brief →</span></a>
-    <a class="cov" href="crystal-ball-gadgets-deck.html"><span class="cat">Gadgets</span><span class="file">crystal-ball-gadgets-deck.html</span><span class="arw">Open brief →</span></a>
-    <a class="cov" href="crystal-ball-candles-deck.html"><span class="cat">Candles</span><span class="file">crystal-ball-candles-deck.html</span><span class="arw">Open brief →</span></a>
-    <a class="cov" href="crystal-ball-drinkware-deck.html"><span class="cat">Drinkware</span><span class="file">crystal-ball-drinkware-deck.html</span><span class="arw">Open brief →</span></a>
-    <a class="cov" href="crystal-ball-cookware-triply-deck.html"><span class="cat">Cookware · Tri-Ply</span><span class="file">crystal-ball-cookware-triply-deck.html</span><span class="arw">Open brief →</span></a>
-    <a class="cov" href="crystal-ball-serveware-deck.html"><span class="cat">Serveware</span><span class="file">crystal-ball-serveware-deck.html</span><span class="arw">Open brief →</span></a>
-  </div>
-  <div class="callout">
-    <b>How to read the coupling.</b> The cookware climbers in §03 (PFAS-free ceramic, titanium) are the
-    live Signal Engine output; the IQS 1.00 cast-aluminum / ceramic cookware in §02 is the outer loop
-    confirming those exact features made real margin. External signal and internal money agree — that
-    agreement is the flywheel turning.
-  </div>
-</section>
-
-<section>
-  <h2><span class="n">05</span>Backtest v0 — the honesty engine</h2>
-  <p class="lead">Signals frozen at Jul&nbsp;'24 / Jan&nbsp;'25 / Jul&nbsp;'25 with zero look-ahead;
-    200 picks per strategy scored against what actually ranked 6 and 12 months later
-    (F11 harness, <code>sql/07_backtest_hit_rate.sql</code>, deterministic, run live 2026-07-05).</p>
-  <div class="kpis k4">
-    <div class="kpi"><div class="v acc">6.5%</div><div class="k">Baseline precision@10 · 6&nbsp;mo top-10 · the number to beat</div></div>
-    <div class="kpi"><div class="v" style="color:var(--warn)">0.5%</div><div class="k">Pure F1 velocity precision · falsified as a stand-alone picker</div></div>
-    <div class="kpi"><div class="v good">66%</div><div class="k">6-mo survival · velocity confirmed by review volume</div></div>
-    <div class="kpi"><div class="v gold">−0.192</div><div class="k">Median Δρ · volume-confirmed picks (baseline −0.596)</div></div>
-  </div>
-  <div class="card tablewrap">
-    <table>
-      <thead><tr><th>Strategy</th><th>Horizon</th><th class="num">Survived</th><th class="num">Top-10</th><th class="num">Top-20</th><th class="num">Median Δρ</th></tr></thead>
-      <tbody>
-        <tr><td>A · Bestseller proximity (baseline)</td><td>6 mo</td><td class="num">50.5%</td><td class="num">6.5%</td><td class="num">19.0%</td><td class="num">−0.596</td></tr>
-        <tr><td>B · Pure F1 velocity</td><td>6 mo</td><td class="num">28.0%</td><td class="num down">0.5%</td><td class="num">4.5%</td><td class="num">−0.519</td></tr>
-        <tr><td>C · Velocity + review volume</td><td>6 mo</td><td class="num up">66.0%</td><td class="num">1.0%</td><td class="num">8.5%</td><td class="num up">−0.192</td></tr>
-        <tr><td>A · Bestseller proximity (baseline)</td><td>12 mo</td><td class="num">43.0%</td><td class="num">3.0%</td><td class="num">15.5%</td><td class="num">−0.647</td></tr>
-        <tr><td>B · Pure F1 velocity</td><td>12 mo</td><td class="num">30.5%</td><td class="num">1.0%</td><td class="num">3.0%</td><td class="num">−0.664</td></tr>
-        <tr><td>C · Velocity + review volume</td><td>12 mo</td><td class="num up">55.0%</td><td class="num">1.0%</td><td class="num">7.0%</td><td class="num up">−0.177</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="callout">
-    <b>What it taught us.</b> Mean reversion is the house edge — the median challenger declines under
-    every strategy, and ~half of all picks fall off the top-100 within 6 months. Pure momentum is a
-    <i>worse</i> picker than the free baseline; momentum <i>confirmed by review volume</i> doubles
-    survival, cuts the median decline ~70%, and reaches deep climbers (rank 57→17, 53→20) proximity
-    can't touch. Method, winner list, and caveats:
-    <a href="https://github.com/brianmelzer/Epo1/blob/main/docs/BACKTEST_V0.md">docs/BACKTEST_V0.md</a>.
-  </div>
-</section>
-
-<div class="foot">
-  <b>Method &amp; provenance.</b> KPI strip, leaderboard, and IQS scores computed directly from
-  <code>data/callout_ledger.csv</code> (26 scored call-outs, F13 Item Quality Score). Signals-now
-  climbers pulled live from <code>crystalball</code> (Amazon daily rankings, region 1) via the
-  read-only <code>epocadatalake</code> SQL tool using the F1/F2/F3 breakout pattern
-  (<code>sql/01_breakout_radar.sql</code>). Signal-engine scale (~162M rank-history rows; 119,515 rows
-  across 1,314 lists on the latest day) verified live against <code>crystalball.list_item</code>.
-  Outer-loop outcomes trace through <code>shaundatabase</code> sell-through. Model &amp; formulas:
-  <code>docs/CRYSTAL_BALL_LOOP_V2.md</code> · refresh runbook: <code>docs/FLYWHEEL_AUTOMATION.md</code>.
-  All figures live as of <b>2026-07-02</b> — this page renders the model and is meant to regenerate
-  each cycle. Where a signal is thin it is shown as thin (2 unmatched call-outs; buyer-acceptance not
-  yet logged; 14 IQS values saturated at 1.00 pending re-tune).
-</div>
-</div>
-
-<!-- TAB 2: HOW IT WORKS -->
-<div class="wrap how" id="panel-how" role="tabpanel" aria-labelledby="tab-how" hidden>
-
-<section style="margin-top:26px">
   <h2>How this dashboard is built</h2>
   <p class="lead">One card per Dashboard section: what it shows, where the data comes from,
   and exactly how each number is computed. Nothing on Tab&nbsp;1 is hand-entered — every figure
@@ -544,8 +611,8 @@ a.cov .arw{color:var(--accent2);font-size:.8rem;margin-top:8px;display:block;}
 
 <!-- HOW: REFRESH CADENCE -->
 <section>
-  <div class="callout">
-    <b>Refresh cadence.</b> The flywheel refreshes weekly via GitHub Actions: the ledger is re-scored
+  <div class="callout" style="background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:16px 20px;margin:16px 0;color:var(--muted)">
+    <b style="color:var(--accent2)">Refresh cadence.</b> The flywheel refreshes weekly via GitHub Actions: the ledger is re-scored
     (<code>sql/06_ledger_refresh.sql</code>), KPIs recompute, and the category decks regenerate each cycle.
   </div>
   <div class="foot">
