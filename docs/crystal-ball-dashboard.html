@@ -91,6 +91,7 @@ td.prod a{color:var(--ink);text-decoration:underline;
   text-decoration-color:color-mix(in srgb,var(--accent) 55%,transparent);text-underline-offset:2px;}
 td.prod a:hover{color:var(--accent);}
 .empty{color:var(--muted);font-size:.86rem;padding:14px 2px;}
+.viralrow{outline:1px solid var(--gold);}
 .asof{font-size:.76rem;color:var(--muted);margin:6px 2px 0;}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;}}
 /* tabs */
@@ -262,10 +263,25 @@ td.prod a:hover{color:var(--accent);}
 <!-- 3. TOP 10 BY CATEGORY — LIVE -->
 <section>
   <h2><span class="n">03</span>Top 10 by category — live</h2>
+  <p class="asof">🎥 = marketing viral pick: the item consumers can explain to each other on camera; chosen with latest customer-meeting considerations.</p>
   <p class="lead">For each roadmap category: the top 10 products ranked by <b>PWS_v1</b>
   (proximity-dominant blend, <code style="font-family:var(--mono)">sql/01_breakout_radar.sql</code>),
   run live at anchor <b>2026-07-14</b> (max cb_stamp), Amazon region 1. Titles link to the live
   Amazon listing. Rank = current 14-day average list rank.</p>
+
+  <div class="card">
+    <p class="asof" style="margin:10px 0 2px"><b style="color:var(--gold)">🎥 Viral picks — one per category</b> (marketing: strongest on-camera demo mechanic)</p>
+    <ul style="margin:.3em 0 .8em;padding-left:1.2em;font-size:.84rem;color:var(--muted)">
+      <li><b>Cookware</b> — Astercook 21-pc Detachable-Handle Ceramic Set: handle clicks off on camera; whole set nests into one pan — instant reveal.</li>
+      <li><b>Food Storage</b> — FoodSaver Vacuum Sealer Bag Rolls: vacuum shrink-wraps around food in seconds — the classic satisfying watch-this.</li>
+      <li><b>Gadgets</b> — ICEBREAKER POP 2.0: press, twist, ice pops out untouched — a made-for-camera party trick.</li>
+      <li><b>Bakeware</b> — Kootek 124-pc Icing Piping Bags &amp; Tips Set: frosting swirls straight from the tip — decorating transformations loop endlessly.</li>
+      <li><b>Candles</b> — GODONLIF Candle Warmer Lamp: lamp glow melts the wax from the top down — mesmerizing no-flame before/after.</li>
+      <li><b>Drinkware</b> — BrüMate Era 40 oz Leakproof Tumbler: fill it, flip it, shake it — the 100% leakproof stress test sells itself.</li>
+      <li><b>Cookware · Tri-Ply</b> — HexClad Hybrid 12-Inch Fry Pan: steel wool can’t scratch the hex surface, then the egg slides — famous demo combo.</li>
+    </ul>
+    <p class="asof">Picks weighted by latest customer-meeting considerations — dd’s Discounts 7/16/26 (strong Crystal Ball interest; wants differentiated, own-able product), HomeGoods Boca 3/2/26 (frother/milk-pot gift sets and demo-able gadgets winning), Sam’s Club Fall-2026 Crystal Ball forecast (+18% tactile kitchenware). Sources: wiki://entity/other_crystal_ball, email://661, email://9.</p>
+  </div>
 
   <div class="catgrid">
 
@@ -275,7 +291,7 @@ td.prod a:hover{color:var(--accent);}
     <table>
       <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
       <tbody>
-        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0F2937DQQ" target="_blank" rel="noopener">Astercook 21 Pcs Pots and Pans Set Non Stick, Ceramic Cookware Set Det…</a></td><td class="num">8.748</td><td class="num">$57</td></tr>
+        <tr class="viralrow"><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0F2937DQQ" target="_blank" rel="noopener">Astercook 21 Pcs Pots and Pans Set Non Stick, Ceramic Cookware Set Det…</a> <span class="pill win" title="Handle clicks off on camera; whole set nests into one pan — instant reveal.">🎥 viral pick</span></td><td class="num">8.748</td><td class="num">$57</td></tr>
         <tr><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0F9WBM8H3" target="_blank" rel="noopener">CAROTE 26PCS Pots and Pans Set Non Stick, Cookware Set Pots and Pans I…</a></td><td class="num">8.646</td><td class="num">$113</td></tr>
         <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0GRYST1NS" target="_blank" rel="noopener">Idymere Tri-ply Stainless Steel Pot - 1.5 Qt &amp; 2.5 Qt Heavy Duty Sauce…</a></td><td class="num">7.865</td><td class="num">$27</td></tr>
         <tr><td class="num">8</td><td class="prod"><a href="https://www.amazon.com/dp/B0C8HPJW4J" target="_blank" rel="noopener">CAROTE 21Pcs Pots and Pans Set, Nonstick Cookware Sets, White Granite…</a></td><td class="num">7.025</td><td class="num">$130</td></tr>
@@ -301,7 +317,7 @@ td.prod a:hover{color:var(--accent);}
         <tr><td class="num">3</td><td class="prod"><a href="https://www.amazon.com/dp/B08BR9HBZ3" target="_blank" rel="noopener">Rubbermaid Brilliance Glass Storage Food Containers with Lids (18 Piec…</a></td><td class="num">6.054</td><td class="num">$74</td></tr>
         <tr><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0B9S5HZ26" target="_blank" rel="noopener">Vtopmart 8 Pack Glass Food Storage Containers , Meal Prep , Airtight B…</a></td><td class="num">5.576</td><td class="num">$22</td></tr>
         <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B0B27MDKXD" target="_blank" rel="noopener">5 PCS Large Fruit Containers for Fridge - Leakproof Food Storage Conta…</a></td><td class="num">5.357</td><td class="num">$20</td></tr>
-        <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B0028JURDQ" target="_blank" rel="noopener">FoodSaver Custom Length Vacuum Sealer Bags Multipack, 5 Count Rolls fo…</a></td><td class="num">5.231</td><td class="num">$31</td></tr>
+        <tr class="viralrow"><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B0028JURDQ" target="_blank" rel="noopener">FoodSaver Custom Length Vacuum Sealer Bags Multipack, 5 Count Rolls fo…</a> <span class="pill win" title="Vacuum shrink-wraps around food in seconds — the classic satisfying watch-this.">🎥 viral pick</span></td><td class="num">5.231</td><td class="num">$31</td></tr>
         <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B079M8FPTW" target="_blank" rel="noopener">Rubbermaid Brilliance Food Storage Containers, BPA Free, Airtight Lids…</a></td><td class="num">5.225</td><td class="num">$31</td></tr>
         <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B08ZK5WDWN" target="_blank" rel="noopener">Airtight Food Storage Containers with Lids, Vtopmart 24 pcs Plastic Ki…</a></td><td class="num">4.029</td><td class="num">$31</td></tr>
         <tr><td class="num">10</td><td class="prod"><a href="https://www.amazon.com/dp/B0C5BWRMQL" target="_blank" rel="noopener">Bonsenkitchen Vacuum Sealer Rolls Bags, 6 Pack 3 Rolls 11" x 20' + 3 R…</a></td><td class="num">3.494</td><td class="num">$16</td></tr>
@@ -324,7 +340,7 @@ td.prod a:hover{color:var(--accent);}
         <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B01698J0RU" target="_blank" rel="noopener">Tofuture Tofu Press - The Orginal and Best Tofu Press. Easily And Quic…</a></td><td class="num">5.812</td><td class="num">$23</td></tr>
         <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B0C6Y8NYK1" target="_blank" rel="noopener">Air Fryer Paper Liners, 120Pcs Air Fryer Disposable Liners, Non-Stick…</a></td><td class="num">5.797</td><td class="num">$9</td></tr>
         <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B08CXQ1HV9" target="_blank" rel="noopener">Kitchen Gadgets Set 5 Pieces, Stackable Cooking Tools Space Saving for…</a></td><td class="num">5.768</td><td class="num">$9</td></tr>
-        <tr><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0CQK73SGQ" target="_blank" rel="noopener">ICEBREAKER POP 2.0 2024: Make And Serve Ice Without Ever Touching The…</a></td><td class="num">5.705</td><td class="num">$24</td></tr>
+        <tr class="viralrow"><td class="num">7</td><td class="prod"><a href="https://www.amazon.com/dp/B0CQK73SGQ" target="_blank" rel="noopener">ICEBREAKER POP 2.0 2024: Make And Serve Ice Without Ever Touching The…</a> <span class="pill win" title="Press, twist, ice pops out untouched — a made-for-camera party trick.">🎥 viral pick</span></td><td class="num">5.705</td><td class="num">$24</td></tr>
         <tr><td class="num">10</td><td class="prod"><a href="https://www.amazon.com/dp/B0CP4XY9QC" target="_blank" rel="noopener">YARRAMATE Oil Sprayer for Cooking, 2 in 1 Olive Oil Dispenser Bottle f…</a></td><td class="num">5.494</td><td class="num">$7</td></tr>
         <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B09L3FH1F5" target="_blank" rel="noopener">Alas Complete 20 Piece Sushi Making Set - Kit for Beginners &amp; Pros wit…</a></td><td class="num">5.431</td><td class="num">$22</td></tr>
         <tr><td class="num">8</td><td class="prod"><a href="https://www.amazon.com/dp/B0CJF94M8J" target="_blank" rel="noopener">TrendPlain 16oz Olive Oil Dispenser Bottle for Kitchen - 2 in 1 Oil Di…</a></td><td class="num">5.422</td><td class="num">$7</td></tr>
@@ -345,7 +361,7 @@ td.prod a:hover{color:var(--accent);}
         <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B0026RHI3M" target="_blank" rel="noopener">GoodCook Everyday Nonstick Carbon Steel Baking Sheet Set, 3 Pack – Sma…</a></td><td class="num">6.080</td><td class="num">$16</td></tr>
         <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B09NQGXJ5C" target="_blank" rel="noopener">Amazon Basics Parchment Paper, 90 Sq Ft Roll</a></td><td class="num">5.770</td><td class="num">$6</td></tr>
         <tr><td class="num">12</td><td class="prod"><a href="https://www.amazon.com/dp/B0BNSYKZSN" target="_blank" rel="noopener">Bake Choice 200pcs Natural Tulip Cupcake Liners for Baking Cups Unblea…</a></td><td class="num">4.489</td><td class="num">$8</td></tr>
-        <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B0GSZ4QVZJ" target="_blank" rel="noopener">Kootek 124Pcs Icing Piping Bags and Tips Set, Cake Decorating Kit with…</a></td><td class="num">4.448</td><td class="num">$6</td></tr>
+        <tr class="viralrow"><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B0GSZ4QVZJ" target="_blank" rel="noopener">Kootek 124Pcs Icing Piping Bags and Tips Set, Cake Decorating Kit with…</a> <span class="pill win" title="Frosting swirls straight from the tip — decorating transformations loop endlessly.">🎥 viral pick</span></td><td class="num">4.448</td><td class="num">$6</td></tr>
         <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B0CGNZ7BGR" target="_blank" rel="noopener">Riccle Piping Bags and Tips Set, 11.8 Inch 100 Anti Burst Piping Bags,…</a></td><td class="num">3.850</td><td class="num">$7</td></tr>
         <tr><td class="num">11</td><td class="prod"><a href="https://www.amazon.com/dp/B08RJXN5VT" target="_blank" rel="noopener">Colour Mill Oil-Based Food Coloring, 20 Milliliters Black</a></td><td class="num">3.758</td><td class="num">$9</td></tr>
         <tr><td class="num">8</td><td class="prod"><a href="https://www.amazon.com/dp/B08T99DPF3" target="_blank" rel="noopener">MALACASA Casserole Dishes for Oven, Porcelain Baking Dishes, Ceramic B…</a></td><td class="num">3.480</td><td class="num">$47</td></tr>
@@ -363,7 +379,7 @@ td.prod a:hover{color:var(--accent);}
     <table>
       <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
       <tbody>
-        <tr><td class="num">1</td><td class="prod"><a href="https://www.amazon.com/dp/B0CTJGJL2T" target="_blank" rel="noopener">GODONLIF Candle Warmer Lamp, Adjustable Height Candle Warmer, Timer, D…</a></td><td class="num">7.477</td><td class="num">$19</td></tr>
+        <tr class="viralrow"><td class="num">1</td><td class="prod"><a href="https://www.amazon.com/dp/B0CTJGJL2T" target="_blank" rel="noopener">GODONLIF Candle Warmer Lamp, Adjustable Height Candle Warmer, Timer, D…</a> <span class="pill win" title="Lamp glow melts the wax from the top down — mesmerizing no-flame before/after.">🎥 viral pick</span></td><td class="num">7.477</td><td class="num">$19</td></tr>
         <tr><td class="num">4</td><td class="prod"><a href="https://www.amazon.com/dp/B0F3DQSZKT" target="_blank" rel="noopener">Yankee Candle Large Jar Scented Candle with up to 150 Hour Burn Time,…</a></td><td class="num">4.927</td><td class="num">$10</td></tr>
         <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B0F3DQK6YY" target="_blank" rel="noopener">Yankee Candle Pink Sands Scented Candle, 22oz Large Jar with up to 150…</a></td><td class="num">4.472</td><td class="num">$10</td></tr>
         <tr><td class="num">6</td><td class="prod"><a href="https://www.amazon.com/dp/B0F3DQPLSP" target="_blank" rel="noopener">Yankee Candle Large Jar Scented Candle with up to 150 Hour Burn Time,…</a></td><td class="num">4.283</td><td class="num">$10</td></tr>
@@ -385,7 +401,7 @@ td.prod a:hover{color:var(--accent);}
     <table>
       <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
       <tbody>
-        <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0CRLHDKS1" target="_blank" rel="noopener">BrüMate Era 40 oz Tumbler with Handle and Straw | 100% Leakproof Insul…</a></td><td class="num">5.378</td><td class="num">$45</td></tr>
+        <tr class="viralrow"><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0CRLHDKS1" target="_blank" rel="noopener">BrüMate Era 40 oz Tumbler with Handle and Straw | 100% Leakproof Insul…</a> <span class="pill win" title="Fill it, flip it, shake it — the 100% leakproof stress test sells itself.">🎥 viral pick</span></td><td class="num">5.378</td><td class="num">$45</td></tr>
         <tr><td class="num">12</td><td class="prod"><a href="https://www.amazon.com/dp/B0767QGBVD" target="_blank" rel="noopener">Libbey Ascent 16-Piece Tumbler and Rocks Glass Set</a></td><td class="num">4.673</td><td class="num">$38</td></tr>
         <tr><td class="num">1</td><td class="prod"><a href="https://www.amazon.com/dp/B0D6C6GS58" target="_blank" rel="noopener">HydroJug Traveler (32oz): Pink Sand</a></td><td class="num">4.114</td><td class="num">$30</td></tr>
         <tr><td class="num">5</td><td class="prod"><a href="https://www.amazon.com/dp/B073WJMKHN" target="_blank" rel="noopener">YETI Rambler 20 oz Stainless Steel Vacuum Insulated Tumbler w/MagSlide…</a></td><td class="num">3.868</td><td class="num">$35</td></tr>
@@ -408,7 +424,7 @@ td.prod a:hover{color:var(--accent);}
       <thead><tr><th class="num">Rank</th><th class="prod">Product</th><th class="num">PWS</th><th class="num">Price</th></tr></thead>
       <tbody>
         <tr><td class="num">2</td><td class="prod"><a href="https://www.amazon.com/dp/B0GRYST1NS" target="_blank" rel="noopener">Idymere Tri-ply Stainless Steel Pot - 1.5 Qt &amp; 2.5 Qt Heavy Duty Sauce…</a></td><td class="num">4.702</td><td class="num">$27</td></tr>
-        <tr><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B09ZV37WC6" target="_blank" rel="noopener">HexClad Hybrid Nonstick 12-Inch Fry Pan with Tempered Glass Lid, Stay-…</a></td><td class="num">4.061</td><td class="num">$145</td></tr>
+        <tr class="viralrow"><td class="num">9</td><td class="prod"><a href="https://www.amazon.com/dp/B09ZV37WC6" target="_blank" rel="noopener">HexClad Hybrid Nonstick 12-Inch Fry Pan with Tempered Glass Lid, Stay-…</a> <span class="pill win" title="Steel wool can’t scratch the hex surface, then the egg slides — famous demo combo.">🎥 viral pick</span></td><td class="num">4.061</td><td class="num">$145</td></tr>
         <tr><td class="num">26</td><td class="prod"><a href="https://www.amazon.com/dp/B0CLHLDB84" target="_blank" rel="noopener">HexClad Hybrid Nonstick 5.5 Qt Deep Sauté Pan and Lid, Dishwasher and…</a></td><td class="num">2.459</td><td class="num">$148</td></tr>
         <tr><td class="num">33</td><td class="prod"><a href="https://www.amazon.com/dp/B09ZBF3856" target="_blank" rel="noopener">HexClad Hybrid Nonstick 6-Piece Fry Pan Set, 8, 10 and 12-Inch Frying…</a></td><td class="num">1.195</td><td class="num">$307</td></tr>
         <tr><td class="num">45</td><td class="prod"><a href="https://www.amazon.com/dp/B0F8B9CDS6" target="_blank" rel="noopener">SNOWCLAD Pots and Pans set non stick, 10 pcs Hybrid Stainless Steel Co…</a></td><td class="num">0.542</td><td class="num">$156</td></tr>
